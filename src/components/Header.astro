@@ -1,0 +1,117 @@
+---
+import { ChevronDown, Languages, Menu, X } from "@lucide/astro";
+import { common, langCodes, navLinks, pathFor, productNav, switchPath, tx, type Lang } from "@data/site";
+
+interface Props {
+  lang: Lang;
+  pathname: string;
+}
+
+const { lang, pathname } = Astro.props;
+
+function active(route: string) {
+  const localized = pathFor(lang, route);
+  if (route === "/") return pathname === localized;
+  return pathname.startsWith(localized);
+}
+---
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href={pathFor(lang, "/")} aria-label="Sleepm home">
+      <img src="/images/brand/logo-goldbear.webp" alt="Sleepm" width="160" height="70" />
+    </a>
+
+    <nav class="desktop-nav" aria-label="Primary">
+      {navLinks.map((item) => (
+        item.key === "products" ? (
+          <div class="nav-drop">
+            <a class:list={["nav-link", active(item.path) && "is-active"]} href={pathFor(lang, item.path)}>
+              {tx(lang, common.nav.products)}
+              <ChevronDown size={13} aria-hidden="true" />
+            </a>
+            <div class="nav-menu">
+              <a href={pathFor(lang, "/products/")}>{tx(lang, common.labels.allProducts)}</a>
+              {productNav.map((product) => (
+                <a href={pathFor(lang, `/products/${product.slug}/`)}>{tx(lang, product.label)}</a>
+              ))}
+            </div>
+          </div>
+        ) : item.key === "crystals" ? (
+          <div class="nav-drop">
+            <a class:list={["nav-link", active(item.path) && "is-active"]} href={pathFor(lang, item.path)}>
+              {tx(lang, common.nav.crystals)}
+              <ChevronDown size={13} aria-hidden="true" />
+            </a>
+            <div class="nav-menu nav-menu-small">
+              <a href={pathFor(lang, "/crystals/")}>{tx(lang, common.nav.crystals)}</a>
+              <a href={pathFor(lang, "/constellation/")}>{tx(lang, common.nav.constellation)}</a>
+            </div>
+          </div>
+        ) : (
+          <a class:list={["nav-link", active(item.path) && "is-active"]} href={pathFor(lang, item.path)}>
+            {tx(lang, common.nav[item.key])}
+          </a>
+        )
+      ))}
+    </nav>
+
+    <div class="header-actions">
+      <div class="lang-switch" aria-label={tx(lang, common.labels.language)}>
+        <Languages size={15} aria-hidden="true" />
+        {langCodes.map((code) => (
+          <a class:list={[code === lang && "is-active"]} href={switchPath(pathname, code)}>{code.toUpperCase()}</a>
+        ))}
+      </div>
+      <a class="btn btn-small" href={pathFor(lang, "/contact/")}>{tx(lang, common.nav.contact)}</a>
+      <button class="icon-btn menu-toggle" type="button" aria-label={tx(lang, common.labels.menu)} aria-expanded="false" data-menu-toggle>
+        <Menu class="icon-open" size={24} aria-hidden="true" />
+        <X class="icon-close" size={24} aria-hidden="true" />
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" data-mobile-menu>
+    <nav aria-label="Mobile primary">
+      {navLinks.map((item) => (
+        <a href={pathFor(lang, item.path)}>{tx(lang, common.nav[item.key])}</a>
+      ))}
+      <a href={pathFor(lang, "/constellation/")}>{tx(lang, common.nav.constellation)}</a>
+      <a href={pathFor(lang, "/contact/")}>{tx(lang, common.nav.contact)}</a>
+    </nav>
+    <div class="mobile-products">
+      {productNav.map((product) => (
+        <a href={pathFor(lang, `/products/${product.slug}/`)}>{tx(lang, product.label)}</a>
+      ))}
+    </div>
+    <div class="mobile-lang">
+      {langCodes.map((code) => (
+        <a class:list={[code === lang && "is-active"]} href={switchPath(pathname, code)}>{code.toUpperCase()}</a>
+      ))}
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  (() => {
+    const button = document.querySelector("[data-menu-toggle]");
+    const menu = document.querySelector("[data-mobile-menu]");
+    if (!button || !menu) return;
+    const close = () => {
+      document.documentElement.classList.remove("menu-open");
+      button.setAttribute("aria-expanded", "false");
+    };
+    button.addEventListener("click", () => {
+      const open = !document.documentElement.classList.contains("menu-open");
+      document.documentElement.classList.toggle("menu-open", open);
+      button.setAttribute("aria-expanded", String(open));
+    });
+    menu.addEventListener("click", (event) => {
+      if (event.target instanceof HTMLAnchorElement) close();
+    });
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") close();
+    });
+  })();
+</script>

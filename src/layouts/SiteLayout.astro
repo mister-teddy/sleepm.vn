@@ -1,0 +1,58 @@
+---
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import StarField from "@components/StarField.astro";
+import { langCodes, languages, siteMeta, switchPath, tx, type Lang } from "@data/site";
+import "../styles/global.css";
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description?: string;
+  pageClass?: string;
+}
+
+const { lang, title, description = tx(lang, siteMeta.description), pageClass = "" } = Astro.props;
+const siteUrl = Astro.site ?? new URL("https://sleepm.com");
+const canonical = new URL(Astro.url.pathname, siteUrl).toString();
+---
+
+<!doctype html>
+<html lang={languages[lang].locale} data-theme="night">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} - Sleepm</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {langCodes.map((code) => (
+      <link rel="alternate" hreflang={code} href={new URL(switchPath(Astro.url.pathname, code), siteUrl).toString()} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={new URL("/", siteUrl).toString()} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Sleepm" />
+    <meta property="og:title" content={`${title} - Sleepm`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL("/images/brand/og-source.webp", siteUrl).toString()} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${title} - Sleepm`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="theme-color" content="#07091b" />
+    <link rel="icon" href="/images/brand/logo-goldbear.webp" />
+    <script is:inline>
+      try {
+        const saved = localStorage.getItem("sleepm-theme");
+        if (saved === "light") document.documentElement.dataset.theme = "light";
+      } catch (_) {}
+    </script>
+  </head>
+  <body class={pageClass}>
+    <StarField />
+    <Header lang={lang} pathname={Astro.url.pathname} />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer lang={lang} pathname={Astro.url.pathname} />
+  </body>
+</html>

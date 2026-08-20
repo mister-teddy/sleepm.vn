@@ -1,0 +1,50 @@
+---
+import { ArrowRight } from "@lucide/astro";
+import CtaBand from "@components/CtaBand.astro";
+import LocalizedHero from "@components/LocalizedHero.astro";
+import SiteLayout from "@layouts/SiteLayout.astro";
+import { common, genericPages, langCodes, pathFor, tx, type Lang } from "@data/site";
+
+type GenericKey = keyof typeof genericPages;
+
+export function getStaticPaths() {
+  return langCodes.flatMap((lang) =>
+    (Object.keys(genericPages) as GenericKey[]).map((page) => ({
+      params: { lang, page },
+      props: { pageData: genericPages[page] },
+    })),
+  );
+}
+
+const lang = Astro.params.lang as Lang;
+const pageKey = Astro.params.page as GenericKey;
+const { pageData } = Astro.props as { pageData: (typeof genericPages)[GenericKey] };
+---
+
+<SiteLayout lang={lang} title={tx(lang, pageData.eyebrow)} description={tx(lang, pageData.text)}>
+  <LocalizedHero
+    eyebrow={tx(lang, pageData.eyebrow)}
+    title={tx(lang, pageData.title)}
+    accent={lang === "vi" ? "" : pageKey === "sleep-health" ? "foundation" : ""}
+    text={tx(lang, pageData.text)}
+  >
+    <div class="actions">
+      <a class="btn" href={pathFor(lang, "/products/")}>{tx(lang, common.labels.exploreCollection)}</a>
+      <a class="text-link" href={pathFor(lang, "/contact/")}>{tx(lang, common.labels.askFamily)} <ArrowRight size={15} aria-hidden="true" /></a>
+    </div>
+  </LocalizedHero>
+
+  <section class="section">
+    <div class="card-grid">
+      {pageData.cards.map((card) => (
+        <article class="stat-card awaken">
+          <span class="meta">{tx(lang, pageData.eyebrow)}</span>
+          <h2>{card.metric}</h2>
+          <p>{tx(lang, card.label)}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <CtaBand lang={lang} />
+</SiteLayout>

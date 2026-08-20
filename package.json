@@ -1,0 +1,23 @@
+{
+  "name": "sleepm-static",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --host 0.0.0.0",
+    "build": "astro check && astro build",
+    "preview": "astro preview --host 0.0.0.0",
+    "serve:dist": "node scripts/serve-dist.mjs",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "@astrojs/check": "latest",
+    "@astrojs/sitemap": "latest",
+    "@lucide/astro": "^1.33.0",
+    "astro": "latest",
+    "typescript": "latest"
+  },
+  "devDependencies": {
+    "@playwright/test": "latest"
+  }
+}

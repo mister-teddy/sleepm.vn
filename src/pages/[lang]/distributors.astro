@@ -1,0 +1,91 @@
+---
+import { CircleCheck, Sparkles, Star } from "@lucide/astro";
+import CtaBand from "@components/CtaBand.astro";
+import LocalizedHero from "@components/LocalizedHero.astro";
+import SiteLayout from "@layouts/SiteLayout.astro";
+import { common, langCodes, pathFor, tx, type Lang } from "@data/site";
+
+export function getStaticPaths() {
+  return langCodes.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+const reasons = [
+  { title: { en: "A business without the baggage", vi: "Kinh doanh không quá cồng kềnh" }, text: { en: "No storefront or warehouse required. Sleepm offices and showrooms support the conversation.", vi: "Không cần cửa hàng hay kho riêng. Văn phòng và showroom Sleepm hỗ trợ cuộc trò chuyện." } },
+  { title: { en: "Work that helps people rest", vi: "Công việc giúp người khác nghỉ ngơi" }, text: { en: "The product story is practical, personal and easy to share with people you already care about.", vi: "Câu chuyện sản phẩm thiết thực, cá nhân và dễ chia sẻ với những người bạn quan tâm." } },
+  { title: { en: "A growing global family", vi: "Một gia đình toàn cầu đang lớn lên" }, text: { en: "English, Vietnamese and multilingual communities can carry Sleepm in their own voice.", vi: "Cộng đồng tiếng Anh, tiếng Việt và đa ngôn ngữ có thể chia sẻ Sleepm bằng giọng nói của mình." } },
+  { title: { en: "Earn on your own terms", vi: "Phát triển theo cách của bạn" }, text: { en: "Your effort, market and skill decide what the opportunity becomes.", vi: "Nỗ lực, thị trường và kỹ năng của bạn quyết định cơ hội phát triển ra sao." } },
+];
+---
+
+<SiteLayout lang={lang} title={tx(lang, common.nav.distributors)}>
+  <LocalizedHero
+    eyebrow={tx(lang, { en: "Become a distributor", vi: "Trở thành nhà phân phối" })}
+    title={tx(lang, { en: "Carry the magic. Join the family.", vi: "Mang điều kỳ diệu. Gia nhập gia đình." })}
+    accent={tx(lang, { en: "family", vi: "gia đình" })}
+    text={tx(lang, { en: "Sleepm is not sold in stores. It travels through people who share it in their own communities, languages and rhythms.", vi: "Sleepm không bán đại trà tại cửa hàng. Sản phẩm được lan tỏa qua những người chia sẻ trong cộng đồng, ngôn ngữ và nhịp sống của chính họ." })}
+  >
+    <div class="actions">
+      <a class="btn" href={pathFor(lang, "/contact/")}>
+        <Sparkles size={16} aria-hidden="true" />
+        {tx(lang, { en: "Start the conversation", vi: "Bắt đầu trò chuyện" })}
+      </a>
+      <a class="text-link" href={pathFor(lang, "/products/")}>{tx(lang, { en: "See what you would share", vi: "Xem điều bạn sẽ chia sẻ" })}</a>
+    </div>
+  </LocalizedHero>
+
+  <section class="section">
+    <div class="section-head awaken">
+      <p class="eyebrow">{lang === "vi" ? "Bốn lý do chân thật" : "Four honest reasons"}</p>
+      <h2>{lang === "vi" ? <>Vì sao mọi người <em>tham gia</em>.</> : <>Why people <em>join</em>.</>}</h2>
+    </div>
+    <div class="card-grid">
+      {reasons.map((reason) => (
+        <article class="feature awaken">
+          <CircleCheck size={24} aria-hidden="true" />
+          <h3>{tx(lang, reason.title)}</h3>
+          <p>{tx(lang, reason.text)}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section split">
+    <div class="copy-block awaken">
+      <p class="eyebrow">{lang === "vi" ? "Con đường sao" : "The star path"}</p>
+      <h2>{lang === "vi" ? <>Từ sao đầu tiên đến <em>sao thứ tám</em>.</> : <>From first star to <em>eighth</em>.</>}</h2>
+      <p>{lang === "vi" ? "Mỗi nhà phân phối bắt đầu với một ngôi sao. Khi bạn chia sẻ, hướng dẫn và mở đường cho người khác, cộng đồng sẽ ghi nhận hành trình ấy." : "Every distributor begins with one star. As you share, mentor and light the way for others, the family recognizes the path."}</p>
+      <p class="meta">{lang === "vi" ? "Sao là sự ghi nhận cộng đồng, không phải cam kết thu nhập." : "Stars mark community recognition, not guaranteed income."}</p>
+    </div>
+    <div class="star-ladder awaken" aria-label="Eight star distributor path">
+      {Array.from({ length: 8 }).map((_, index) => (
+        <span>
+          <Star size={24} aria-hidden="true" />
+          {index + 1}
+        </span>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head awaken">
+      <p class="eyebrow">{lang === "vi" ? "Ba bước nhỏ" : "Three small steps"}</p>
+      <h2>{lang === "vi" ? <>Cách bắt <em>đầu</em>.</> : <>How it <em>starts</em>.</>}</h2>
+    </div>
+    <div class="card-grid">
+      {[
+        { n: "I", title: { en: "Say hello", vi: "Chào Sleepm" }, text: { en: "Reach out through the contact page or an office near you.", vi: "Liên hệ qua trang liên hệ hoặc văn phòng gần bạn." } },
+        { n: "II", title: { en: "Learn the magic", vi: "Tìm hiểu điều kỳ diệu" }, text: { en: "A sponsor and the Sleepm team walk you through the products and story.", vi: "Người bảo trợ và đội ngũ Sleepm hướng dẫn bạn về sản phẩm và câu chuyện." } },
+        { n: "III", title: { en: "Light your star", vi: "Thắp sáng ngôi sao" }, text: { en: "Start sharing at your pace with the family behind you.", vi: "Bắt đầu chia sẻ theo nhịp của bạn với cộng đồng phía sau." } },
+      ].map((step) => (
+        <article class="stat-card awaken">
+          <span class="meta">{step.n}</span>
+          <h3>{tx(lang, step.title)}</h3>
+          <p>{tx(lang, step.text)}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <CtaBand lang={lang} />
+</SiteLayout>

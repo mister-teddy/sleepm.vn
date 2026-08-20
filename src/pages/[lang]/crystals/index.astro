@@ -1,0 +1,71 @@
+---
+import { ArrowRight, Gem } from "@lucide/astro";
+import CtaBand from "@components/CtaBand.astro";
+import LocalizedHero from "@components/LocalizedHero.astro";
+import SiteLayout from "@layouts/SiteLayout.astro";
+import { crystalIntro, crystals, langCodes, metals, pathFor, tx, type Lang } from "@data/site";
+
+export function getStaticPaths() {
+  return langCodes.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+---
+
+<SiteLayout lang={lang} title={tx(lang, crystalIntro.eyebrow)} description={tx(lang, crystalIntro.text)}>
+  <LocalizedHero
+    eyebrow={tx(lang, crystalIntro.eyebrow)}
+    title={tx(lang, crystalIntro.title)}
+    accent={lang === "vi" ? "kỳ diệu" : "magic"}
+    text={tx(lang, crystalIntro.text)}
+  >
+    <div class="actions">
+      <a class="btn" href="#journey">
+        <Gem size={16} aria-hidden="true" />
+        {lang === "vi" ? "Đánh thức từng tinh thể" : "Wake each crystal"}
+      </a>
+      <a class="text-link" href={pathFor(lang, "/constellation/")}>{tx(lang, { en: "See the constellation", vi: "Xem chòm sao" })} <ArrowRight size={15} aria-hidden="true" /></a>
+    </div>
+  </LocalizedHero>
+
+  <section id="journey" class="section section-wide">
+    <div class="crystal-grid">
+      {crystals.map((crystal, index) => (
+        <article class="crystal-card awaken">
+          <figure>
+            <img src={crystal.img} alt={tx(lang, crystal.name)} loading="lazy" />
+          </figure>
+          <div class="crystal-body">
+            <span class="meta">{String(index + 1).padStart(2, "0")} / 16 · {tx(lang, crystal.role)}</span>
+            <h3>{tx(lang, crystal.name)}</h3>
+            <p>{tx(lang, crystal.lore)}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section split">
+    <div class="copy-block awaken">
+      <p class="eyebrow">{lang === "vi" ? "Và hai kim loại quý" : "And two noble metals"}</p>
+      <h2>{lang === "vi" ? <>Vàng và bạc, <em>những điểm cân bằng</em>.</> : <>Gold and silver, <em>the balancers</em>.</>}</h2>
+      <p>{lang === "vi" ? "Trong câu chuyện Sleepm, các tinh thể không đi một mình. Vàng giữ hơi ấm, bạc giữ sự trong trẻo mát lành, cùng cân bằng hỗn hợp BioCrystal." : "In the Sleepm story, the crystals never travel alone. Gold carries warmth, silver carries cool clarity, and together they balance the BioCrystal blend."}</p>
+    </div>
+    <div class="card-grid">
+      {metals.map((metal) => (
+        <article class="crystal-card awaken">
+          <figure>
+            <img src={metal.img} alt={tx(lang, metal.name)} loading="lazy" />
+          </figure>
+          <div class="crystal-body">
+            <span class="meta">{lang === "vi" ? "Kim loại quý" : "Noble metal"}</span>
+            <h3>{tx(lang, metal.name)}</h3>
+            <p>{tx(lang, metal.lore)}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <CtaBand lang={lang} />
+</SiteLayout>

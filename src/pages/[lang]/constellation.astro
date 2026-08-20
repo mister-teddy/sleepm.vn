@@ -1,0 +1,54 @@
+---
+import CtaBand from "@components/CtaBand.astro";
+import LocalizedHero from "@components/LocalizedHero.astro";
+import SiteLayout from "@layouts/SiteLayout.astro";
+import { crystals, langCodes, metals, tx, type Lang } from "@data/site";
+
+export function getStaticPaths() {
+  return langCodes.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+const items = [...crystals, ...metals];
+const coords = [
+  [120, 225], [225, 165], [330, 260], [445, 210], [560, 310], [690, 250],
+  [810, 345], [930, 280], [1040, 390], [1160, 300], [1260, 205], [1375, 290],
+  [1270, 430], [1110, 500], [940, 455], [760, 520], [570, 455], [380, 505],
+];
+const points = items.map((item, index) => ({ item, x: coords[index][0], y: coords[index][1] }));
+---
+
+<SiteLayout lang={lang} title={tx(lang, { en: "The Constellation", vi: "Chòm sao" })}>
+  <LocalizedHero
+    eyebrow={tx(lang, { en: "The BioCrystal map", vi: "Bản đồ BioCrystal" })}
+    title={tx(lang, { en: "One night sky, eighteen points of light.", vi: "Một bầu trời đêm, mười tám điểm sáng." })}
+    accent={tx(lang, { en: "eighteen", vi: "mười tám" })}
+    text={tx(lang, { en: "The sixteen crystals and two metals become a quiet constellation - a visual map of the Sleepm story.", vi: "Mười sáu tinh thể và hai kim loại quý trở thành một chòm sao yên tĩnh - bản đồ thị giác của câu chuyện Sleepm." })}
+  />
+
+  <section class="section section-wide">
+    <div class="constellation awaken" aria-label={tx(lang, { en: "Sleepm BioCrystal constellation", vi: "Chòm sao BioCrystal Sleepm" })}>
+      <svg viewBox="0 100 1500 520" role="img">
+        {points.slice(0, -1).map((point, index) => (
+          <line x1={point.x} y1={point.y} x2={points[index + 1].x} y2={points[index + 1].y}></line>
+        ))}
+        {points.map(({ item, x, y }, index) => (
+          <g>
+            <circle cx={x} cy={y} r={index > 15 ? 7 : 5}></circle>
+            <text x={x + 15} y={y - 12}>{tx(lang, item.name)}</text>
+          </g>
+        ))}
+      </svg>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head awaken">
+      <p class="eyebrow">{lang === "vi" ? "Giữ trong từng lớp" : "Kept in every layer"}</p>
+      <h2>{lang === "vi" ? <>Từ câu chuyện đến <em>giấc ngủ</em>.</> : <>From story to <em>sleep</em>.</>}</h2>
+      <p>{lang === "vi" ? "Chòm sao là cách kể tĩnh của Sleepm: mỗi tinh thể có giọng riêng, nhưng chỉ khi đứng cùng nhau mới thành một bầu trời." : "The constellation is Sleepm's quiet way of telling the blend: every crystal has its own voice, but together they become a sky."}</p>
+    </div>
+  </section>
+
+  <CtaBand lang={lang} />
+</SiteLayout>
