@@ -14,9 +14,9 @@ const lang = Astro.params.lang as Lang;
 <SiteLayout lang={lang} title={tx(lang, common.nav.signIn)}>
   <LocalizedHero
     eyebrow={tx(lang, { en: "Member portal", vi: "Cổng thành viên" })}
-    title={tx(lang, { en: "The night desk is almost ready.", vi: "Bàn hỗ trợ đêm sắp sẵn sàng." })}
-    accent={tx(lang, { en: "night desk", vi: "Bàn hỗ trợ đêm" })}
-    text={tx(lang, { en: "Member access is reserved for distributors and the Sleepm family. Contact support if you need help with your invitation.", vi: "Quyền truy cập dành cho nhà phân phối và gia đình Sleepm. Liên hệ hỗ trợ nếu bạn cần trợ giúp với lời mời của mình." })}
+    title={tx(lang, { en: "Distributor and customer member access.", vi: "Đăng nhập thành viên và nhà phân phối." })}
+    accent={tx(lang, { en: "member", vi: "thành viên" })}
+    text={tx(lang, { en: "This static site mirrors the public Sleepm website. Use official Sleepm member credentials or contact support if access has not been activated.", vi: "Website tĩnh này mô phỏng phần công khai của Sleepm. Dùng tài khoản thành viên chính thức hoặc liên hệ hỗ trợ nếu quyền truy cập chưa được kích hoạt." })}
   />
 
   <section class="section split">
@@ -36,18 +36,18 @@ const lang = Astro.params.lang as Lang;
       <p class="form-note">{lang === "vi" ? "Liên hệ hỗ trợ để kích hoạt quyền truy cập thành viên." : "Contact support to activate member access."}</p>
     </form>
     <div class="copy-block awaken">
-      <p class="eyebrow">{lang === "vi" ? "Điều gì sẽ ở đây" : "What lives here"}</p>
-      <h2>{lang === "vi" ? <>Tài nguyên cho <em>gia đình</em>.</> : <>Resources for the <em>family</em>.</>}</h2>
+      <p class="eyebrow">{lang === "vi" ? "Tài nguyên thành viên" : "Member resources"}</p>
+      <h2>{lang === "vi" ? <>Thông tin cho <em>khách hàng</em> và nhà phân phối.</> : <>Information for <em>customers</em> and distributors.</>}</h2>
       <div class="feature-grid">
         <article class="feature">
           <ShieldCheck size={24} aria-hidden="true" />
-          <h3>{lang === "vi" ? "Hồ sơ thành viên" : "Member profiles"}</h3>
-          <p>{lang === "vi" ? "Thông tin nhà phân phối và trạng thái cộng đồng." : "Distributor details and community status."}</p>
+          <h3>{lang === "vi" ? "Hồ sơ và đơn hàng" : "Profiles and orders"}</h3>
+          <p>{lang === "vi" ? "Thông tin thành viên, Sleepm ID, đơn hàng và hỗ trợ liên quan." : "Member details, Sleepm ID, orders and related support."}</p>
         </article>
         <article class="feature">
           <ShieldCheck size={24} aria-hidden="true" />
           <h3>{lang === "vi" ? "Tài liệu sản phẩm" : "Product resources"}</h3>
-          <p>{lang === "vi" ? "Câu chuyện, hình ảnh và tài liệu hỗ trợ chia sẻ." : "Stories, media and support material for sharing."}</p>
+          <p>{lang === "vi" ? "Tài liệu nệm, topper, gối, BioCrystal, bảo hành và ứng dụng." : "Mattress, topper, pillow, BioCrystal, warranty and app materials."}</p>
         </article>
       </div>
       <a class="text-link" href={pathFor(lang, "/contact/")}>{tx(lang, common.nav.contact)}</a>

@@ -377,9 +377,10 @@ textarea {
 
 .mobile-menu {
   position: fixed;
-  inset: var(--header) 0 auto 0;
+  inset: var(--header) 0 0 0;
+  z-index: 80;
   width: 100%;
-  max-height: calc(100svh - var(--header));
+  height: calc(100svh - var(--header));
   overflow: auto;
   padding: 28px;
   border-bottom: 1px solid var(--line);

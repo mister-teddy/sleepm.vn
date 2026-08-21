@@ -18,16 +18,16 @@ const coords = [
 const points = items.map((item, index) => ({ item, x: coords[index][0], y: coords[index][1] }));
 ---
 
-<SiteLayout lang={lang} title={tx(lang, { en: "The Constellation", vi: "Chòm sao" })}>
+<SiteLayout lang={lang} title={tx(lang, { en: "Ingredients", vi: "Thành phần" })}>
   <LocalizedHero
-    eyebrow={tx(lang, { en: "The BioCrystal map", vi: "Bản đồ BioCrystal" })}
-    title={tx(lang, { en: "One night sky, eighteen points of light.", vi: "Một bầu trời đêm, mười tám điểm sáng." })}
-    accent={tx(lang, { en: "eighteen", vi: "mười tám" })}
-    text={tx(lang, { en: "The sixteen crystals and two metals become a quiet constellation - a visual map of the Sleepm story.", vi: "Mười sáu tinh thể và hai kim loại quý trở thành một chòm sao yên tĩnh - bản đồ thị giác của câu chuyện Sleepm." })}
+    eyebrow={tx(lang, { en: "BioCrystal ingredient map", vi: "Sơ đồ thành phần BioCrystal" })}
+    title={tx(lang, { en: "Eighteen listed ingredients in the BioCrystal story.", vi: "Mười tám thành phần trong câu chuyện BioCrystal." })}
+    accent={tx(lang, { en: "Eighteen", vi: "Mười tám" })}
+    text={tx(lang, { en: "A simple visual reference for the 16 natural crystals plus gold and silver used in Sleepm's BioCrystal blend.", vi: "Sơ đồ tham khảo cho 16 tinh thể tự nhiên cùng vàng và bạc trong hỗn hợp BioCrystal của Sleepm." })}
   />
 
   <section class="section section-wide">
-    <div class="constellation awaken" aria-label={tx(lang, { en: "Sleepm BioCrystal constellation", vi: "Chòm sao BioCrystal Sleepm" })}>
+    <div class="constellation awaken" aria-label={tx(lang, { en: "Sleepm BioCrystal ingredient map", vi: "Sơ đồ thành phần BioCrystal Sleepm" })}>
       <svg viewBox="0 100 1500 520" role="img">
         {points.slice(0, -1).map((point, index) => (
           <line x1={point.x} y1={point.y} x2={points[index + 1].x} y2={points[index + 1].y}></line>
@@ -44,9 +44,9 @@ const points = items.map((item, index) => ({ item, x: coords[index][0], y: coord
 
   <section class="section">
     <div class="section-head awaken">
-      <p class="eyebrow">{lang === "vi" ? "Giữ trong từng lớp" : "Kept in every layer"}</p>
-      <h2>{lang === "vi" ? <>Từ câu chuyện đến <em>giấc ngủ</em>.</> : <>From story to <em>sleep</em>.</>}</h2>
-      <p>{lang === "vi" ? "Chòm sao là cách kể tĩnh của Sleepm: mỗi tinh thể có giọng riêng, nhưng chỉ khi đứng cùng nhau mới thành một bầu trời." : "The constellation is Sleepm's quiet way of telling the blend: every crystal has its own voice, but together they become a sky."}</p>
+      <p class="eyebrow">{lang === "vi" ? "Trong dòng sản phẩm" : "Across the product line"}</p>
+      <h2>{lang === "vi" ? <>BioCrystal là <em>điểm nhận diện</em> của Sleepm.</> : <>BioCrystal is Sleepm's <em>signature</em> feature.</>}</h2>
+      <p>{lang === "vi" ? "Nội dung này giúp khách hàng và nhà phân phối giải thích rõ thành phần BioCrystal mà không biến nó thành cam kết y tế." : "This page helps customers and distributors explain the BioCrystal ingredient story clearly without presenting it as a medical claim."}</p>
     </div>
   </section>
 

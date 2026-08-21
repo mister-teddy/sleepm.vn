@@ -1,7 +1,7 @@
 export type Lang = "en" | "vi";
 export type Localized<T = string> = Record<Lang, T>;
 
-export const defaultLang: Lang = "en";
+export const defaultLang: Lang = "vi";
 
 export const languages: Record<Lang, { code: Lang; label: string; native: string; locale: string }> = {
   en: { code: "en", label: "English", native: "English", locale: "en-US" },
@@ -13,8 +13,8 @@ export const langCodes = Object.keys(languages) as Lang[];
 export const siteMeta = {
   name: "Sleepm",
   description: {
-    en: "Luxury BioCrystal sleep products shared person to person.",
-    vi: "Các sản phẩm giấc ngủ BioCrystal sang trọng được chia sẻ trực tiếp qua cộng đồng.",
+    en: "Sleepm BioCrystal mattresses, toppers, pillows and wellness sleep products.",
+    vi: "Nệm, topper, gối và sản phẩm chăm sóc giấc ngủ BioCrystal của Sleepm.",
   },
 };
 
@@ -38,18 +38,18 @@ export const common = {
   nav: {
     home: { en: "Home", vi: "Trang chủ" },
     products: { en: "Products", vi: "Sản phẩm" },
-    crystals: { en: "The Crystals", vi: "Tinh thể" },
-    constellation: { en: "The Constellation", vi: "Chòm sao" },
-    nightWire: { en: "The Night Wire", vi: "Bản tin đêm" },
-    family: { en: "The Family", vi: "Gia đình" },
-    distributors: { en: "Distributors", vi: "Nhà phân phối" },
-    signIn: { en: "Sign In", vi: "Đăng nhập" },
-    contact: { en: "Contact", vi: "Liên hệ" },
+    crystals: { en: "BioCrystal", vi: "Tinh thể sinh học" },
+    constellation: { en: "Ingredients", vi: "Thành phần" },
+    nightWire: { en: "Blog", vi: "Tin tức" },
+    family: { en: "About", vi: "Về Sleepm" },
+    distributors: { en: "Become a Distributor", vi: "Trở thành nhà phân phối" },
+    signIn: { en: "Member Login", vi: "Đăng nhập thành viên" },
+    contact: { en: "Contact Us", vi: "Liên hệ" },
   },
   labels: {
-    collection: { en: "The collection", vi: "Bộ sưu tập" },
+    collection: { en: "Product line", vi: "Dòng sản phẩm" },
     allProducts: { en: "All products", vi: "Tất cả sản phẩm" },
-    askFamily: { en: "Ask the family", vi: "Hỏi gia đình Sleepm" },
+    askFamily: { en: "Contact Sleepm", vi: "Liên hệ Sleepm" },
     becomeDistributor: { en: "Become a distributor", vi: "Trở thành nhà phân phối" },
     backCollection: { en: "Back to the collection", vi: "Quay lại bộ sưu tập" },
     exploreCollection: { en: "Explore the collection", vi: "Khám phá bộ sưu tập" },
@@ -62,24 +62,24 @@ export const common = {
     send: { en: "Send", vi: "Gửi" },
   },
   footer: {
-    nightKept: { en: "the night, kept.", vi: "giữ trọn đêm an lành." },
+    nightKept: { en: "Sleep Better, Live Better.", vi: "Ngủ ngon hơn, sống tốt hơn." },
     disclaimer: {
       en: "Sleepm products are wellness and comfort products, not medical devices, and are not intended to diagnose, treat, cure, or prevent any disease. Crystal and noble-metal traditions are shared as lore and heritage.",
       vi: "Sản phẩm Sleepm là sản phẩm chăm sóc sức khỏe và sự thoải mái, không phải thiết bị y tế, không dùng để chẩn đoán, điều trị, chữa khỏi hoặc phòng ngừa bệnh. Truyền thống về tinh thể và kim loại quý được chia sẻ như di sản văn hóa.",
     },
     appTitle: { en: "Get the app", vi: "Tải ứng dụng" },
     appText: {
-      en: "Scan with your phone camera for the Sleepm app.",
-      vi: "Quét bằng camera điện thoại để mở ứng dụng Sleepm.",
+      en: "Scan with your phone camera to open the Sleepm app download.",
+      vi: "Quét bằng camera điện thoại để mở trang tải ứng dụng Sleepm.",
     },
     legalTitle: { en: "Everything else", vi: "Thông tin khác" },
   },
   noPrices: {
-    eyebrow: { en: "No prices here", vi: "Không niêm yết giá tại đây" },
-    title: { en: "Sleepm travels hand to hand.", vi: "Sleepm được trao tận tay." },
+    eyebrow: { en: "Pricing and support", vi: "Giá và hỗ trợ" },
+    title: { en: "Talk to a Sleepm distributor.", vi: "Trao đổi với nhà phân phối Sleepm." },
     text: {
-      en: "Every Sleepm is shared through the family - someone near you, in your language, who sleeps on it too. Financing is available.",
-      vi: "Mỗi sản phẩm Sleepm được chia sẻ qua cộng đồng - bởi một người gần bạn, nói ngôn ngữ của bạn và cũng đang ngủ trên Sleepm. Có hỗ trợ tài chính tùy khu vực.",
+      en: "Sleepm is sold through distributors and local offices. Product pricing, financing and availability can vary by market.",
+      vi: "Sleepm được bán qua nhà phân phối và văn phòng địa phương. Giá, hỗ trợ tài chính và tình trạng hàng có thể khác nhau theo thị trường.",
     },
   },
 };
@@ -136,42 +136,42 @@ export const products: Product[] = [
     gallery: ["/images/products/mattress.webp", "/images/products/mattress-exploded.webp"],
     name: { en: "BioCrystal Mattress", vi: "Nệm BioCrystal" },
     eyebrow: { en: "The BioCrystal Mattress", vi: "Nệm BioCrystal" },
-    title: { en: "The bed the night was waiting for.", vi: "Chiếc nệm mà đêm nghỉ đã chờ đợi." },
+    title: { en: "Improve wellness through better sleep.", vi: "Cải thiện sức khỏe bằng giấc ngủ tốt hơn." },
     summary: {
-      en: "Sixteen crystals, gold and silver, and premium sleep materials layered into one mattress crafted in America and Canada.",
-      vi: "Mười sáu tinh thể, vàng, bạc và vật liệu ngủ cao cấp được xếp lớp trong một chiếc nệm sản xuất tại Mỹ và Canada.",
+      en: "Sleepm combines a BioCrystal layer of 16 natural crystals with gold and silver, cooling comfort foams, natural latex and coil support.",
+      vi: "Sleepm kết hợp lớp BioCrystal gồm 16 tinh thể tự nhiên cùng vàng, bạc, foam làm mát, latex tự nhiên và hệ lò xo nâng đỡ.",
     },
     collectionLine: {
-      en: "The foundation - sixteen crystals and noble metals, sealed beneath you.",
-      vi: "Nền tảng của giấc ngủ - mười sáu tinh thể và kim loại quý được đặt dưới bạn.",
+      en: "The core Sleepm product: BioCrystal technology, cooling foam, latex and coil support.",
+      vi: "Sản phẩm chủ lực của Sleepm: công nghệ BioCrystal, foam làm mát, latex và hệ lò xo nâng đỡ.",
     },
     details: {
       en: [
-        "A quilted Euro-top, pressure-relieving comfort layers, natural latex, cooling graphene and the Sleepm BioCrystal layer.",
-        "Five classic sizes make it easy to fit the crystal cloud into real bedrooms.",
+        "Built in the United States and Canada with premium materials, breathable comfort layers and the Sleepm BioCrystal insert.",
+        "The mattress uses cooling gel memory foam, activated charcoal, natural Thai latex, independent pocket coils and micro-coil support.",
       ],
       vi: [
-        "Euro-top chần bông, các lớp nâng đỡ giảm áp lực, latex tự nhiên, graphene làm mát và lớp BioCrystal đặc trưng của Sleepm.",
-        "Năm kích thước quen thuộc giúp bạn đưa chiếc nệm mây tinh thể vào phòng ngủ thực tế.",
+        "Được sản xuất tại Hoa Kỳ và Canada với vật liệu cao cấp, các lớp thoáng khí và lớp lót BioCrystal của Sleepm.",
+        "Nệm sử dụng memory foam gel làm mát, than hoạt tính, latex Thái Lan tự nhiên, lò xo túi độc lập và công nghệ micro-coil.",
       ],
     },
     features: [
       {
-        title: { en: "GREENGUARD Gold certified", vi: "Chứng nhận GREENGUARD Gold" },
-        text: { en: "Independently tested for low chemical emissions.", vi: "Được kiểm nghiệm độc lập về phát thải hóa chất thấp." },
+        title: { en: "BioCrystal blend", vi: "Hỗn hợp BioCrystal" },
+        text: { en: "Sixteen natural crystals are combined with gold and silver in the Sleepm insert.", vi: "Mười sáu tinh thể tự nhiên được kết hợp với vàng và bạc trong lớp lót Sleepm." },
       },
       {
-        title: { en: "Natural latex support", vi: "Nâng đỡ bằng latex tự nhiên" },
-        text: { en: "Responsive, breathable layers help the body settle without sinking.", vi: "Các lớp thoáng khí phản hồi tốt giúp cơ thể được nâng đỡ mà không bị lún." },
+        title: { en: "Cooling and odor control", vi: "Làm mát và kiểm soát mùi" },
+        text: { en: "Cooling gel memory foam and activated charcoal help keep the sleep surface fresher.", vi: "Memory foam gel làm mát và than hoạt tính giúp bề mặt ngủ thoáng và sạch hơn." },
       },
       {
-        title: { en: "Pocket and nano coils", vi: "Lò xo túi và nano coil" },
-        text: { en: "Two levels of spring support contour to the sleeper and reduce motion transfer.", vi: "Hai tầng lò xo ôm theo cơ thể và giảm rung động khi trở mình." },
+        title: { en: "Latex and coil support", vi: "Latex và lò xo nâng đỡ" },
+        text: { en: "Natural Thai latex, independent coils and micro-coils provide responsive support and airflow.", vi: "Latex Thái Lan tự nhiên, lò xo độc lập và micro-coil tạo độ nâng đỡ phản hồi tốt và luồng khí thoáng." },
       },
     ],
     specs: [
-      { label: { en: "Sizes", vi: "Kích thước" }, value: { en: "Twin, Double, Queen, King, California King", vi: "Twin, Double, Queen, King, California King" } },
-      { label: { en: "Core materials", vi: "Vật liệu chính" }, value: { en: "Latex, graphene foam, pocket coils, organic wool", vi: "Latex, foam graphene, lò xo túi, len hữu cơ" } },
+      { label: { en: "Sizes", vi: "Kích thước" }, value: { en: "Twin 39 x 75, Double 54 x 75, Queen 60 x 80, King 76 x 80, California King 72 x 84 in", vi: "Twin 39 x 75, Double 54 x 75, Queen 60 x 80, King 76 x 80, California King 72 x 84 inch" } },
+      { label: { en: "Core materials", vi: "Vật liệu chính" }, value: { en: "BioCrystal insert, natural latex, cooling gel memory foam, activated charcoal, pocket coils", vi: "Lớp BioCrystal, latex tự nhiên, memory foam gel làm mát, than hoạt tính, lò xo túi" } },
       { label: { en: "Made in", vi: "Sản xuất tại" }, value: { en: "USA and Canada", vi: "Mỹ và Canada" } },
     ],
   },
@@ -180,44 +180,44 @@ export const products: Product[] = [
     image: "/images/products/topper.webp",
     gallery: ["/images/products/topper.webp", "/images/products/topper-detail.webp"],
     name: { en: "BioCrystal Topper", vi: "Topper BioCrystal" },
-    eyebrow: { en: "The Luxury Topper", vi: "Topper cao cấp" },
-    title: { en: "Turn the mattress you love into something deeper.", vi: "Biến chiếc nệm bạn yêu thành một giấc ngủ sâu hơn." },
+    eyebrow: { en: "BioCrystal Topper", vi: "Topper BioCrystal" },
+    title: { en: "Add BioCrystal comfort to the mattress you already own.", vi: "Thêm tiện nghi BioCrystal vào chiếc nệm bạn đang dùng." },
     summary: {
-      en: "Organic cotton, Thai latex, graphene foam and the BioCrystal layer soften and cool the bed you already own.",
-      vi: "Cotton hữu cơ, latex Thái Lan, foam graphene và lớp BioCrystal giúp chiếc nệm hiện tại mềm hơn và mát hơn.",
+      en: "The topper layers temperature-responsive foam, Thai natural latex, activated charcoal and the Sleepm BioCrystal insert over your existing bed.",
+      vi: "Topper phủ thêm các lớp foam phản ứng theo nhiệt độ, latex Thái Lan tự nhiên, than hoạt tính và lớp lót BioCrystal lên chiếc nệm hiện tại.",
     },
     collectionLine: {
-      en: "The whole philosophy, laid over the bed you already love.",
-      vi: "Triết lý Sleepm được đặt lên chiếc nệm bạn đang yêu thích.",
+      en: "A practical upgrade with cooling channels, latex support and BioCrystal technology.",
+      vi: "Nâng cấp thực tế với rãnh thông gió làm mát, latex nâng đỡ và công nghệ BioCrystal.",
     },
     details: {
       en: [
-        "A breathable organic cover rests over natural latex, organic wool, graphene memory foam and the BioCrystal blend.",
-        "Built for years of daily sleep, with elegant embroidery and a quiet hand-tufted finish.",
+        "The classic topper is designed to relieve pressure points and improve airflow with cool-channel ventilation.",
+        "Carbon-infused smart foam helps neutralize odors while natural latex adds resilient support.",
       ],
       vi: [
-        "Lớp vỏ hữu cơ thoáng khí nằm trên latex tự nhiên, len hữu cơ, memory foam graphene và hỗn hợp BioCrystal.",
-        "Được làm để sử dụng hằng đêm trong nhiều năm, hoàn thiện bằng thêu tinh tế và chi tiết tufting nhẹ nhàng.",
+        "Topper cổ điển được thiết kế để giảm các điểm áp lực và tăng luồng khí bằng rãnh thông gió làm mát.",
+        "Foam thông minh chứa carbon hỗ trợ trung hòa mùi, trong khi latex tự nhiên tạo độ nâng đỡ đàn hồi.",
       ],
     },
     features: [
       {
-        title: { en: "Graphene cooling", vi: "Làm mát bằng graphene" },
-        text: { en: "Spreads warmth across the surface instead of letting heat pool.", vi: "Phân tán nhiệt trên bề mặt thay vì để hơi nóng tích tụ." },
+        title: { en: "7-zone comfort", vi: "Tiện nghi 7 vùng" },
+        text: { en: "A multi-surface design gives extra support where the body needs pressure relief.", vi: "Thiết kế nhiều bề mặt bổ sung nâng đỡ tại những vùng cơ thể cần giảm áp lực." },
       },
       {
-        title: { en: "Organic cotton touch", vi: "Bề mặt cotton hữu cơ" },
-        text: { en: "A soft, breathable cover sits gently against the skin.", vi: "Lớp vỏ mềm và thoáng khí tiếp xúc nhẹ nhàng với da." },
+        title: { en: "Cool-channel ventilation", vi: "Rãnh thông gió làm mát" },
+        text: { en: "Ventilation channels and breathable fabric help the surface stay cooler.", vi: "Rãnh thông gió và lớp vải thoáng khí giúp bề mặt dễ chịu hơn." },
       },
       {
-        title: { en: "Easy upgrade", vi: "Nâng cấp dễ dàng" },
-        text: { en: "Adds the BioCrystal layer without replacing the entire mattress.", vi: "Thêm lớp BioCrystal mà không cần thay toàn bộ nệm." },
+        title: { en: "BioCrystal insert", vi: "Lớp BioCrystal" },
+        text: { en: "Adds Sleepm BioCrystal technology without replacing the full mattress.", vi: "Thêm công nghệ BioCrystal của Sleepm mà không cần thay toàn bộ nệm." },
       },
     ],
     specs: [
-      { label: { en: "Profile", vi: "Độ dày" }, value: { en: "Low-profile luxury comfort layer", vi: "Lớp tiện nghi cao cấp mỏng gọn" } },
-      { label: { en: "Cover", vi: "Vỏ bọc" }, value: { en: "Organic cotton", vi: "Cotton hữu cơ" } },
-      { label: { en: "Core", vi: "Lõi" }, value: { en: "Thai latex, wool, graphene foam, BioCrystal layer", vi: "Latex Thái Lan, len, foam graphene, lớp BioCrystal" } },
+      { label: { en: "Design", vi: "Thiết kế" }, value: { en: "Classic multi-layer topper", vi: "Topper cổ điển nhiều lớp" } },
+      { label: { en: "Comfort", vi: "Tiện nghi" }, value: { en: "Cool-channel ventilation and 7-zone pressure relief", vi: "Rãnh thông gió làm mát và giảm áp lực 7 vùng" } },
+      { label: { en: "Core", vi: "Lõi" }, value: { en: "Thai natural latex, carbon smart foam, BioCrystal insert", vi: "Latex Thái Lan tự nhiên, foam carbon thông minh, lớp BioCrystal" } },
     ],
   },
   {
@@ -226,43 +226,43 @@ export const products: Product[] = [
     gallery: ["/images/products/pillows.webp", "/images/products/pillow-butterfly.webp"],
     name: { en: "BioCrystal Pillows", vi: "Gối BioCrystal" },
     eyebrow: { en: "Four pillows", vi: "Bốn kiểu gối" },
-    title: { en: "One perfect night for every neck.", vi: "Một đêm vừa vặn cho từng dáng cổ." },
+    title: { en: "Pillow support for different sleep positions.", vi: "Gối nâng đỡ cho nhiều tư thế ngủ." },
     summary: {
-      en: "Butterfly, Polar Bear, Panda and Camel shapes answer different shoulders, sleep styles and neck curves.",
-      vi: "Butterfly, Polar Bear, Panda và Camel đáp ứng các dáng vai, tư thế ngủ và đường cong cổ khác nhau.",
+      en: "Butterfly, Polar Bear, Panda and Camel pillows use different contours and materials for neck alignment, airflow and BioCrystal comfort.",
+      vi: "Gối Butterfly, Polar Bear, Panda và Camel dùng các đường cong và vật liệu khác nhau để hỗ trợ cổ, luồng khí và tiện nghi BioCrystal.",
     },
     collectionLine: {
-      en: "The closest thing to your dreams, all night.",
-      vi: "Người bạn gần giấc mơ nhất trong suốt đêm.",
+      en: "Four BioCrystal pillow options for back, side and combination sleepers.",
+      vi: "Bốn lựa chọn gối BioCrystal cho người nằm ngửa, nằm nghiêng và hay đổi tư thế.",
     },
     details: {
       en: [
-        "The shaped edge supports the neck curve while the back of the head rests lower.",
-        "Every option carries the Sleepm BioCrystal layer inside.",
+        "Sleepm pillow shapes are built around the neck curve so the head can rest while the shoulders stay supported.",
+        "Each model brings a different feel: contour foam, memory foam, latex rebound or a dual-height format.",
       ],
       vi: [
-        "Cạnh gối được tạo hình để nâng đỡ đường cong cổ trong khi sau đầu được thả thấp hơn.",
-        "Mỗi phiên bản đều có lớp BioCrystal Sleepm bên trong.",
+        "Các dáng gối Sleepm được thiết kế quanh đường cong cổ để đầu được nghỉ trong khi vai vẫn có điểm tựa.",
+        "Mỗi mẫu có cảm giác riêng: foam contour, memory foam, độ nảy latex hoặc cấu trúc hai độ cao.",
       ],
     },
     features: [
       {
         title: { en: "Butterfly", vi: "Butterfly" },
-        text: { en: "The classic contour pillow with magnet accents.", vi: "Gối contour cổ điển với điểm nhấn nam châm." },
+        text: { en: "A contoured BioCrystal pillow with a neck-support shape and magnet accents.", vi: "Gối BioCrystal dạng contour với đường nâng đỡ cổ và điểm nhấn nam châm." },
       },
       {
         title: { en: "Polar Bear", vi: "Polar Bear" },
-        text: { en: "Slow-sinking memory foam for sleepers who like to be held.", vi: "Memory foam lún chậm cho người thích cảm giác được ôm đỡ." },
+        text: { en: "Slow-rebound memory foam for a softer, more cradled feel.", vi: "Memory foam đàn hồi chậm cho cảm giác mềm và ôm đỡ hơn." },
       },
       {
         title: { en: "Panda and Camel", vi: "Panda và Camel" },
-        text: { en: "Latex bounce or two heights in one pillow.", vi: "Độ đàn hồi latex hoặc hai độ cao trong một chiếc gối." },
+        text: { en: "Choose latex rebound or a dual-height pillow for changing sleep positions.", vi: "Chọn độ nảy latex hoặc gối hai độ cao cho người thường đổi tư thế." },
       },
     ],
     specs: [
       { label: { en: "Shapes", vi: "Kiểu dáng" }, value: { en: "Butterfly, Polar Bear, Panda, Camel", vi: "Butterfly, Polar Bear, Panda, Camel" } },
-      { label: { en: "Focus", vi: "Trọng tâm" }, value: { en: "Neck curve support", vi: "Nâng đỡ đường cong cổ" } },
-      { label: { en: "Inside", vi: "Bên trong" }, value: { en: "BioCrystal layer", vi: "Lớp BioCrystal" } },
+      { label: { en: "Focus", vi: "Trọng tâm" }, value: { en: "Neck curve, shoulder support and airflow", vi: "Đường cong cổ, nâng đỡ vai và luồng khí" } },
+      { label: { en: "Inside", vi: "Bên trong" }, value: { en: "BioCrystal comfort layer by model", vi: "Lớp tiện nghi BioCrystal tùy mẫu" } },
     ],
   },
   {
@@ -271,14 +271,14 @@ export const products: Product[] = [
     gallery: ["/images/products/heating-pad.webp"],
     name: { en: "Heating Pad", vi: "Đệm sưởi" },
     eyebrow: { en: "The Heating Pad", vi: "Đệm sưởi Sleepm" },
-    title: { en: "Warmth where the day left its weight.", vi: "Hơi ấm cho nơi cơ thể còn giữ mệt mỏi." },
+    title: { en: "Targeted warmth for daily relaxation.", vi: "Làm ấm từng vùng để thư giãn hằng ngày." },
     summary: {
       en: "Deep, even warmth with the BioCrystal blend inside and a washable graphite pouch outside.",
       vi: "Hơi ấm sâu và đều với hỗn hợp BioCrystal bên trong cùng túi graphite có thể giặt bên ngoài.",
     },
     collectionLine: {
-      en: "Warmth where the day left its weight.",
-      vi: "Hơi ấm cho nơi cơ thể còn giữ mệt mỏi.",
+      en: "Portable BioCrystal warmth for shoulders, back, knees and daily comfort routines.",
+      vi: "Hơi ấm BioCrystal linh hoạt cho vai, lưng, đầu gối và thói quen thư giãn hằng ngày.",
     },
     details: {
       en: [
@@ -316,14 +316,14 @@ export const products: Product[] = [
     gallery: ["/images/products/eye-mask.webp"],
     name: { en: "Eye Mask", vi: "Mặt nạ mắt" },
     eyebrow: { en: "The Eye Mask", vi: "Mặt nạ mắt" },
-    title: { en: "A small dark sky you can carry anywhere.", vi: "Một bầu trời tối nhỏ gọn mang theo mọi nơi." },
+    title: { en: "Portable blackout comfort for rest and travel.", vi: "Che sáng gọn nhẹ cho nghỉ ngơi và du lịch." },
     summary: {
       en: "A soft blackout ritual for travel, naps and rooms that never get quite dark enough.",
       vi: "Một nghi thức che sáng mềm mại cho những chuyến đi, giấc ngủ ngắn và căn phòng chưa đủ tối.",
     },
     collectionLine: {
-      en: "A small dark sky you can carry anywhere.",
-      vi: "Bầu trời tối nhỏ gọn cho mọi hành trình.",
+      en: "A compact sleep accessory for flights, naps and bright bedrooms.",
+      vi: "Phụ kiện ngủ gọn nhẹ cho chuyến bay, giấc ngủ ngắn và phòng nhiều sáng.",
     },
     details: {
       en: [
@@ -361,7 +361,7 @@ export const products: Product[] = [
     gallery: ["/images/products/knee-massager.webp"],
     name: { en: "Knee Massager", vi: "Máy massage gối" },
     eyebrow: { en: "The Knee Massager", vi: "Máy massage đầu gối" },
-    title: { en: "Quiet comfort for hard-working knees.", vi: "Sự dễ chịu yên tĩnh cho đôi gối làm việc nhiều." },
+    title: { en: "Heat and vibration for targeted joint comfort.", vi: "Nhiệt và rung cho vùng khớp cần thư giãn." },
     summary: {
       en: "Wearable warmth and soft vibration for evenings after standing, training or travel.",
       vi: "Hơi ấm đeo được và rung nhẹ cho buổi tối sau khi đứng lâu, luyện tập hoặc di chuyển.",
@@ -451,14 +451,14 @@ export const products: Product[] = [
     gallery: ["/images/products/dot.png"],
     name: { en: "Sleepm Dot", vi: "Sleepm Dot" },
     eyebrow: { en: "The Dot", vi: "Dot" },
-    title: { en: "The smallest member of the night watch.", vi: "Thành viên nhỏ nhất của đội canh đêm." },
+    title: { en: "A compact Sleepm companion device.", vi: "Thiết bị đồng hành nhỏ gọn của Sleepm." },
     summary: {
       en: "A compact sleep companion designed to keep the Sleepm ritual close.",
       vi: "Một người bạn ngủ nhỏ gọn giúp giữ nghi thức Sleepm luôn bên cạnh.",
     },
     collectionLine: {
-      en: "The smallest member of the night watch.",
-      vi: "Người bạn nhỏ nhất của đêm yên tĩnh.",
+      en: "A small bedside or travel companion for the Sleepm digital experience.",
+      vi: "Thiết bị nhỏ cho đầu giường hoặc du lịch, đồng hành với trải nghiệm số Sleepm.",
     },
     details: {
       en: [
@@ -496,22 +496,22 @@ export const products: Product[] = [
     gallery: ["/images/app/app-platforms.webp", "/images/app/app-phone.png"],
     name: { en: "The Sleepm App", vi: "Ứng dụng Sleepm" },
     eyebrow: { en: "The Sleepm App", vi: "Ứng dụng Sleepm" },
-    title: { en: "The only app that wants to be closed.", vi: "Ứng dụng duy nhất muốn bạn đóng lại để đi ngủ." },
+    title: { en: "Product information, app downloads and member resources.", vi: "Thông tin sản phẩm, tải app và tài nguyên thành viên." },
     summary: {
-      en: "A quiet companion for sleep rituals, distributor support and the Sleepm family.",
-      vi: "Người bạn đồng hành yên tĩnh cho nghi thức ngủ, hỗ trợ nhà phân phối và cộng đồng Sleepm.",
+      en: "Mobile access for product information, support links and distributor resources.",
+      vi: "Truy cập di động cho thông tin sản phẩm, liên kết hỗ trợ và tài nguyên nhà phân phối.",
     },
     collectionLine: {
-      en: "The only app that wants to be closed.",
-      vi: "Ứng dụng muốn bạn tắt máy và nghỉ ngơi.",
+      en: "Mobile access for product learning, support and distributor resources.",
+      vi: "Truy cập di động để xem sản phẩm, hỗ trợ và tài nguyên nhà phân phối.",
     },
     details: {
       en: [
-        "Quick access to product stories, app downloads, support and family resources.",
+        "Quick access to product information, app downloads, support and distributor resources.",
         "Designed to help you prepare for sleep, then get out of the way.",
       ],
       vi: [
-        "Truy cập nhanh câu chuyện sản phẩm, tải ứng dụng, hỗ trợ và tài nguyên cộng đồng.",
+        "Truy cập nhanh thông tin sản phẩm, tải ứng dụng, hỗ trợ và tài nguyên nhà phân phối.",
         "Được thiết kế để giúp bạn chuẩn bị cho giấc ngủ, rồi lùi lại đúng lúc.",
       ],
     },
@@ -521,7 +521,7 @@ export const products: Product[] = [
         text: { en: "Keep the Sleepm story close when sharing or learning.", vi: "Giữ câu chuyện Sleepm trong tầm tay khi chia sẻ hoặc tìm hiểu." },
       },
       {
-        title: { en: "Family resources", vi: "Tài nguyên cộng đồng" },
+        title: { en: "Distributor resources", vi: "Tài nguyên nhà phân phối" },
         text: { en: "Support for distributors and new members.", vi: "Hỗ trợ nhà phân phối và thành viên mới." },
       },
       {
@@ -538,11 +538,11 @@ export const products: Product[] = [
 ];
 
 export const crystalIntro = {
-  eyebrow: { en: "The Sleepm BioCrystals", vi: "BioCrystal của Sleepm" },
-  title: { en: "Meet the magic in your mattress.", vi: "Gặp điều kỳ diệu trong chiếc nệm của bạn." },
+  eyebrow: { en: "Sleepm BioCrystal blend", vi: "Hỗn hợp BioCrystal của Sleepm" },
+  title: { en: "Sixteen crystals, gold and silver.", vi: "Mười sáu tinh thể, vàng và bạc." },
   text: {
-    en: "Sixteen naturally formed crystals are held in balance by gold and silver, then sealed into every Sleepm.",
-    vi: "Mười sáu tinh thể tự nhiên được cân bằng bởi vàng và bạc, rồi được đưa vào mỗi sản phẩm Sleepm.",
+    en: "Sleepm presents its BioCrystal insert as a wellness heritage blend used inside the mattress, topper, pillows and comfort accessories.",
+    vi: "Sleepm giới thiệu lớp lót BioCrystal như một hỗn hợp wellness mang tính di sản, dùng trong nệm, topper, gối và các phụ kiện thư giãn.",
   },
 };
 
@@ -566,49 +566,49 @@ export const crystals = [
 ] as const;
 
 export const metals = [
-  { key: "gold", img: "/images/crystals/gold.webp", name: { en: "Gold", vi: "Vàng" }, lore: { en: "Warmth in the weave.", vi: "Hơi ấm trong từng sợi kết nối." } },
-  { key: "silver", img: "/images/crystals/silver.webp", name: { en: "Silver", vi: "Bạc" }, lore: { en: "Cool clarity beside every stone.", vi: "Sự trong trẻo mát lành bên mỗi tinh thể." } },
+  { key: "gold", img: "/images/crystals/gold.webp", name: { en: "Gold", vi: "Vàng" }, lore: { en: "Included as one of the two noble metals in the BioCrystal blend.", vi: "Một trong hai kim loại quý trong hỗn hợp BioCrystal." } },
+  { key: "silver", img: "/images/crystals/silver.webp", name: { en: "Silver", vi: "Bạc" }, lore: { en: "Included with gold to complete the BioCrystal blend.", vi: "Kết hợp cùng vàng để hoàn thiện hỗn hợp BioCrystal." } },
 ] as const;
 
 export const wireItems = [
-  { source: "Mass General Brigham", title: { en: "Body-clock study finds calories burned after meals peak in the morning", vi: "Nghiên cứu đồng hồ sinh học cho thấy đốt calo sau bữa ăn đạt đỉnh vào buổi sáng" }, note: { en: "Circadian timing keeps showing up in metabolic research.", vi: "Nhịp sinh học tiếp tục xuất hiện trong các nghiên cứu chuyển hóa." }, url: "https://www.massgeneralbrigham.org/en/about/newsroom/articles/body-clock-influence-on-calories-after-meal" },
-  { source: "Sleep Foundation", title: { en: "Green noise joins the growing palette of sleep sounds people try", vi: "Green noise gia nhập nhóm âm thanh ngủ được nhiều người thử nghiệm" }, note: { en: "Another shade in the soundscape for winding down.", vi: "Một sắc thái mới trong không gian âm thanh trước giờ ngủ." }, url: "https://www.sleepfoundation.org/noise-and-sleep/what-is-green-noise" },
-  { source: "University of Washington", title: { en: "Research suggests human sleep shifts subtly with the lunar cycle", vi: "Nghiên cứu gợi ý giấc ngủ con người thay đổi nhẹ theo chu kỳ mặt trăng" }, note: { en: "The old sky keeps earning fresh attention.", vi: "Bầu trời cũ vẫn tiếp tục thu hút sự quan tâm mới." }, url: "https://www.washington.edu/news/2021/01/27/moon-sleep/" },
-  { source: "Sleep Foundation", title: { en: "What researchers say is happening during sleep paralysis", vi: "Các nhà nghiên cứu nói gì về hiện tượng bóng đè" }, note: { en: "A clearer view of a frightening but common sleep event.", vi: "Một góc nhìn rõ hơn về hiện tượng đáng sợ nhưng khá phổ biến." }, url: "https://www.sleepfoundation.org/parasomnias/sleep-paralysis" },
-  { source: "Frontiers in Public Health", title: { en: "A 2026 study looks at bedroom humidity, not just temperature", vi: "Nghiên cứu năm 2026 xem xét độ ẩm phòng ngủ, không chỉ nhiệt độ" }, note: { en: "Comfort is a full-room equation.", vi: "Sự thoải mái là bài toán của cả căn phòng." }, url: "https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2026.1748619/full" },
-  { source: "Frontiers in Physiology", title: { en: "A tai chi routine linked to deeper sleep in older adults", vi: "Thói quen thái cực quyền được liên kết với giấc ngủ sâu hơn ở người lớn tuổi" }, note: { en: "Slow movement continues to meet sleep science.", vi: "Chuyển động chậm tiếp tục gặp gỡ khoa học giấc ngủ." }, url: "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2026.1795646/full" },
+  { source: "Sleepm", title: { en: "Sleepm product line", vi: "Dòng sản phẩm Sleepm" }, note: { en: "Mattress, topper, pillows, warming products, massage accessories, light, dot and app.", vi: "Nệm, topper, gối, sản phẩm làm ấm, phụ kiện massage, đèn, dot và ứng dụng." }, url: "https://sleepm.com/products/" },
+  { source: "Sleepm", title: { en: "BioCrystal mattress details", vi: "Chi tiết nệm BioCrystal" }, note: { en: "Materials, sizes and the BioCrystal insert used in Sleepm mattresses.", vi: "Vật liệu, kích thước và lớp lót BioCrystal dùng trong nệm Sleepm." }, url: "https://sleepm.com/mattress/" },
+  { source: "Sleepm", title: { en: "Warranty claim process", vi: "Quy trình yêu cầu bảo hành" }, note: { en: "How customers should prepare photos, measurements and product details.", vi: "Khách hàng cần chuẩn bị ảnh, số đo và thông tin sản phẩm như thế nào." }, url: "https://sleepm.com/warranty-claim/" },
+  { source: "Sleepm", title: { en: "Sleep health information", vi: "Thông tin sức khỏe giấc ngủ" }, note: { en: "Educational content about sleep quality and everyday wellness.", vi: "Nội dung tham khảo về chất lượng giấc ngủ và sức khỏe hằng ngày." }, url: "https://sleepm.com/sleep-health/" },
+  { source: "Sleepm Global", title: { en: "Global office locations", vi: "Văn phòng toàn cầu" }, note: { en: "Canada, United States, Vietnam and international Sleepm contacts.", vi: "Thông tin liên hệ Sleepm tại Canada, Hoa Kỳ, Việt Nam và các thị trường quốc tế." }, url: "https://www.sleepm.net/Category/index/id/5.html" },
+  { source: "Sleepm", title: { en: "Contact Sleepm", vi: "Liên hệ Sleepm" }, note: { en: "Use the official office and support channels for product questions.", vi: "Dùng kênh văn phòng và hỗ trợ chính thức để hỏi về sản phẩm." }, url: "https://sleepm.com/contact/" },
 ] as const;
 
 export const family = {
   hero: {
-    eyebrow: { en: "Our story and our people", vi: "Câu chuyện và con người Sleepm" },
-    title: { en: "One dream. One family.", vi: "Một giấc mơ. Một gia đình." },
+    eyebrow: { en: "About Sleepm", vi: "Về Sleepm" },
+    title: { en: "A BioCrystal sleep company with a global distributor network.", vi: "Công ty giấc ngủ BioCrystal với mạng lưới nhà phân phối toàn cầu." },
     text: {
-      en: "Sleepm began with a simple wish: help more people sleep the way they deserve. Today that wish moves through a family across continents.",
-      vi: "Sleepm bắt đầu từ một mong muốn giản dị: giúp nhiều người ngủ theo cách họ xứng đáng. Hôm nay, mong muốn ấy được lan tỏa qua một gia đình trên nhiều châu lục.",
+      en: "Sleepm focuses on mattresses, toppers, pillows and wellness accessories that combine modern comfort materials with its BioCrystal insert.",
+      vi: "Sleepm tập trung vào nệm, topper, gối và phụ kiện wellness, kết hợp vật liệu tiện nghi hiện đại với lớp lót BioCrystal.",
     },
   },
   chapters: [
     {
-      year: "2018",
-      title: { en: "The wish", vi: "Mong muốn ban đầu" },
-      text: { en: "Sleep should leave people feeling cared for, from joints to spirit.", vi: "Giấc ngủ nên khiến con người cảm thấy được chăm sóc, từ khớp xương đến tinh thần." },
+      year: "BioCrystal",
+      title: { en: "Product platform", vi: "Nền tảng sản phẩm" },
+      text: { en: "The brand story centers on 16 natural crystals plus gold and silver used across the Sleepm line.", vi: "Câu chuyện thương hiệu xoay quanh 16 tinh thể tự nhiên cùng vàng và bạc trong dòng sản phẩm Sleepm." },
     },
     {
-      year: "Croatia",
-      title: { en: "The stones", vi: "Những viên đá" },
-      text: { en: "Old crystal traditions led the founders to suppliers whose lore became part of Sleepm.", vi: "Những truyền thống tinh thể lâu đời dẫn đội ngũ sáng lập tới các nhà cung cấp, nơi câu chuyện của họ trở thành một phần Sleepm." },
+      year: "USA / Canada",
+      title: { en: "North American manufacturing", vi: "Sản xuất tại Bắc Mỹ" },
+      text: { en: "Core mattress products are presented as made in the United States and Canada with certified material partners.", vi: "Các sản phẩm nệm chủ lực được giới thiệu là sản xuất tại Hoa Kỳ và Canada cùng các đối tác vật liệu có chứng nhận." },
     },
     {
-      year: "Today",
-      title: { en: "The family", vi: "Gia đình" },
-      text: { en: "Every product is made in America and Canada, then shared person to person.", vi: "Mỗi sản phẩm được sản xuất tại Mỹ và Canada, rồi được chia sẻ trực tiếp giữa con người với con người." },
+      year: "Global",
+      title: { en: "Distributor model", vi: "Mô hình nhà phân phối" },
+      text: { en: "Products are introduced through local offices, showrooms and independent distributors.", vi: "Sản phẩm được giới thiệu thông qua văn phòng, showroom và nhà phân phối độc lập tại địa phương." },
     },
   ],
 };
 
 export const people = [
-  { name: "Emma He, PhD", role: { en: "Chief Executive Officer", vi: "Tổng giám đốc" }, img: "/images/people/emma-he.webp", bio: { en: "A management PhD and former professor who helped carry Sleepm from idea to global family.", vi: "Tiến sĩ quản trị và cựu giáo sư, người góp phần đưa Sleepm từ ý tưởng thành cộng đồng toàn cầu." } },
+  { name: "Emma He, PhD", role: { en: "Chief Executive Officer", vi: "Tổng giám đốc" }, img: "/images/people/emma-he.webp", bio: { en: "A management PhD and former professor focused on developing Sleepm as a global wellness brand.", vi: "Tiến sĩ quản trị và cựu giáo sư, tập trung phát triển Sleepm như một thương hiệu wellness toàn cầu." } },
   { name: "Dr. Nancy Xu, MD, PhD", role: { en: "Chief Health Officer", vi: "Giám đốc sức khỏe" }, img: "/images/people/nancy-xu.webp", bio: { en: "Two decades across clinical research and global biopharma, bringing rigor to the wellness mission.", vi: "Hai thập kỷ trong nghiên cứu lâm sàng và dược sinh học toàn cầu, mang tính nghiêm cẩn vào sứ mệnh chăm sóc sức khỏe." } },
   { name: "Alex Baron", role: { en: "Chief Operating Officer", vi: "Giám đốc vận hành" }, img: "/images/people/alex-baron.webp", bio: { en: "Finance, product and technology leadership focused on making bold ideas work in real homes.", vi: "Kinh nghiệm tài chính, sản phẩm và công nghệ, tập trung biến ý tưởng lớn thành trải nghiệm thực trong gia đình." } },
 ] as const;
@@ -623,28 +623,29 @@ export const offices = [
   { region: { en: "United States - West", vi: "Hoa Kỳ - Miền Tây" }, city: "Los Angeles", address: ["11837 Goldring Rd", "Arcadia, CA 91006"], phone: "+1 (626) 678-5919", email: "support@sleepm.com" },
   { region: { en: "United States - Store", vi: "Hoa Kỳ - Cửa hàng" }, city: "Las Vegas", address: ["3160 W Sahara Ave, Suite A11", "Las Vegas, NV 89102"], phone: "+1 (702) 797-0441", email: "info@sleepm.com" },
   { region: { en: "United States - East", vi: "Hoa Kỳ - Miền Đông" }, city: "New York", address: ["499 7th Ave", "Floor 14N", "New York, NY 10018"], phone: "+1 929-966-8689", email: "support@sleepm.com" },
+  { region: { en: "Vietnam - Representative office", vi: "Việt Nam - Văn phòng đại diện" }, city: "Ho Chi Minh City", address: ["Room 903, 9th Floor", "No. 34 Le Duan Street, Sai Gon Ward", "Ho Chi Minh City"], phone: "", email: "", note: { en: "Use the contact form or email support for current Vietnam appointments.", vi: "Vui lòng dùng form liên hệ hoặc email hỗ trợ để đặt lịch làm việc tại Việt Nam." } },
 ] as const;
 
 export const genericPages = {
   "sleep-health": {
     eyebrow: { en: "The Sleepm wellness mission", vi: "Sứ mệnh wellness của Sleepm" },
-    title: { en: "Rest is the foundation.", vi: "Nghỉ ngơi là nền tảng." },
+    title: { en: "Better sleep supports better days.", vi: "Giấc ngủ tốt hỗ trợ một ngày tốt hơn." },
     text: {
-      en: "We built Sleepm around a simple idea: a better night changes the whole day. Mood, focus, energy and recovery all begin with rest.",
-      vi: "Sleepm được xây dựng quanh một ý tưởng giản dị: một đêm ngon làm thay đổi cả ngày. Tâm trạng, sự tập trung, năng lượng và phục hồi đều bắt đầu từ nghỉ ngơi.",
+      en: "Sleep quality affects daily energy, concentration, mood and recovery. Sleepm positions its products as comfort and wellness tools for improving the sleep environment.",
+      vi: "Chất lượng giấc ngủ ảnh hưởng đến năng lượng, sự tập trung, tâm trạng và phục hồi hằng ngày. Sleepm định vị sản phẩm như công cụ tiện nghi và wellness để cải thiện môi trường ngủ.",
     },
     cards: [
-      { metric: "37M", label: { en: "Americans have trouble falling asleep most nights.", vi: "người Mỹ khó ngủ vào hầu hết các đêm." } },
-      { metric: "1 in 3", label: { en: "adults describe their sleep as fair or poor.", vi: "người trưởng thành mô tả giấc ngủ chỉ ở mức tạm hoặc kém." } },
-      { metric: "2x", label: { en: "good sleepers report higher life-satisfaction scores.", vi: "người ngủ tốt báo cáo mức hài lòng cuộc sống cao hơn." } },
+      { metric: "8h", label: { en: "The common target for a full night's rest for many adults.", vi: "Mục tiêu phổ biến cho một đêm nghỉ đầy đủ của nhiều người trưởng thành." } },
+      { metric: "Comfort", label: { en: "Temperature, pressure relief and support all affect perceived sleep quality.", vi: "Nhiệt độ, giảm áp lực và nâng đỡ đều ảnh hưởng đến cảm nhận về giấc ngủ." } },
+      { metric: "Routine", label: { en: "A consistent bedtime routine helps the bedroom feel easier to rest in.", vi: "Thói quen trước ngủ đều đặn giúp phòng ngủ dễ nghỉ ngơi hơn." } },
     ],
   },
   testimonials: {
     eyebrow: { en: "Testimonials", vi: "Cảm nhận" },
     title: { en: "In their own words.", vi: "Bằng chính lời của họ." },
     text: {
-      en: "Athletes, performers and everyday sleepers describe the difference they feel after changing their nights.",
-      vi: "Vận động viên, nghệ sĩ và những người ngủ mỗi ngày chia sẻ khác biệt họ cảm nhận sau khi thay đổi giấc ngủ.",
+      en: "Customer and ambassador stories are included as personal experiences, not guaranteed outcomes.",
+      vi: "Câu chuyện của khách hàng và đại sứ được trình bày như trải nghiệm cá nhân, không phải kết quả bảo đảm.",
     },
     cards: [
       { metric: "Carlos Newton", label: { en: "Former UFC Champion: better alignment and faster recovery after travel.", vi: "Cựu vô địch UFC: cảm nhận sự thẳng hàng tốt hơn và phục hồi nhanh hơn sau chuyến bay." } },
@@ -654,7 +655,7 @@ export const genericPages = {
   },
   payments: {
     eyebrow: { en: "Flexible payments", vi: "Thanh toán linh hoạt" },
-    title: { en: "Rest now, settle softly.", vi: "Nghỉ ngon hôm nay, thanh toán nhẹ nhàng." },
+    title: { en: "Financing may be available through local offices.", vi: "Có thể có hỗ trợ tài chính qua văn phòng địa phương." },
     text: {
       en: "Sleepm can be paired with financing options through local offices and distributors where available.",
       vi: "Sleepm có thể đi kèm các lựa chọn hỗ trợ tài chính thông qua văn phòng và nhà phân phối địa phương khi có áp dụng.",
@@ -667,7 +668,7 @@ export const genericPages = {
   },
   warranty: {
     eyebrow: { en: "Warranty", vi: "Bảo hành" },
-    title: { en: "We stand behind every night.", vi: "Chúng tôi đồng hành sau mỗi đêm ngủ." },
+    title: { en: "Prepare the right details before contacting support.", vi: "Chuẩn bị đúng thông tin trước khi liên hệ hỗ trợ." },
     text: {
       en: "Prepare photos, measurements and your product details, then contact support for the current warranty process.",
       vi: "Chuẩn bị ảnh, số đo và thông tin sản phẩm, sau đó liên hệ hỗ trợ để nhận quy trình bảo hành hiện hành.",

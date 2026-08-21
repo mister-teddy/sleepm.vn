@@ -15,14 +15,14 @@ const lang = Astro.params.lang as Lang;
 <SiteLayout lang={lang} title={tx(lang, common.nav.nightWire)}>
   <LocalizedHero
     eyebrow={tx(lang, common.nav.nightWire)}
-    title={tx(lang, { en: "Tonight's dispatches.", vi: "Những bản tin của đêm nay." })}
-    accent={tx(lang, { en: "Tonight", vi: "đêm nay" })}
-    text={tx(lang, { en: "Sleep science, sleep tech and word from the family - curated while you were dreaming.", vi: "Khoa học giấc ngủ, công nghệ ngủ và tin từ cộng đồng - được tuyển chọn khi bạn đang mơ." })}
+    title={tx(lang, { en: "Sleepm news, product resources and support links.", vi: "Tin tức, tài nguyên sản phẩm và hỗ trợ Sleepm." })}
+    accent={tx(lang, { en: "resources", vi: "tài nguyên" })}
+    text={tx(lang, { en: "A practical index for product information, sleep health education, warranty steps and contact details.", vi: "Mục lục thực dụng cho thông tin sản phẩm, kiến thức giấc ngủ, bước bảo hành và liên hệ." })}
   >
     <div class="actions">
-      <a class="btn" href="mailto:info@sleepm.com?subject=Sleepm%20Night%20Wire">
+      <a class="btn" href="mailto:info@sleepm.com?subject=Sleepm%20inquiry">
         <Mail size={16} aria-hidden="true" />
-        {tx(lang, { en: "Get the Wire by email", vi: "Nhận bản tin qua email" })}
+        {tx(lang, { en: "Ask Sleepm by email", vi: "Gửi email cho Sleepm" })}
       </a>
       <a class="text-link" href={pathFor(lang, "/contact/")}>{tx(lang, common.nav.contact)}</a>
     </div>
@@ -43,20 +43,20 @@ const lang = Astro.params.lang as Lang;
 
   <section class="section split">
     <div class="copy-block awaken">
-      <p class="eyebrow">{lang === "vi" ? "Từ gia đình" : "From the family"}</p>
-      <h2>{lang === "vi" ? <>Vòng tròn <em>lên tiếng</em>.</> : <>The circle <em>speaks</em>.</>}</h2>
-      <p>{lang === "vi" ? "Những câu chuyện đã được chào đón từ thành viên Sleepm có thể xuất hiện tại đây sau khi đội ngũ biên tập xem xét." : "Welcomed stories from Sleepm members can appear here after the night desk reviews them."}</p>
+      <p class="eyebrow">{lang === "vi" ? "Gợi ý tiếp theo" : "Next steps"}</p>
+      <h2>{lang === "vi" ? <>Từ tìm hiểu đến <em>liên hệ</em>.</> : <>From research to <em>contact</em>.</>}</h2>
+      <p>{lang === "vi" ? "Sau khi xem thông tin sản phẩm, hãy liên hệ văn phòng hoặc nhà phân phối để xác nhận giá, hàng sẵn, bảo hành và lịch hẹn." : "After reviewing product information, contact an office or distributor to confirm pricing, availability, warranty details and appointments."}</p>
     </div>
     <div class="card-grid">
       {[
-        { title: { en: "A distributor rose to Star Four", vi: "Một nhà phân phối lên bốn sao" }, place: "Toronto" },
-        { title: { en: "New topper inquiry", vi: "Yêu cầu tư vấn topper mới" }, place: "Vancouver" },
-        { title: { en: "Heating pad warmed a home", vi: "Đệm sưởi làm ấm một mái nhà" }, place: "Las Vegas" },
+        { title: { en: "Product guidance", vi: "Tư vấn sản phẩm" }, place: lang === "vi" ? "Nệm / topper / gối" : "Mattress / topper / pillows" },
+        { title: { en: "Warranty support", vi: "Hỗ trợ bảo hành" }, place: lang === "vi" ? "Ảnh, số đo, thông tin mua hàng" : "Photos, measurements, purchase details" },
+        { title: { en: "Distributor inquiry", vi: "Hỏi về nhà phân phối" }, place: lang === "vi" ? "Thị trường, ngôn ngữ, người bảo trợ" : "Market, language, sponsor" },
       ].map((post) => (
         <article class="card awaken">
-          <span class="meta">Live · {post.place}</span>
+          <span class="meta">{post.place}</span>
           <h3>{tx(lang, post.title)}</h3>
-          <p>{lang === "vi" ? "Một nhịp nhỏ trong cộng đồng Sleepm." : "A small pulse from the Sleepm family."}</p>
+          <p>{lang === "vi" ? "Dùng trang liên hệ để gửi yêu cầu tới Sleepm." : "Use the contact page to send the request to Sleepm."}</p>
         </article>
       ))}
     </div>

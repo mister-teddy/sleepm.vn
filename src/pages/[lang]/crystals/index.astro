@@ -16,15 +16,15 @@ const lang = Astro.params.lang as Lang;
   <LocalizedHero
     eyebrow={tx(lang, crystalIntro.eyebrow)}
     title={tx(lang, crystalIntro.title)}
-    accent={lang === "vi" ? "kỳ diệu" : "magic"}
+    accent={lang === "vi" ? "BioCrystal" : "BioCrystal"}
     text={tx(lang, crystalIntro.text)}
   >
     <div class="actions">
       <a class="btn" href="#journey">
         <Gem size={16} aria-hidden="true" />
-        {lang === "vi" ? "Đánh thức từng tinh thể" : "Wake each crystal"}
+        {lang === "vi" ? "Xem 16 tinh thể" : "View 16 crystals"}
       </a>
-      <a class="text-link" href={pathFor(lang, "/constellation/")}>{tx(lang, { en: "See the constellation", vi: "Xem chòm sao" })} <ArrowRight size={15} aria-hidden="true" /></a>
+      <a class="text-link" href={pathFor(lang, "/constellation/")}>{tx(lang, { en: "See the ingredient map", vi: "Xem sơ đồ thành phần" })} <ArrowRight size={15} aria-hidden="true" /></a>
     </div>
   </LocalizedHero>
 
@@ -48,8 +48,8 @@ const lang = Astro.params.lang as Lang;
   <section class="section split">
     <div class="copy-block awaken">
       <p class="eyebrow">{lang === "vi" ? "Và hai kim loại quý" : "And two noble metals"}</p>
-      <h2>{lang === "vi" ? <>Vàng và bạc, <em>những điểm cân bằng</em>.</> : <>Gold and silver, <em>the balancers</em>.</>}</h2>
-      <p>{lang === "vi" ? "Trong câu chuyện Sleepm, các tinh thể không đi một mình. Vàng giữ hơi ấm, bạc giữ sự trong trẻo mát lành, cùng cân bằng hỗn hợp BioCrystal." : "In the Sleepm story, the crystals never travel alone. Gold carries warmth, silver carries cool clarity, and together they balance the BioCrystal blend."}</p>
+      <h2>{lang === "vi" ? <>Vàng và bạc trong <em>hỗn hợp BioCrystal</em>.</> : <>Gold and silver in the <em>BioCrystal blend</em>.</>}</h2>
+      <p>{lang === "vi" ? "Sleepm trình bày vàng và bạc như hai kim loại quý hoàn thiện câu chuyện thành phần BioCrystal trong dòng sản phẩm của mình." : "Sleepm presents gold and silver as the two noble metals that complete the BioCrystal ingredient story across the product line."}</p>
     </div>
     <div class="card-grid">
       {metals.map((metal) => (

@@ -1,5 +1,5 @@
 ---
-import { ArrowRight, Sparkles } from "@lucide/astro";
+import { ArrowRight, MessageCircle } from "@lucide/astro";
 import CtaBand from "@components/CtaBand.astro";
 import LocalizedHero from "@components/LocalizedHero.astro";
 import SiteLayout from "@layouts/SiteLayout.astro";
@@ -14,10 +14,10 @@ const lang = Astro.params.lang as Lang;
 
 <SiteLayout lang={lang} title={tx(lang, common.labels.collection)}>
   <LocalizedHero
-    eyebrow={lang === "vi" ? "Chín lối vào" : "Nine doors"}
-    title={lang === "vi" ? "Chọn cách bạn bước vào đêm." : "Choose your way into the night."}
-    accent={lang === "vi" ? "đêm" : "night"}
-    text={lang === "vi" ? "Nệm, topper, gối, hơi ấm, ánh sáng và ứng dụng - mọi thứ được thiết kế quanh một nghi thức nghỉ ngơi yên tĩnh." : "Mattress, topper, pillows, warmth, light and app - the whole sleep ritual gathered into one collection."}
+    eyebrow={lang === "vi" ? "Dòng sản phẩm Sleepm" : "Sleepm product line"}
+    title={lang === "vi" ? "Nệm, topper, gối và phụ kiện wellness." : "Mattress, topper, pillows and wellness accessories."}
+    accent={lang === "vi" ? "wellness" : "wellness"}
+    text={lang === "vi" ? "Tìm hiểu từng sản phẩm BioCrystal, từ nệm chủ lực đến topper, gối, đệm sưởi, massage đầu gối, đèn, Dot và ứng dụng." : "Explore each BioCrystal product, from the core mattress to topper, pillows, heating pad, knee massager, light, Dot and app."}
   />
 
   <section class="section section-wide">
@@ -38,11 +38,11 @@ const lang = Astro.params.lang as Lang;
 
   <section class="section split">
     <div class="copy-block awaken">
-      <p class="eyebrow">{lang === "vi" ? "Được chứng nhận và chăm chút" : "Crafted and certified"}</p>
-      <h2>{lang === "vi" ? <>Vật liệu tốt. <em>Nghỉ ngơi sâu.</em></> : <>Premium materials. <em>Proven craft.</em></>}</h2>
-      <p>{lang === "vi" ? "Các sản phẩm chủ lực của Sleepm kết hợp vật liệu sạch, công nghệ làm mát, lớp nâng đỡ và câu chuyện BioCrystal trong một trải nghiệm được chia sẻ trực tiếp." : "Sleepm's core products combine clean materials, cooling technology, support layers and the BioCrystal story in a person-to-person experience."}</p>
+      <p class="eyebrow">{lang === "vi" ? "Vật liệu và chứng nhận" : "Materials and certifications"}</p>
+      <h2>{lang === "vi" ? <>Công nghệ BioCrystal cùng <em>vật liệu hiện đại</em>.</> : <>BioCrystal technology with <em>modern comfort materials</em>.</>}</h2>
+      <p>{lang === "vi" ? "Các sản phẩm chủ lực kết hợp lớp lót BioCrystal, latex tự nhiên, foam làm mát, lò xo nâng đỡ và các chứng nhận vật liệu được hiển thị theo từng dòng sản phẩm." : "Core products combine a BioCrystal insert, natural latex, cooling foam, support coils and material certifications shown across the line."}</p>
       <a class="btn" href={pathFor(lang, "/contact/")}>
-        <Sparkles size={16} aria-hidden="true" />
+        <MessageCircle size={16} aria-hidden="true" />
         {tx(lang, common.labels.askFamily)}
       </a>
     </div>
@@ -50,7 +50,7 @@ const lang = Astro.params.lang as Lang;
       {[
         { metric: "16", label: { en: "crystals in the BioCrystal blend", vi: "tinh thể trong hỗn hợp BioCrystal" } },
         { metric: "2", label: { en: "noble metals: gold and silver", vi: "kim loại quý: vàng và bạc" } },
-        { metric: "0", label: { en: "store shelves - Sleepm travels hand to hand", vi: "kệ bán đại trà - Sleepm được trao tận tay" } },
+        { metric: "Local", label: { en: "pricing and financing through offices or distributors", vi: "giá và tài chính qua văn phòng hoặc nhà phân phối" } },
       ].map((stat) => (
         <article class="stat-card awaken">
           <h2>{stat.metric}</h2>

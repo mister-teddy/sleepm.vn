@@ -1,5 +1,5 @@
 ---
-import { HeartHandshake, Sparkles } from "@lucide/astro";
+import { Globe, HeartHandshake } from "@lucide/astro";
 import CtaBand from "@components/CtaBand.astro";
 import LocalizedHero from "@components/LocalizedHero.astro";
 import SiteLayout from "@layouts/SiteLayout.astro";
@@ -16,7 +16,7 @@ const lang = Astro.params.lang as Lang;
   <LocalizedHero
     eyebrow={tx(lang, family.hero.eyebrow)}
     title={tx(lang, family.hero.title)}
-    accent={tx(lang, { en: "family", vi: "gia đình" })}
+    accent={tx(lang, { en: "BioCrystal", vi: "BioCrystal" })}
     text={tx(lang, family.hero.text)}
     image="/images/people/team.webp"
     imageAlt="Sleepm team"
@@ -32,8 +32,8 @@ const lang = Astro.params.lang as Lang;
 
   <section class="section split">
     <div class="copy-block awaken">
-      <p class="eyebrow">{lang === "vi" ? "Đêm bắt đầu như thế nào" : "How the night began"}</p>
-      <h2>{lang === "vi" ? <>Từ ý tưởng đến <em>gia đình</em>.</> : <>From an idea to a <em>family</em>.</>}</h2>
+      <p class="eyebrow">{lang === "vi" ? "Cách Sleepm hoạt động" : "How Sleepm works"}</p>
+      <h2>{lang === "vi" ? <>Sản phẩm, sản xuất và <em>phân phối</em>.</> : <>Product, manufacturing and <em>distribution</em>.</>}</h2>
     </div>
     <div class="timeline">
       {family.chapters.map((chapter) => (
@@ -51,7 +51,7 @@ const lang = Astro.params.lang as Lang;
   <section class="section">
     <div class="section-head awaken">
       <p class="eyebrow">{lang === "vi" ? "Ban lãnh đạo" : "Leadership"}</p>
-      <h2>{lang === "vi" ? <>Những người giữ ánh đèn <em>dịu xuống</em>.</> : <>The ones who keep the lights <em>low</em>.</>}</h2>
+      <h2>{lang === "vi" ? <>Đội ngũ điều hành <em>Sleepm</em>.</> : <>The Sleepm <em>leadership</em> team.</>}</h2>
     </div>
     <div class="people-grid">
       {people.map((person) => (
@@ -70,7 +70,7 @@ const lang = Astro.params.lang as Lang;
   <section class="section">
     <div class="section-head awaken">
       <p class="eyebrow">{lang === "vi" ? "Cố vấn sức khỏe" : "Health and wellness advisors"}</p>
-      <h2>{lang === "vi" ? <>Lời khuyên sâu, <em>nghỉ ngơi tốt</em>.</> : <>Wise counsel, <em>well rested</em>.</>}</h2>
+      <h2>{lang === "vi" ? <>Cố vấn wellness và <em>giấc ngủ</em>.</> : <>Wellness and <em>sleep</em> advisors.</>}</h2>
     </div>
     <div class="people-grid">
       {advisors.map((person) => (
@@ -84,10 +84,10 @@ const lang = Astro.params.lang as Lang;
         </article>
       ))}
       <article class="card awaken">
-        <Sparkles size={24} aria-hidden="true" />
+        <Globe size={24} aria-hidden="true" />
         <span class="meta">{lang === "vi" ? "Ba châu lục" : "Three continents"}</span>
-        <h3>{lang === "vi" ? "Gia đình toàn cầu" : "A global family"}</h3>
-        <p>{lang === "vi" ? "Những văn phòng, đối tác và nhà phân phối cùng chung một bầu trời đêm." : "Offices, partners and distributors sharing one night sky."}</p>
+        <h3>{lang === "vi" ? "Mạng lưới toàn cầu" : "A global network"}</h3>
+        <p>{lang === "vi" ? "Văn phòng, đối tác và nhà phân phối hỗ trợ khách hàng theo từng thị trường." : "Offices, partners and distributors support customers in each market."}</p>
       </article>
     </div>
   </section>
