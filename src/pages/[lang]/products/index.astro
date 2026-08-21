@@ -1,0 +1,64 @@
+---
+import { ArrowRight, MessageCircle } from "@lucide/astro";
+import CtaBand from "@components/CtaBand.astro";
+import LocalizedHero from "@components/LocalizedHero.astro";
+import SiteLayout from "@layouts/SiteLayout.astro";
+import { common, langCodes, pathFor, products, tx, type Lang } from "@data/site";
+
+export function getStaticPaths() {
+  return langCodes.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+---
+
+<SiteLayout lang={lang} title={tx(lang, common.labels.collection)}>
+  <LocalizedHero
+    eyebrow={lang === "vi" ? "Dòng sản phẩm Sleepm" : "Sleepm product line"}
+    title={lang === "vi" ? "Nệm, topper, gối và phụ kiện wellness." : "Mattress, topper, pillows and wellness accessories."}
+    accent={lang === "vi" ? "wellness" : "wellness"}
+    text={lang === "vi" ? "Tìm hiểu từng sản phẩm BioCrystal, từ nệm chủ lực đến topper, gối, đệm sưởi, massage đầu gối, đèn, Dot và ứng dụng." : "Explore each BioCrystal product, from the core mattress to topper, pillows, heating pad, knee massager, light, Dot and app."}
+  />
+
+  <section class="section section-wide">
+    <div class="door-grid">
+      {products.map((product) => (
+        <a class="door awaken" href={pathFor(lang, `/products/${product.slug}/`)}>
+          <img src={product.image} alt={tx(lang, product.name)} loading="lazy" />
+          <div class="door-body">
+            <span class="meta">{tx(lang, product.eyebrow)}</span>
+            <h2>{tx(lang, product.name)}</h2>
+            <p>{tx(lang, product.collectionLine)}</p>
+            <span class="text-link">{tx(lang, common.labels.enter)} <ArrowRight size={15} aria-hidden="true" /></span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section split">
+    <div class="copy-block awaken">
+      <p class="eyebrow">{lang === "vi" ? "Vật liệu và chứng nhận" : "Materials and certifications"}</p>
+      <h2>{lang === "vi" ? <>Công nghệ BioCrystal cùng <em>vật liệu hiện đại</em>.</> : <>BioCrystal technology with <em>modern comfort materials</em>.</>}</h2>
+      <p>{lang === "vi" ? "Các sản phẩm chủ lực kết hợp lớp lót BioCrystal, latex tự nhiên, foam làm mát, lò xo nâng đỡ và các chứng nhận vật liệu được hiển thị theo từng dòng sản phẩm." : "Core products combine a BioCrystal insert, natural latex, cooling foam, support coils and material certifications shown across the line."}</p>
+      <a class="btn" href={pathFor(lang, "/contact/")}>
+        <MessageCircle size={16} aria-hidden="true" />
+        {tx(lang, common.labels.askFamily)}
+      </a>
+    </div>
+    <div class="card-grid">
+      {[
+        { metric: "16", label: { en: "crystals in the BioCrystal blend", vi: "tinh thể trong hỗn hợp BioCrystal" } },
+        { metric: "2", label: { en: "noble metals: gold and silver", vi: "kim loại quý: vàng và bạc" } },
+        { metric: "Info", label: { en: "no prices, cart or checkout on sleepm.vn", vi: "không giá bán, giỏ hàng hoặc thanh toán trên sleepm.vn" } },
+      ].map((stat) => (
+        <article class="stat-card awaken">
+          <h2>{stat.metric}</h2>
+          <p>{tx(lang, stat.label)}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <CtaBand lang={lang} />
+</SiteLayout>

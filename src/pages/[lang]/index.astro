@@ -1,0 +1,120 @@
+---
+import { ArrowRight, Gem, HeartHandshake, Package } from "@lucide/astro";
+import CtaBand from "@components/CtaBand.astro";
+import LocalizedHero from "@components/LocalizedHero.astro";
+import SiteLayout from "@layouts/SiteLayout.astro";
+import { common, langCodes, pathFor, products, tx, type Lang } from "@data/site";
+
+export function getStaticPaths() {
+  return langCodes.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+const hero = {
+  eyebrow: { en: "Wellness just got a whole lot better", vi: "Wellness just got a whole lot better" },
+  title: { en: "Sleep better. Live better.", vi: "Sleep better. Live better." },
+  accent: { en: "Sleep", vi: "Sleep" },
+  text: {
+    en: "Experience sleep like you never had before with SleepM BioCrystal products. sleepm.vn introduces SleepM Global Inc., BioCrystal technology, products, references, FAQ and official contact channels.",
+    vi: "Hãy cùng trải nghiệm nệm ngủ SleepM, giấc ngủ ngon hơn cho sức khỏe trọn đời. sleepm.vn giới thiệu SleepM Global Inc., công nghệ BioCrystal, sản phẩm, tài liệu tham khảo, FAQ và kênh liên hệ chính thức.",
+  },
+};
+
+const featured = products.slice(0, 6);
+---
+
+<SiteLayout lang={lang} title={tx(lang, common.nav.home)}>
+  <LocalizedHero
+    eyebrow={tx(lang, hero.eyebrow)}
+    title={tx(lang, hero.title)}
+    accent={tx(lang, hero.accent)}
+    text={tx(lang, hero.text)}
+  >
+    <div class="actions">
+      <a class="btn" href={pathFor(lang, "/products/")}>
+        <Package size={16} aria-hidden="true" />
+        {tx(lang, common.labels.exploreCollection)}
+      </a>
+      <a class="text-link" href={pathFor(lang, "/distributors/")}>{tx(lang, common.labels.becomeDistributor)} <ArrowRight size={15} aria-hidden="true" /></a>
+    </div>
+    <div class="bed-visual" aria-hidden="true">
+      <span class="pillow"></span>
+      <span class="glowline"></span>
+      <span class="base"></span>
+    </div>
+  </LocalizedHero>
+
+  <section class="section">
+    <div class="section-head awaken">
+      <p class="eyebrow">{tx(lang, common.labels.collection)}</p>
+      <h2>{lang === "vi" ? <>Sản phẩm cho <em>phòng ngủ</em> và thói quen nghỉ ngơi.</> : <>Products for the <em>bedroom</em> and daily rest routines.</>}</h2>
+    </div>
+    <div class="product-rows">
+      {featured.map((product) => (
+        <a class="product-row awaken" href={pathFor(lang, `/products/${product.slug}/`)}>
+          <h3>{tx(lang, product.name)}</h3>
+          <p>{tx(lang, product.collectionLine)}</p>
+          <ArrowRight size={22} aria-hidden="true" />
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section-wide split">
+    <div class="copy-block awaken">
+      <p class="eyebrow">{lang === "vi" ? "Công nghệ BioCrystal" : "BioCrystal technology"}</p>
+      <h2>{lang === "vi" ? <>Mười sáu tinh thể. <em>Hai</em> kim loại quý.</> : <>Sixteen crystals. <em>Two</em> noble metals.</>}</h2>
+      <p>{lang === "vi" ? "Lớp lót BioCrystal là điểm nhận diện chính của Sleepm, được giới thiệu trong nệm, topper, gối và nhiều phụ kiện thư giãn." : "The BioCrystal insert is Sleepm's signature feature, used across mattresses, toppers, pillows and selected comfort accessories."}</p>
+      <div class="actions">
+        <a class="btn" href={pathFor(lang, "/crystals/")}>
+          <Gem size={16} aria-hidden="true" />
+          {lang === "vi" ? "Xem thành phần BioCrystal" : "View BioCrystal ingredients"}
+        </a>
+      </div>
+    </div>
+    <div class="crystal-strip awaken" aria-label="BioCrystal highlights">
+      {["amethyst", "rose-quartz", "quartz", "citrine"].map((name) => (
+        <img src={`/images/crystals/${name}.webp`} alt="" loading="lazy" />
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head awaken">
+      <p class="eyebrow">{tx(lang, common.nav.nightWire)}</p>
+      <h2>{lang === "vi" ? <>Thông tin sản phẩm và <em>hỗ trợ</em>.</> : <>Product information and <em>support</em>.</>}</h2>
+    </div>
+    <div class="card-grid">
+      {[
+        { title: { en: "Information website", vi: "Website thông tin" }, text: { en: "sleepm.vn is for Vietnamese-language product and brand information about SleepM Global Inc.", vi: "sleepm.vn cung cấp thông tin tiếng Việt về sản phẩm và thương hiệu SleepM Global Inc." } },
+        { title: { en: "BioCrystal ingredient story", vi: "Câu chuyện thành phần BioCrystal" }, text: { en: "Sixteen natural crystals are combined with gold and silver across the SleepM line.", vi: "Mười sáu tinh thể tự nhiên kết hợp với vàng và bạc trong dòng sản phẩm SleepM." } },
+        { title: { en: "No local ecommerce", vi: "Không TMĐT nội địa" }, text: { en: "The site does not show prices, create carts, confirm orders or process payments in Vietnam.", vi: "Website không hiển thị giá, không tạo giỏ hàng, không xác nhận đơn và không xử lý thanh toán tại Việt Nam." } },
+      ].map((item) => (
+        <article class="card awaken">
+          <span class="meta">{lang === "vi" ? "Sleepm" : "Sleepm"}</span>
+          <h3>{tx(lang, item.title)}</h3>
+          <p>{tx(lang, item.text)}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section split">
+    <div class="team-photo awaken">
+      <img src="/images/people/team.webp" alt="Sleepm team gathering" loading="lazy" />
+    </div>
+    <div class="copy-block awaken">
+      <p class="eyebrow">{lang === "vi" ? "Về sleepm.vn" : "About sleepm.vn"}</p>
+      <h2>{lang === "vi" ? <>Minh bạch về <em>vai trò</em> của website.</> : <>Clear about the website's <em>role</em>.</>}</h2>
+      <p>{lang === "vi" ? "sleepm.vn là cổng thông tin tiếng Việt. Website không tự nhận có Công ty SleepM Việt Nam và không công bố văn phòng chính thức tại Việt Nam nếu chưa có căn cứ pháp lý tương ứng." : "sleepm.vn is a Vietnamese information website. It does not claim a separate SleepM Vietnam company or an official Vietnam office unless legally established."}</p>
+      <div class="actions">
+        <a class="btn" href={pathFor(lang, "/distributors/")}>
+          <HeartHandshake size={16} aria-hidden="true" />
+          {tx(lang, common.nav.distributors)}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand lang={lang} />
+</SiteLayout>

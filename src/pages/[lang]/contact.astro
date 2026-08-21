@@ -1,0 +1,121 @@
+---
+import { Mail, MapPin, Phone, Send, Users } from "@lucide/astro";
+import LocalizedHero from "@components/LocalizedHero.astro";
+import SiteLayout from "@layouts/SiteLayout.astro";
+import { common, langCodes, offices, pathFor, tx, vietnamInfoContact, type Lang } from "@data/site";
+
+export function getStaticPaths() {
+  return langCodes.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+---
+
+<SiteLayout lang={lang} title={tx(lang, common.nav.contact)}>
+  <LocalizedHero
+    eyebrow={tx(lang, { en: "Contact SleepM", vi: "Liên hệ SleepM" })}
+    title={tx(lang, { en: "Official global channels and Vietnamese information contact.", vi: "Kênh toàn cầu chính thức và đầu mối thông tin tiếng Việt." })}
+    accent={tx(lang, { en: "official", vi: "chính thức" })}
+    text={tx(lang, { en: "sleepm.vn is informational. Use SleepM global channels for official product, warranty, return and complaint information.", vi: "sleepm.vn là website thông tin. Hãy dùng kênh toàn cầu của SleepM cho thông tin chính thức về sản phẩm, bảo hành, đổi trả và khiếu nại." })}
+  />
+
+  <section class="section split align-start">
+    <div class="copy-block awaken">
+      <p class="eyebrow">{lang === "vi" ? "Gửi yêu cầu" : "Send an inquiry"}</p>
+      <h2>{lang === "vi" ? <>Để lại thông tin <em>liên hệ</em>.</> : <>Leave your <em>contact</em> details.</>}</h2>
+      <p>{lang === "vi" ? "Hãy cho biết bạn cần tìm hiểu sản phẩm, công nghệ BioCrystal, bảo hành/hỗ trợ qua kênh toàn cầu hay nội dung pháp lý của sleepm.vn." : "Tell us whether you need product information, BioCrystal information, warranty/support through global channels, or legal information about sleepm.vn."}</p>
+      <p><Mail size={16} aria-hidden="true" /> info@sleepm.com · support@sleepm.com</p>
+      <p><Phone size={16} aria-hidden="true" /> Canada: +1 905-604-5558 · 中文: 647-545-8555 · United States: +1 (626) 678-5919</p>
+      <p><Mail size={16} aria-hidden="true" /> {tx(lang, vietnamInfoContact.role)}</p>
+      <p><Phone size={16} aria-hidden="true" /> VN: {vietnamInfoContact.phoneVN} · US: {vietnamInfoContact.phoneUS}</p>
+      <p><Mail size={16} aria-hidden="true" /> {vietnamInfoContact.emails.join(" · ")}</p>
+    </div>
+
+    <form class="card form-grid awaken" action="mailto:info@sleepm.com" method="post" enctype="text/plain" data-contact-form>
+      <div class="form-grid two">
+        <label>
+          {lang === "vi" ? "Tên" : "First name"}
+          <input name="first_name" autocomplete="given-name" required />
+        </label>
+        <label>
+          {lang === "vi" ? "Họ" : "Last name"}
+          <input name="last_name" autocomplete="family-name" required />
+        </label>
+      </div>
+      <label>
+        Email
+        <input name="email" type="email" autocomplete="email" required />
+      </label>
+      <label>
+        {lang === "vi" ? "Số điện thoại" : "Phone"}
+        <input name="phone" type="tel" autocomplete="tel" required />
+      </label>
+      <label>
+        {lang === "vi" ? "Bạn liên hệ về nội dung nào?" : "What is this about?"}
+        <select name="source" required>
+          <option value="">{lang === "vi" ? "Chọn một lựa chọn" : "Choose one"}</option>
+          <option>{lang === "vi" ? "Tìm hiểu nệm / topper / gối" : "Mattress / topper / pillow information"}</option>
+          <option>{lang === "vi" ? "Bảo hành hoặc hỗ trợ qua kênh toàn cầu" : "Warranty or support through global channels"}</option>
+          <option>{lang === "vi" ? "Công nghệ BioCrystal" : "BioCrystal technology"}</option>
+          <option>{lang === "vi" ? "Pháp lý và vai trò sleepm.vn" : "Legal status and sleepm.vn role"}</option>
+        </select>
+      </label>
+      <label>
+        {lang === "vi" ? "SleepM ID hoặc mã tham chiếu (nếu có)" : "SleepM ID or reference code (optional)"}
+        <input name="sleepm_id" autocomplete="off" />
+      </label>
+      <label>
+        {lang === "vi" ? "Lý do bạn liên hệ" : "Why are you reaching out?"}
+        <textarea name="message" required></textarea>
+      </label>
+      <button class="btn" type="submit">
+        <Send size={16} aria-hidden="true" />
+        {tx(lang, common.labels.send)}
+      </button>
+      <p class="form-note" data-form-note></p>
+    </form>
+  </section>
+
+  <section class="section">
+    <div class="section-head awaken">
+      <p class="eyebrow">{lang === "vi" ? "Kênh toàn cầu" : "Global channels"}</p>
+      <h2>{lang === "vi" ? <>Thông tin văn phòng <em>trên sleepm.com</em>.</> : <>Office information from <em>sleepm.com</em>.</>}</h2>
+    </div>
+    <div class="office-grid">
+      {offices.map((office) => (
+        <article class="office awaken">
+          <span class="meta">{tx(lang, office.region)}</span>
+          <h3>{office.city}</h3>
+          <p><MapPin size={16} aria-hidden="true" /> {office.address.join(", ")}</p>
+          {office.phone && <p><Phone size={16} aria-hidden="true" /> {office.phone}</p>}
+          {office.email && <p><Mail size={16} aria-hidden="true" /> {office.email}</p>}
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head awaken">
+      <p class="eyebrow">{lang === "vi" ? "Pháp lý và vận hành" : "Legal and operating notes"}</p>
+      <h2>{lang === "vi" ? <>sleepm.vn là <em>website thông tin</em>.</> : <>sleepm.vn is an <em>information website</em>.</>}</h2>
+      <p>{lang === "vi" ? "Website không tự nhận có Công ty SleepM Việt Nam, không công bố địa chỉ Việt Nam là văn phòng chính thức của SleepM Global Inc. và không xử lý giao dịch TMĐT nội địa." : "The site does not claim a separate SleepM Vietnam company, does not present a Vietnam address as an official SleepM Global Inc. office, and does not process local ecommerce transactions."}</p>
+      <a class="btn" href={pathFor(lang, "/distributors/")}>
+        <Users size={16} aria-hidden="true" />
+        {tx(lang, common.labels.becomeDistributor)}
+      </a>
+    </div>
+  </section>
+</SiteLayout>
+
+<script is:inline>
+  (() => {
+    const form = document.querySelector("[data-contact-form]");
+    const note = document.querySelector("[data-form-note]");
+    if (!form || !note) return;
+    form.addEventListener("submit", () => {
+      note.textContent = document.documentElement.lang.startsWith("vi")
+        ? "Ứng dụng email của bạn sẽ mở để gửi lời nhắn."
+        : "Your email app will open to send this note.";
+    });
+  })();
+</script>

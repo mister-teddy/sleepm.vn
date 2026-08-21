@@ -1,0 +1,25 @@
+---
+import { MessageCircle } from "@lucide/astro";
+import { common, pathFor, tx, type Lang } from "@data/site";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+
+<section class="cta-band awaken">
+  <div>
+    <p class="eyebrow">{tx(lang, common.noPrices.eyebrow)}</p>
+    <h2>{tx(lang, common.noPrices.title)}</h2>
+    <p>{tx(lang, common.noPrices.text)}</p>
+  </div>
+  <div class="cta-actions">
+    <a class="btn" href={pathFor(lang, "/contact/")}>
+      <MessageCircle size={16} aria-hidden="true" />
+      {tx(lang, common.labels.askFamily)}
+    </a>
+    <a class="text-link" href={pathFor(lang, "/distributors/")}>{tx(lang, common.labels.becomeDistributor)}</a>
+  </div>
+</section>

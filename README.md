@@ -1,6 +1,6 @@
 # SleepM.vn
 
-Website thông tin tiếng Việt cho SleepM Global Inc., build bằng Astro và deploy qua GitHub Pages.
+Vietnamese information website for SleepM Global Inc. built with Astro. The source, layout and deployment mechanism follow the legacy GitHub Pages site, with updated content for the current legal/contact requirements.
 
 ## Local development
 
@@ -11,7 +11,7 @@ npm run dev
 
 Open:
 
-- `http://localhost:4321/`
+- `http://localhost:4321/en/`
 - `http://localhost:4321/vi/`
 
 ## Build and test
@@ -25,4 +25,4 @@ npm run test:e2e
 
 The repository includes `.github/workflows/deploy.yml`, which builds `dist/` and deploys it with GitHub Pages Actions. The custom domain is stored in `public/CNAME` as `sleepm.vn`.
 
-Website được định hướng là cổng thông tin. Site không triển khai giỏ hàng, thanh toán, giá bán, đặt hàng trực tiếp hoặc luồng giao dịch thương mại điện tử nội địa.
+This site is intentionally informational. It does not implement cart, checkout, prices, direct ordering, payment processing, or local ecommerce transaction flows in Vietnam.
