@@ -12,19 +12,19 @@ export function getStaticPaths() {
 const lang = Astro.params.lang as Lang;
 ---
 
-<SiteLayout lang={lang} title={tx(lang, common.nav.family)}>
+<SiteLayout lang={lang} title={tx(lang, common.nav.about)}>
   <LocalizedHero
     eyebrow={tx(lang, family.hero.eyebrow)}
     title={tx(lang, family.hero.title)}
-    accent={tx(lang, { en: "BioCrystal", vi: "BioCrystal" })}
+    accent={tx(lang, { en: "Toronto", vi: "Toronto" })}
     text={tx(lang, family.hero.text)}
-    image="/images/people/team.webp"
-    imageAlt="Sleepm team"
+    image="/images/wp/about-global.jpeg"
+    imageAlt="SleepM proudly made in Canada"
   >
     <div class="actions">
-      <a class="btn" href={pathFor(lang, "/distributors/")}>
+      <a class="btn" href={pathFor(lang, "/products/")}>
         <HeartHandshake size={16} aria-hidden="true" />
-        {tx(lang, common.labels.becomeDistributor)}
+        {tx(lang, common.labels.exploreCollection)}
       </a>
       <a class="text-link" href={pathFor(lang, "/contact/")}>{tx(lang, common.labels.askFamily)}</a>
     </div>
@@ -32,8 +32,9 @@ const lang = Astro.params.lang as Lang;
 
   <section class="section split">
     <div class="copy-block awaken">
-      <p class="eyebrow">{lang === "vi" ? "Cách SleepM được giới thiệu" : "How SleepM is presented"}</p>
-      <h2>{lang === "vi" ? <>Sản phẩm, sản xuất và <em>thông tin</em>.</> : <>Product, manufacturing and <em>information</em>.</>}</h2>
+      <p class="eyebrow">{lang === "vi" ? "Thông điệp từ backup" : "Message from the backup"}</p>
+      <h2>{lang === "vi" ? <>SleepM Global và <em>sứ mệnh giấc ngủ</em>.</> : <>SleepM Global and the <em>sleep mission</em>.</>}</h2>
+      <p>{lang === "vi" ? "Backup mô tả SleepM Global được thành lập với câu hỏi: làm thế nào để giải quyết vấn đề mất ngủ và cải thiện chất lượng cuộc sống qua giấc ngủ ngon hằng đêm." : "The backup describes SleepM Global as being founded around a question: how to address sleeplessness and improve quality of life through better nightly sleep."}</p>
     </div>
     <div class="timeline">
       {family.chapters.map((chapter) => (
@@ -50,8 +51,8 @@ const lang = Astro.params.lang as Lang;
 
   <section class="section">
     <div class="section-head awaken">
-      <p class="eyebrow">{lang === "vi" ? "Ban lãnh đạo" : "Leadership"}</p>
-      <h2>{lang === "vi" ? <>Đội ngũ điều hành <em>Sleepm</em>.</> : <>The Sleepm <em>leadership</em> team.</>}</h2>
+      <p class="eyebrow">{lang === "vi" ? "Đội ngũ trong backup" : "Team in the backup"}</p>
+      <h2>{lang === "vi" ? <>Những nhân sự được page About <em>hiển thị</em>.</> : <>People shown on the About <em>page</em>.</>}</h2>
     </div>
     <div class="people-grid">
       {people.map((person) => (
@@ -69,7 +70,7 @@ const lang = Astro.params.lang as Lang;
 
   <section class="section">
     <div class="section-head awaken">
-      <p class="eyebrow">{lang === "vi" ? "Cố vấn sức khỏe" : "Health and wellness advisors"}</p>
+      <p class="eyebrow">{lang === "vi" ? "Cố vấn được nhắc đến" : "Referenced advisors"}</p>
       <h2>{lang === "vi" ? <>Cố vấn wellness và <em>giấc ngủ</em>.</> : <>Wellness and <em>sleep</em> advisors.</>}</h2>
     </div>
     <div class="people-grid">
@@ -85,9 +86,9 @@ const lang = Astro.params.lang as Lang;
       ))}
       <article class="card awaken">
         <Globe size={24} aria-hidden="true" />
-        <span class="meta">{lang === "vi" ? "Ba châu lục" : "Three continents"}</span>
-        <h3>{lang === "vi" ? "Kênh toàn cầu" : "Global channels"}</h3>
-        <p>{lang === "vi" ? "Thông tin chính thức về sản phẩm, bảo hành và hỗ trợ cần được đối chiếu qua kênh toàn cầu của SleepM." : "Official product, warranty and support information should be checked through SleepM global channels."}</p>
+        <span class="meta">{lang === "vi" ? "Ghi chú pháp lý" : "Legal note"}</span>
+        <h3>{lang === "vi" ? "Không tự nhận SleepM Việt Nam" : "No SleepM Vietnam entity claim"}</h3>
+        <p>{lang === "vi" ? "sleepm.vn trình bày thông tin tiếng Việt về SleepM Global Inc. và không tự nhận có pháp nhân SleepM Việt Nam nếu chưa có cơ sở." : "sleepm.vn presents Vietnamese information about SleepM Global Inc. and does not claim a separate SleepM Vietnam legal entity unless established."}</p>
       </article>
     </div>
   </section>

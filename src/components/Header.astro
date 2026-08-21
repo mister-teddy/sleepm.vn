@@ -38,17 +38,6 @@ function active(route: string) {
               ))}
             </div>
           </div>
-        ) : item.key === "crystals" ? (
-          <div class="nav-drop">
-            <a class:list={["nav-link", active(item.path) && "is-active"]} href={pathFor(lang, item.path)}>
-              {tx(lang, common.nav.crystals)}
-              <ChevronDown size={13} aria-hidden="true" />
-            </a>
-            <div class="nav-menu nav-menu-small">
-              <a href={pathFor(lang, "/crystals/")}>{tx(lang, common.nav.crystals)}</a>
-              <a href={pathFor(lang, "/constellation/")}>{tx(lang, common.nav.constellation)}</a>
-            </div>
-          </div>
         ) : (
           <a class:list={["nav-link", active(item.path) && "is-active"]} href={pathFor(lang, item.path)}>
             {tx(lang, common.nav[item.key])}
@@ -77,7 +66,6 @@ function active(route: string) {
       {navLinks.map((item) => (
         <a href={pathFor(lang, item.path)}>{tx(lang, common.nav[item.key])}</a>
       ))}
-      <a href={pathFor(lang, "/constellation/")}>{tx(lang, common.nav.constellation)}</a>
       <a href={pathFor(lang, "/contact/")}>{tx(lang, common.nav.contact)}</a>
     </nav>
     <div class="mobile-products">

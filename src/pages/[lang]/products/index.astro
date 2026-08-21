@@ -15,9 +15,9 @@ const lang = Astro.params.lang as Lang;
 <SiteLayout lang={lang} title={tx(lang, common.labels.collection)}>
   <LocalizedHero
     eyebrow={lang === "vi" ? "Dòng sản phẩm Sleepm" : "Sleepm product line"}
-    title={lang === "vi" ? "Nệm, topper, gối và phụ kiện wellness." : "Mattress, topper, pillows and wellness accessories."}
+    title={lang === "vi" ? "Mattress, toppers, pillows, mini BioCrystal pad và eye mask." : "Mattress, toppers, pillows, mini BioCrystal pad and eye mask."}
     accent={lang === "vi" ? "wellness" : "wellness"}
-    text={lang === "vi" ? "Tìm hiểu từng sản phẩm BioCrystal, từ nệm chủ lực đến topper, gối, đệm sưởi, massage đầu gối, đèn, Dot và ứng dụng." : "Explore each BioCrystal product, from the core mattress to topper, pillows, heating pad, knee massager, light, Dot and app."}
+    text={lang === "vi" ? "Danh sách này bám theo các trang sản phẩm người dùng nhìn thấy trong WordPress backup: Sleepm Mattress, Sleepm Toppers, Sleepm Pillows, Sleepm Mini Biocrystal Pad và Sleepm Eye Mask." : "This list follows the visible product pages in the WordPress backup: Sleepm Mattress, Sleepm Toppers, Sleepm Pillows, Sleepm Mini Biocrystal Pad and Sleepm Eye Mask."}
   />
 
   <section class="section section-wide">
@@ -39,8 +39,8 @@ const lang = Astro.params.lang as Lang;
   <section class="section split">
     <div class="copy-block awaken">
       <p class="eyebrow">{lang === "vi" ? "Vật liệu và chứng nhận" : "Materials and certifications"}</p>
-      <h2>{lang === "vi" ? <>Công nghệ BioCrystal cùng <em>vật liệu hiện đại</em>.</> : <>BioCrystal technology with <em>modern comfort materials</em>.</>}</h2>
-      <p>{lang === "vi" ? "Các sản phẩm chủ lực kết hợp lớp lót BioCrystal, latex tự nhiên, foam làm mát, lò xo nâng đỡ và các chứng nhận vật liệu được hiển thị theo từng dòng sản phẩm." : "Core products combine a BioCrystal insert, natural latex, cooling foam, support coils and material certifications shown across the line."}</p>
+      <h2>{lang === "vi" ? <>Công nghệ BioCrystal cùng <em>vật liệu trong backup</em>.</> : <>BioCrystal technology with <em>backup product materials</em>.</>}</h2>
+      <p>{lang === "vi" ? "Backup nhắc đến 16 loại pha lê sinh học phối hợp bạc và vàng, Cool Gel Memory Foam, cao su thiên nhiên Thái Lan, than hoạt tính và micro-coil trong các trang sản phẩm chính." : "The backup references 16 BioCrystal types with silver and gold, Cool Gel Memory Foam, Thai natural latex, activated carbon and micro-coils across the core product pages."}</p>
       <a class="btn" href={pathFor(lang, "/contact/")}>
         <MessageCircle size={16} aria-hidden="true" />
         {tx(lang, common.labels.askFamily)}
@@ -48,8 +48,8 @@ const lang = Astro.params.lang as Lang;
     </div>
     <div class="card-grid">
       {[
-        { metric: "16", label: { en: "crystals in the BioCrystal blend", vi: "tinh thể trong hỗn hợp BioCrystal" } },
-        { metric: "2", label: { en: "noble metals: gold and silver", vi: "kim loại quý: vàng và bạc" } },
+        { metric: "16", label: { en: "BioCrystal types referenced in the backup", vi: "loại pha lê sinh học được backup nhắc đến" } },
+        { metric: "2", label: { en: "metals: silver and gold", vi: "kim loại: bạc và vàng" } },
         { metric: "Info", label: { en: "no prices, cart or checkout on sleepm.vn", vi: "không giá bán, giỏ hàng hoặc thanh toán trên sleepm.vn" } },
       ].map((stat) => (
         <article class="stat-card awaken">

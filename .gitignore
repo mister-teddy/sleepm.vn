@@ -4,3 +4,7 @@ dist/
 .DS_Store
 playwright-report/
 test-results/
+wordpress-local/
+password-secret-dump.txt
+wp-admin-password-hashes.txt
+tmp/

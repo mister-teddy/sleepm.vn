@@ -13,25 +13,25 @@ const lang = Astro.params.lang as Lang;
 
 <SiteLayout lang={lang} title={tx(lang, common.nav.contact)}>
   <LocalizedHero
-    eyebrow={tx(lang, { en: "Contact SleepM", vi: "Liên hệ SleepM" })}
-    title={tx(lang, { en: "Official global channels and Vietnamese information contact.", vi: "Kênh toàn cầu chính thức và đầu mối thông tin tiếng Việt." })}
+    eyebrow={tx(lang, { en: "Let's Connect", vi: "Let's Connect" })}
+    title={tx(lang, { en: "Global offices and Vietnamese information contact from the backup.", vi: "Văn phòng toàn cầu và đầu mối thông tin tiếng Việt từ backup." })}
     accent={tx(lang, { en: "official", vi: "chính thức" })}
-    text={tx(lang, { en: "sleepm.vn is informational. Use SleepM global channels for official product, warranty, return and complaint information.", vi: "sleepm.vn là website thông tin. Hãy dùng kênh toàn cầu của SleepM cho thông tin chính thức về sản phẩm, bảo hành, đổi trả và khiếu nại." })}
+    text={tx(lang, { en: "sleepm.vn is informational. Contact details are shown for product information and routing; the Vietnam address is not presented as a legal representative office of SleepM Global Inc.", vi: "sleepm.vn là website thông tin. Thông tin liên hệ được hiển thị để tiếp nhận và điều phối yêu cầu; địa chỉ Việt Nam không được trình bày là văn phòng đại diện pháp lý của SleepM Global Inc." })}
   />
 
   <section class="section split align-start">
     <div class="copy-block awaken">
-      <p class="eyebrow">{lang === "vi" ? "Gửi yêu cầu" : "Send an inquiry"}</p>
+      <p class="eyebrow">{lang === "vi" ? "Thông tin liên hệ" : "Contact information"}</p>
       <h2>{lang === "vi" ? <>Để lại thông tin <em>liên hệ</em>.</> : <>Leave your <em>contact</em> details.</>}</h2>
       <p>{lang === "vi" ? "Hãy cho biết bạn cần tìm hiểu sản phẩm, công nghệ BioCrystal, bảo hành/hỗ trợ qua kênh toàn cầu hay nội dung pháp lý của sleepm.vn." : "Tell us whether you need product information, BioCrystal information, warranty/support through global channels, or legal information about sleepm.vn."}</p>
-      <p><Mail size={16} aria-hidden="true" /> info@sleepm.com · support@sleepm.com</p>
-      <p><Phone size={16} aria-hidden="true" /> Canada: +1 905-604-5558 · 中文: 647-545-8555 · United States: +1 (626) 678-5919</p>
       <p><Mail size={16} aria-hidden="true" /> {tx(lang, vietnamInfoContact.role)}</p>
+      <p><MapPin size={16} aria-hidden="true" /> {vietnamInfoContact.address.join(", ")}</p>
       <p><Phone size={16} aria-hidden="true" /> VN: {vietnamInfoContact.phoneVN} · US: {vietnamInfoContact.phoneUS}</p>
       <p><Mail size={16} aria-hidden="true" /> {vietnamInfoContact.emails.join(" · ")}</p>
+      <p><Mail size={16} aria-hidden="true" /> Global: info@sleepm.com · support@sleepm.com</p>
     </div>
 
-    <form class="card form-grid awaken" action="mailto:info@sleepm.com" method="post" enctype="text/plain" data-contact-form>
+    <form class="card form-grid awaken" action="mailto:edccentersleepm@gmail.com" method="post" enctype="text/plain" data-contact-form>
       <div class="form-grid two">
         <label>
           {lang === "vi" ? "Tên" : "First name"}
@@ -76,10 +76,22 @@ const lang = Astro.params.lang as Lang;
     </form>
   </section>
 
+  <section class="section split">
+    <div class="team-photo awaken">
+      <img src={vietnamInfoContact.image} alt="Diamond Plaza meeting room from the WordPress backup" loading="lazy" />
+    </div>
+    <div class="copy-block awaken">
+      <p class="eyebrow">{lang === "vi" ? "VIET NAM" : "VIET NAM"}</p>
+      <h2>{lang === "vi" ? <>Diamond Plaza được ghi trong <em>backup</em>.</> : <>Diamond Plaza appears in the <em>backup</em>.</>}</h2>
+      <p>{vietnamInfoContact.address.join(", ")}</p>
+      <p>{lang === "vi" ? "Địa chỉ này được trình bày như thông tin tiếp nhận/liên hệ theo backup và yêu cầu khách hàng, không phải tuyên bố về văn phòng đại diện pháp lý hoặc pháp nhân SleepM Việt Nam." : "This address is presented as contact/intake information from the backup and customer requirements, not as a legal representative office or a separate SleepM Vietnam legal entity."}</p>
+    </div>
+  </section>
+
   <section class="section">
     <div class="section-head awaken">
       <p class="eyebrow">{lang === "vi" ? "Kênh toàn cầu" : "Global channels"}</p>
-      <h2>{lang === "vi" ? <>Thông tin văn phòng <em>trên sleepm.com</em>.</> : <>Office information from <em>sleepm.com</em>.</>}</h2>
+      <h2>{lang === "vi" ? <>Thông tin văn phòng <em>trong backup</em>.</> : <>Office information from the <em>backup</em>.</>}</h2>
     </div>
     <div class="office-grid">
       {offices.map((office) => (
@@ -99,7 +111,7 @@ const lang = Astro.params.lang as Lang;
       <p class="eyebrow">{lang === "vi" ? "Pháp lý và vận hành" : "Legal and operating notes"}</p>
       <h2>{lang === "vi" ? <>sleepm.vn là <em>website thông tin</em>.</> : <>sleepm.vn is an <em>information website</em>.</>}</h2>
       <p>{lang === "vi" ? "Website không tự nhận có Công ty SleepM Việt Nam, không công bố địa chỉ Việt Nam là văn phòng chính thức của SleepM Global Inc. và không xử lý giao dịch TMĐT nội địa." : "The site does not claim a separate SleepM Vietnam company, does not present a Vietnam address as an official SleepM Global Inc. office, and does not process local ecommerce transactions."}</p>
-      <a class="btn" href={pathFor(lang, "/distributors/")}>
+      <a class="btn" href={pathFor(lang, "/terms/")}>
         <Users size={16} aria-hidden="true" />
         {tx(lang, common.labels.becomeDistributor)}
       </a>

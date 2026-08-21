@@ -36,21 +36,26 @@ export function switchPath(pathname: string, lang: Lang) {
 
 export const common = {
   nav: {
-    home: { en: "Home", vi: "Trang chủ" },
-    products: { en: "Products", vi: "Sản phẩm" },
-    crystals: { en: "BioCrystal", vi: "Tinh thể sinh học" },
+    home: { en: "Home", vi: "Home" },
+    about: { en: "About", vi: "About" },
+    products: { en: "Products", vi: "Products" },
+    crystals: { en: "Biocrystals", vi: "Biocrystals" },
+    warranty: { en: "Warranty", vi: "Warranty" },
+    sleepHealth: { en: "Sleep Health", vi: "Sleep Health" },
+    redefining: { en: "Redefining the sleep standard", vi: "Redefining the sleep standard" },
+    testimonials: { en: "Testimonials", vi: "Testimonials" },
     constellation: { en: "Ingredients", vi: "Thành phần" },
     nightWire: { en: "Blog", vi: "Tin tức" },
     family: { en: "About", vi: "Về SleepM" },
     distributors: { en: "Legal FAQ", vi: "FAQ pháp lý" },
     signIn: { en: "Global Site", vi: "Website toàn cầu" },
-    contact: { en: "Contact Us", vi: "Liên hệ" },
+    contact: { en: "Contact us", vi: "Contact us" },
   },
   labels: {
     collection: { en: "Product line", vi: "Dòng sản phẩm" },
     allProducts: { en: "All products", vi: "Tất cả sản phẩm" },
     askFamily: { en: "Request information", vi: "Gửi yêu cầu thông tin" },
-    becomeDistributor: { en: "Read legal FAQ", vi: "Xem FAQ pháp lý" },
+    becomeDistributor: { en: "Terms-Conditions", vi: "Terms-Conditions" },
     backCollection: { en: "Back to the collection", vi: "Quay lại bộ sưu tập" },
     exploreCollection: { en: "Explore the collection", vi: "Khám phá bộ sưu tập" },
     learnMore: { en: "Learn more", vi: "Tìm hiểu thêm" },
@@ -86,33 +91,31 @@ export const common = {
 
 export const navLinks = [
   { key: "home", path: "/" },
-  { key: "products", path: "/products/" },
+  { key: "about", path: "/about/" },
   { key: "crystals", path: "/crystals/" },
-  { key: "nightWire", path: "/night-wire/" },
-  { key: "family", path: "/family/" },
-  { key: "distributors", path: "/distributors/" },
-  { key: "signIn", path: "/sign-in/" },
+  { key: "warranty", path: "/warranty/" },
+  { key: "products", path: "/products/" },
+  { key: "sleepHealth", path: "/sleep-health/" },
+  { key: "redefining", path: "/redefining-the-sleep-standard/" },
+  { key: "testimonials", path: "/testimonials/" },
 ] as const;
 
 export const footerLinks = [
-  { label: { en: "Sleep Health", vi: "Sức khỏe giấc ngủ" }, path: "/sleep-health/" },
-  { label: { en: "Testimonials", vi: "Cảm nhận" }, path: "/testimonials/" },
+  { label: { en: "Sleep Health", vi: "Sleep Health" }, path: "/sleep-health/" },
+  { label: { en: "Redefining the sleep standard", vi: "Redefining the sleep standard" }, path: "/redefining-the-sleep-standard/" },
+  { label: { en: "Testimonials", vi: "Testimonials" }, path: "/testimonials/" },
   { label: { en: "No ecommerce", vi: "Không TMĐT" }, path: "/payments/" },
-  { label: { en: "Warranty channel", vi: "Kênh bảo hành" }, path: "/warranty/" },
-  { label: { en: "Legal notes", vi: "Lưu ý pháp lý" }, path: "/terms/" },
+  { label: { en: "Warranty", vi: "Warranty" }, path: "/warranty/" },
+  { label: { en: "Terms-Conditions", vi: "Terms-Conditions" }, path: "/terms/" },
   { label: { en: "Privacy", vi: "Quyền riêng tư" }, path: "/privacy/" },
 ] as const;
 
 export const productNav = [
-  { label: { en: "Mattress", vi: "Nệm" }, slug: "mattress" },
-  { label: { en: "Topper", vi: "Topper" }, slug: "topper" },
-  { label: { en: "Pillows", vi: "Gối" }, slug: "pillows" },
-  { label: { en: "Heating Pad", vi: "Đệm sưởi" }, slug: "heating-pad" },
-  { label: { en: "Eye Mask", vi: "Mặt nạ mắt" }, slug: "eye-mask" },
-  { label: { en: "Knee Massager", vi: "Máy massage gối" }, slug: "knee-massager" },
-  { label: { en: "Light", vi: "Đèn ngủ" }, slug: "light" },
-  { label: { en: "Dot", vi: "Dot" }, slug: "dot" },
-  { label: { en: "App", vi: "Ứng dụng" }, slug: "app" },
+  { label: { en: "Sleepm Mattress", vi: "Sleepm Mattress" }, slug: "mattress" },
+  { label: { en: "Sleepm Toppers", vi: "Sleepm Toppers" }, slug: "topper" },
+  { label: { en: "Sleepm Pillows", vi: "Sleepm Pillows" }, slug: "pillows" },
+  { label: { en: "Sleepm Mini Biocrystal Pad", vi: "Sleepm Mini Biocrystal Pad" }, slug: "heating-pad" },
+  { label: { en: "Sleepm Eye Mask", vi: "Sleepm Eye Mask" }, slug: "eye-mask" },
 ] as const;
 
 export type Product = {
@@ -132,407 +135,282 @@ export type Product = {
 export const products: Product[] = [
   {
     slug: "mattress",
-    image: "/images/products/mattress.webp",
-    gallery: ["/images/products/mattress.webp", "/images/products/mattress-exploded.webp"],
-    name: { en: "BioCrystal Mattress", vi: "Nệm BioCrystal" },
-    eyebrow: { en: "The BioCrystal Mattress", vi: "Nệm BioCrystal" },
-    title: { en: "Improve wellness through better sleep.", vi: "Cải thiện sức khỏe bằng giấc ngủ tốt hơn." },
+    image: "/images/wp/mattress-hero.png",
+    gallery: ["/images/wp/mattress-hero.png", "/images/wp/mattress-room.png"],
+    name: { en: "Sleepm Mattress", vi: "Sleepm Mattress" },
+    eyebrow: { en: "SLEEPM Mattresses", vi: "SLEEPM Mattresses" },
+    title: {
+      en: "Premium natural mattress with 16 BioCrystal types, gold and silver.",
+      vi: "Nệm thủ công hữu cơ tự nhiên cao cấp với công nghệ 16 loại Pha Lê Sinh Học, bạc và vàng.",
+    },
     summary: {
-      en: "Sleepm combines a BioCrystal layer of 16 natural crystals with gold and silver, cooling comfort foams, natural latex and coil support.",
-      vi: "Sleepm kết hợp lớp BioCrystal gồm 16 tinh thể tự nhiên cùng vàng, bạc, foam làm mát, latex tự nhiên và hệ lò xo nâng đỡ.",
+      en: "SleepM presents its mattress as a sleep wellness product made in the United States and Canada with premium materials and a BioCrystal insert.",
+      vi: "SleepM giới thiệu nệm pha lê sinh học như sản phẩm chăm sóc sức khỏe giấc ngủ, được thiết kế và sản xuất tại Mỹ và Canada bằng vật liệu chất lượng cao.",
     },
     collectionLine: {
-      en: "The core Sleepm product: BioCrystal technology, cooling foam, latex and coil support.",
-      vi: "Sản phẩm chủ lực của Sleepm: công nghệ BioCrystal, foam làm mát, latex và hệ lò xo nâng đỡ.",
+      en: "The flagship SleepM product with BioCrystal, cooling foam, Thai natural latex, activated carbon and micro-coil technology.",
+      vi: "Sản phẩm chủ lực với BioCrystal, bọt mát lạnh, cao su thiên nhiên Thái Lan, than hoạt tính và công nghệ micro-coil.",
     },
     details: {
       en: [
-        "Built in the United States and Canada with premium materials, breathable comfort layers and the Sleepm BioCrystal insert.",
-        "The mattress uses cooling gel memory foam, activated charcoal, natural Thai latex, independent pocket coils and micro-coil support.",
+        "The WordPress backup describes the SleepM mattress as a breakthrough orthopedic sleep product combining modern materials with ancient BioCrystal properties.",
+        "The mattress is presented with cooling gel memory foam, activated carbon, Thai natural latex and medical copper micro-coils for airflow and support.",
       ],
       vi: [
-        "Được sản xuất tại Hoa Kỳ và Canada với vật liệu cao cấp, các lớp thoáng khí và lớp lót BioCrystal của Sleepm.",
-        "Nệm sử dụng memory foam gel làm mát, than hoạt tính, latex Thái Lan tự nhiên, lò xo túi độc lập và công nghệ micro-coil.",
+        "Backup WordPress mô tả nệm pha lê sinh học SleepM là thành tựu kỹ thuật của nệm chỉnh hình, phối hợp vật liệu hiện đại với đặc tính pha lê sinh học.",
+        "Cấu tạo được giới thiệu gồm Cool Gel Memory Foam, than hoạt tính, cao su thiên nhiên Thái Lan và kỹ nghệ ống đồng y khoa micro-coil để tăng độ thoáng và nâng đỡ.",
       ],
     },
     features: [
       {
-        title: { en: "BioCrystal blend", vi: "Hỗn hợp BioCrystal" },
-        text: { en: "Sixteen natural crystals are combined with gold and silver in the Sleepm insert.", vi: "Mười sáu tinh thể tự nhiên được kết hợp với vàng và bạc trong lớp lót Sleepm." },
+        title: { en: "BioCrystal mixture", vi: "Hỗn hợp pha lê sinh học" },
+        text: {
+          en: "Sixteen crystal types are combined with gold and silver in the SleepM insert.",
+          vi: "Miếng đệm chèn gồm 16 loại pha lê sinh học phối hợp với bạc và vàng theo nội dung backup.",
+        },
       },
       {
-        title: { en: "Cooling and odor control", vi: "Làm mát và kiểm soát mùi" },
-        text: { en: "Cooling gel memory foam and activated charcoal help keep the sleep surface fresher.", vi: "Memory foam gel làm mát và than hoạt tính giúp bề mặt ngủ thoáng và sạch hơn." },
+        title: { en: "Made in USA and Canada", vi: "Sản xuất tại Mỹ và Canada" },
+        text: {
+          en: "The restored content states that SleepM mattresses are designed and produced with high-quality materials in the United States and Canada.",
+          vi: "Nội dung backup nêu rằng nệm được thiết kế và sản xuất bằng vật liệu chất lượng cao tại Hoa Kỳ và Canada.",
+        },
       },
       {
-        title: { en: "Latex and coil support", vi: "Latex và lò xo nâng đỡ" },
-        text: { en: "Natural Thai latex, independent coils and micro-coils provide responsive support and airflow.", vi: "Latex Thái Lan tự nhiên, lò xo độc lập và micro-coil tạo độ nâng đỡ phản hồi tốt và luồng khí thoáng." },
+        title: { en: "Comfort materials", vi: "Vật liệu tiện nghi" },
+        text: {
+          en: "Cooling gel memory foam, activated carbon and Thai natural latex are presented as core comfort layers.",
+          vi: "Bọt mát lạnh, than hoạt tính và cao su thiên nhiên Thái Lan được trình bày là các lớp vật liệu chính.",
+        },
+      },
+      {
+        title: { en: "Micro-coil support", vi: "Nâng đỡ micro-coil" },
+        text: {
+          en: "The backup describes approximately 2,000 small copper micro-coils used to support breathability and pressure relief.",
+          vi: "Backup mô tả khoảng 2.000 ống đồng y khoa nhỏ trên một nệm để hỗ trợ thông thoáng và giảm sức ép.",
+        },
       },
     ],
     specs: [
-      { label: { en: "Sizes", vi: "Kích thước" }, value: { en: "Twin 39 x 75, Double 54 x 75, Queen 60 x 80, King 76 x 80, California King 72 x 84 in", vi: "Twin 39 x 75, Double 54 x 75, Queen 60 x 80, King 76 x 80, California King 72 x 84 inch" } },
-      { label: { en: "Core materials", vi: "Vật liệu chính" }, value: { en: "BioCrystal insert, natural latex, cooling gel memory foam, activated charcoal, pocket coils", vi: "Lớp BioCrystal, latex tự nhiên, memory foam gel làm mát, than hoạt tính, lò xo túi" } },
-      { label: { en: "Made in", vi: "Sản xuất tại" }, value: { en: "USA and Canada", vi: "Mỹ và Canada" } },
+      { label: { en: "Single / Twin", vi: "Nệm cỡ đơn" }, value: { en: "39 x 75 in / 99.06 x 190.5 cm", vi: "39 x 75 inch / 99,06 x 190,5 cm" } },
+      { label: { en: "Double", vi: "Nệm đôi" }, value: { en: "54 x 75 in / 137.16 x 190.5 cm", vi: "54 x 75 inch / 137,16 x 190,5 cm" } },
+      { label: { en: "Queen", vi: "Nệm cỡ Queen" }, value: { en: "60 x 80 in / 152.4 x 203.2 cm", vi: "60 x 80 inch / 152,4 x 203,2 cm" } },
+      { label: { en: "King", vi: "Nệm cỡ King" }, value: { en: "76 x 80 in / 193.04 x 203.2 cm", vi: "76 x 80 inch / 193,04 x 203,2 cm" } },
+      { label: { en: "California King", vi: "Nệm cỡ King California" }, value: { en: "72 x 84 in / 182.88 x 213.36 cm", vi: "72 x 84 inch / 182,88 x 213,36 cm" } },
     ],
   },
   {
     slug: "topper",
-    image: "/images/products/topper.webp",
-    gallery: ["/images/products/topper.webp", "/images/products/topper-detail.webp"],
-    name: { en: "BioCrystal Topper", vi: "Topper BioCrystal" },
-    eyebrow: { en: "BioCrystal Topper", vi: "Topper BioCrystal" },
-    title: { en: "Add BioCrystal comfort to the mattress you already own.", vi: "Thêm tiện nghi BioCrystal vào chiếc nệm bạn đang dùng." },
+    image: "/images/wp/topper.jpg",
+    gallery: ["/images/wp/topper.jpg", "/images/wp/mattress-room.png"],
+    name: { en: "Sleepm Toppers", vi: "Sleepm Toppers" },
+    eyebrow: { en: "Classic Biocrystal Toppers", vi: "Classic Biocrystal Toppers" },
+    title: {
+      en: "Classic BioCrystal topper for an existing mattress.",
+      vi: "Đệm ngủ pha lê sinh học truyền thống SleepM cho chiếc nệm đang sử dụng.",
+    },
     summary: {
-      en: "The topper layers temperature-responsive foam, Thai natural latex, activated charcoal and the Sleepm BioCrystal insert over your existing bed.",
-      vi: "Topper phủ thêm các lớp foam phản ứng theo nhiệt độ, latex Thái Lan tự nhiên, than hoạt tính và lớp lót BioCrystal lên chiếc nệm hiện tại.",
+      en: "The backup presents SleepM toppers as layered smart sleep technology with temperature-responsive memory foam and the same BioCrystal concept used in the mattress.",
+      vi: "Backup giới thiệu Topper SleepM là công nghệ ngủ thông minh nhiều lớp, dùng memory foam phản ứng với nhiệt độ và công nghệ BioCrystal tương tự nệm SleepM.",
     },
     collectionLine: {
-      en: "A practical upgrade with cooling channels, latex support and BioCrystal technology.",
-      vi: "Nâng cấp thực tế với rãnh thông gió làm mát, latex nâng đỡ và công nghệ BioCrystal.",
+      en: "A topper option for customers who want BioCrystal benefits while keeping their existing mattress.",
+      vi: "Lựa chọn cho khách muốn dùng thêm lớp BioCrystal nhưng vẫn giữ chiếc nệm yêu thích hiện tại.",
     },
     details: {
       en: [
-        "The classic topper is designed to relieve pressure points and improve airflow with cool-channel ventilation.",
-        "Carbon-infused smart foam helps neutralize odors while natural latex adds resilient support.",
+        "The restored product page describes the classic topper, 7-zone black diamond series and 7-zone blue diamond series.",
+        "The topper content highlights smart foam, cool-channel ventilation, activated carbon, Thai natural latex and breathable mesh.",
       ],
       vi: [
-        "Topper cổ điển được thiết kế để giảm các điểm áp lực và tăng luồng khí bằng rãnh thông gió làm mát.",
-        "Foam thông minh chứa carbon hỗ trợ trung hòa mùi, trong khi latex tự nhiên tạo độ nâng đỡ đàn hồi.",
+        "Trang backup nhắc đến Biocrystal Classic Series, 7-Zone Black Diamond Series và 7-Zone Blue Diamond Series.",
+        "Nội dung tập trung vào bọt thông minh, rãnh thông gió làm mát, than hoạt tính, cao su thiên nhiên Thái Lan và vỏ bọc lưới thoáng khí.",
       ],
     },
     features: [
       {
-        title: { en: "7-zone comfort", vi: "Tiện nghi 7 vùng" },
-        text: { en: "A multi-surface design gives extra support where the body needs pressure relief.", vi: "Thiết kế nhiều bề mặt bổ sung nâng đỡ tại những vùng cơ thể cần giảm áp lực." },
+        title: { en: "Temperature-responsive foam", vi: "Bọt thông minh cảm ứng nhiệt" },
+        text: {
+          en: "The backup describes smart foam that responds to temperature and supports a cooler sleep surface.",
+          vi: "Backup mô tả bọt thông minh phản ứng với nhiệt độ, hỗ trợ bề mặt ngủ mát mẻ hơn.",
+        },
       },
       {
-        title: { en: "Cool-channel ventilation", vi: "Rãnh thông gió làm mát" },
-        text: { en: "Ventilation channels and breathable fabric help the surface stay cooler.", vi: "Rãnh thông gió và lớp vải thoáng khí giúp bề mặt dễ chịu hơn." },
+        title: { en: "7-zone pressure relief", vi: "Thiết kế 7 vùng" },
+        text: {
+          en: "The multi-surface design is presented as adding support and easing pressure points.",
+          vi: "Thiết kế đa bề mặt được giới thiệu để tăng nâng đỡ và giảm các điểm áp lực.",
+        },
       },
       {
-        title: { en: "BioCrystal insert", vi: "Lớp BioCrystal" },
-        text: { en: "Adds Sleepm BioCrystal technology without replacing the full mattress.", vi: "Thêm công nghệ BioCrystal của Sleepm mà không cần thay toàn bộ nệm." },
+        title: { en: "BioCrystal insert", vi: "Miếng đệm BioCrystal" },
+        text: {
+          en: "The topper includes the BioCrystal concept for customers who do not want to replace the full mattress.",
+          vi: "Topper sử dụng công nghệ BioCrystal cho khách hàng chưa muốn thay toàn bộ nệm.",
+        },
       },
     ],
     specs: [
-      { label: { en: "Design", vi: "Thiết kế" }, value: { en: "Classic multi-layer topper", vi: "Topper cổ điển nhiều lớp" } },
-      { label: { en: "Comfort", vi: "Tiện nghi" }, value: { en: "Cool-channel ventilation and 7-zone pressure relief", vi: "Rãnh thông gió làm mát và giảm áp lực 7 vùng" } },
-      { label: { en: "Core", vi: "Lõi" }, value: { en: "Thai natural latex, carbon smart foam, BioCrystal insert", vi: "Latex Thái Lan tự nhiên, foam carbon thông minh, lớp BioCrystal" } },
+      { label: { en: "Series", vi: "Dòng sản phẩm" }, value: { en: "Biocrystal Classic, 7-Zone Black Diamond, 7-Zone Blue Diamond", vi: "Biocrystal Classic, 7-Zone Black Diamond, 7-Zone Blue Diamond" } },
+      { label: { en: "Materials", vi: "Vật liệu" }, value: { en: "Cool gel memory foam, BioCrystal mixture, Thai natural latex, activated carbon", vi: "Cool Gel Memory Foam, hỗn hợp BioCrystal, cao su thiên nhiên Thái Lan, than hoạt tính" } },
+      { label: { en: "Purpose", vi: "Mục đích" }, value: { en: "Add a BioCrystal layer to an existing mattress", vi: "Bổ sung lớp BioCrystal cho nệm hiện tại" } },
     ],
   },
   {
     slug: "pillows",
-    image: "/images/products/pillows.webp",
-    gallery: ["/images/products/pillows.webp", "/images/products/pillow-butterfly.webp"],
-    name: { en: "BioCrystal Pillows", vi: "Gối BioCrystal" },
-    eyebrow: { en: "Four pillows", vi: "Bốn kiểu gối" },
-    title: { en: "Pillow support for different sleep positions.", vi: "Gối nâng đỡ cho nhiều tư thế ngủ." },
+    image: "/images/wp/pillow.jpg",
+    gallery: ["/images/wp/pillow.jpg", "/images/wp/mattress-room.png"],
+    name: { en: "Sleepm Pillows", vi: "Sleepm Pillows" },
+    eyebrow: { en: "BioCrystal Pillow", vi: "BioCrystal Pillow" },
+    title: {
+      en: "Find the pillow that's right for you.",
+      vi: "Chọn chiếc gối phù hợp cho tư thế ngủ và cột sống cổ.",
+    },
     summary: {
-      en: "Butterfly, Polar Bear, Panda and Camel pillows use different contours and materials for neck alignment, airflow and BioCrystal comfort.",
-      vi: "Gối Butterfly, Polar Bear, Panda và Camel dùng các đường cong và vật liệu khác nhau để hỗ trợ cổ, luồng khí và tiện nghi BioCrystal.",
+      en: "The backup presents Butterfly, Polar Bear, Panda and Camel pillows for different feel, support and height needs.",
+      vi: "Backup giới thiệu bốn dòng gối Butterfly, Polar Bear, Panda và Camel cho các nhu cầu nâng đỡ, chất liệu và độ cao khác nhau.",
     },
     collectionLine: {
-      en: "Four BioCrystal pillow options for back, side and combination sleepers.",
-      vi: "Bốn lựa chọn gối BioCrystal cho người nằm ngửa, nằm nghiêng và hay đổi tư thế.",
+      en: "Four SleepM pillow types: Butterfly, Polar Bear, Panda and Camel.",
+      vi: "Bốn kiểu gối SleepM: Butterfly, Polar Bear, Panda và Camel.",
     },
     details: {
       en: [
-        "Sleepm pillow shapes are built around the neck curve so the head can rest while the shoulders stay supported.",
-        "Each model brings a different feel: contour foam, memory foam, latex rebound or a dual-height format.",
+        "The restored page states that a proper pillow affects comfortable sleep and cervical spine support.",
+        "SleepM pillow shapes are described as supporting the curve of the neck and the back of the skull.",
       ],
       vi: [
-        "Các dáng gối Sleepm được thiết kế quanh đường cong cổ để đầu được nghỉ trong khi vai vẫn có điểm tựa.",
-        "Mỗi mẫu có cảm giác riêng: foam contour, memory foam, độ nảy latex hoặc cấu trúc hai độ cao.",
+        "Trang backup nêu rằng chọn gối phù hợp có tác động quan trọng đến giấc ngủ thoải mái và sức khỏe cột sống cổ.",
+        "Gối SleepM được mô tả là nâng đỡ phần cong của cổ và phần lồi hộp sọ phía sau đầu để đầu, cổ và vai được nghỉ ngơi.",
       ],
     },
     features: [
       {
         title: { en: "Butterfly", vi: "Butterfly" },
-        text: { en: "A contoured BioCrystal pillow with a neck-support shape and magnet accents.", vi: "Gối BioCrystal dạng contour với đường nâng đỡ cổ và điểm nhấn nam châm." },
+        text: { en: "Magnetic therapy and BioCrystal support.", vi: "Trị liệu từ tính pha lê sinh học, theo nội dung backup." },
       },
       {
         title: { en: "Polar Bear", vi: "Polar Bear" },
-        text: { en: "Slow-rebound memory foam for a softer, more cradled feel.", vi: "Memory foam đàn hồi chậm cho cảm giác mềm và ôm đỡ hơn." },
+        text: { en: "Memory foam pillow option.", vi: "Gối năng lượng bọt gel hoạt tính pha lê sinh học." },
       },
       {
-        title: { en: "Panda and Camel", vi: "Panda và Camel" },
-        text: { en: "Choose latex rebound or a dual-height pillow for changing sleep positions.", vi: "Chọn độ nảy latex hoặc gối hai độ cao cho người thường đổi tư thế." },
+        title: { en: "Panda", vi: "Panda" },
+        text: { en: "Latex bounce pillow option.", vi: "Gối năng lượng đàn hồi pha lê sinh học." },
+      },
+      {
+        title: { en: "Camel", vi: "Camel" },
+        text: { en: "Height-adjust pillow option.", vi: "Gối năng lượng đa năng, hỗ trợ điều chỉnh độ cao." },
       },
     ],
     specs: [
-      { label: { en: "Shapes", vi: "Kiểu dáng" }, value: { en: "Butterfly, Polar Bear, Panda, Camel", vi: "Butterfly, Polar Bear, Panda, Camel" } },
-      { label: { en: "Focus", vi: "Trọng tâm" }, value: { en: "Neck curve, shoulder support and airflow", vi: "Đường cong cổ, nâng đỡ vai và luồng khí" } },
-      { label: { en: "Inside", vi: "Bên trong" }, value: { en: "BioCrystal comfort layer by model", vi: "Lớp tiện nghi BioCrystal tùy mẫu" } },
+      { label: { en: "Types", vi: "Kiểu gối" }, value: { en: "Butterfly, Polar Bear, Panda, Camel", vi: "Butterfly, Polar Bear, Panda, Camel" } },
+      { label: { en: "Focus", vi: "Trọng tâm" }, value: { en: "Cervical spine support, comfort and posture", vi: "Hỗ trợ cột sống cổ, sự thoải mái và tư thế ngủ" } },
+      { label: { en: "Backup note", vi: "Ghi chú từ backup" }, value: { en: "The page also describes shoulder support and adjustable height.", vi: "Trang backup cũng mô tả nâng đỡ vai và hai độ cao để lựa chọn." } },
     ],
   },
   {
     slug: "heating-pad",
-    image: "/images/products/heating-pad.webp",
-    gallery: ["/images/products/heating-pad.webp"],
-    name: { en: "Heating Pad", vi: "Đệm sưởi" },
-    eyebrow: { en: "The Heating Pad", vi: "Đệm sưởi Sleepm" },
-    title: { en: "Targeted warmth for daily relaxation.", vi: "Làm ấm từng vùng để thư giãn hằng ngày." },
+    image: "/images/wp/biocrystal-pad.jpg",
+    gallery: ["/images/wp/biocrystal-pad.jpg"],
+    name: { en: "Sleepm Mini Biocrystal Pad", vi: "Sleepm Mini Biocrystal Pad" },
+    eyebrow: { en: "Mini Biocrystal Pad", vi: "Đệm cá nhân năng lượng pha lê sinh học" },
+    title: {
+      en: "Personal BioCrystal pad with the SleepM crystal formula.",
+      vi: "Đệm cá nhân năng lượng pha lê sinh học với công thức tinh thể SleepM.",
+    },
     summary: {
-      en: "Deep, even warmth with the BioCrystal blend inside and a washable graphite pouch outside.",
-      vi: "Hơi ấm sâu và đều với hỗn hợp BioCrystal bên trong cùng túi graphite có thể giặt bên ngoài.",
+      en: "The backup presents the mini BioCrystal pad as a personal pad using the 16-crystal, gold and silver mixture.",
+      vi: "Backup giới thiệu đệm cá nhân BioCrystal như sản phẩm dùng miếng đệm chèn gồm 16 loại pha lê sinh học phối hợp bạc và vàng.",
     },
     collectionLine: {
-      en: "Portable BioCrystal warmth for shoulders, back, knees and daily comfort routines.",
-      vi: "Hơi ấm BioCrystal linh hoạt cho vai, lưng, đầu gối và thói quen thư giãn hằng ngày.",
+      en: "A personal BioCrystal pad referenced by the backup as portable support for daily rest routines.",
+      vi: "Đệm cá nhân BioCrystal được backup mô tả cho các thói quen nghỉ ngơi hằng ngày.",
     },
     details: {
       en: [
-        "Designed for steady warmth across the full pad surface with no sharp hot spots.",
-        "The removable graphite pouch keeps daily use easy to refresh.",
+        "The restored page states that each BioCrystal insert takes about 140 to 160 hours to complete by hand.",
+        "The backup also notes a washable graphite pouch and asks visitors to contact a distributor for purchasing options.",
       ],
       vi: [
-        "Thiết kế để tỏa nhiệt đều trên toàn bộ bề mặt, hạn chế điểm quá nóng.",
-        "Túi graphite tháo rời giúp việc vệ sinh hằng ngày đơn giản hơn.",
+        "Trang backup nêu mỗi miếng đệm chèn mất khoảng 140 - 160 tiếng thủ công để hoàn tất theo công thức khoa học.",
+        "Nội dung backup cũng nhắc đến túi graphite có thể giặt và ghi chú liên hệ nhà phân phối để biết lựa chọn mua hàng; sleepm.vn hiện chỉ cung cấp thông tin.",
       ],
     },
     features: [
       {
-        title: { en: "Even heat", vi: "Nhiệt đều" },
-        text: { en: "A soft, consistent glow across shoulders, back or knees.", vi: "Hơi ấm mềm và ổn định cho vai, lưng hoặc đầu gối." },
+        title: { en: "Crystal formula", vi: "Công thức pha lê" },
+        text: {
+          en: "SleepM describes the insert as a 16-crystal blend with gold and silver.",
+          vi: "SleepM mô tả miếng đệm chèn gồm 16 loại pha lê sinh học phối hợp bạc và vàng.",
+        },
       },
       {
-        title: { en: "Washable pouch", vi: "Túi có thể giặt" },
-        text: { en: "The graphite pouch slips off for simple care.", vi: "Túi graphite có thể tháo ra để vệ sinh." },
+        title: { en: "Handmade insert", vi: "Miếng đệm thủ công" },
+        text: {
+          en: "The backup states that each insert takes around 140 to 160 hours to complete.",
+          vi: "Backup nêu mỗi miếng đệm chèn mất khoảng 140 - 160 tiếng để hoàn tất.",
+        },
       },
       {
-        title: { en: "Cozy BioCrystal layer", vi: "Lớp BioCrystal ấm áp" },
-        text: { en: "The house blend at its coziest.", vi: "Hỗn hợp đặc trưng của Sleepm ở trạng thái ấm áp nhất." },
+        title: { en: "Information only", vi: "Chỉ cung cấp thông tin" },
+        text: {
+          en: "The backup says retail is not sold directly; sleepm.vn does not process orders or payments.",
+          vi: "Backup ghi không bán lẻ trực tiếp; sleepm.vn không xử lý đặt hàng hoặc thanh toán.",
+        },
       },
     ],
     specs: [
-      { label: { en: "Use", vi: "Công dụng" }, value: { en: "Localized comfort warmth", vi: "Làm ấm và thư giãn từng vùng" } },
-      { label: { en: "Care", vi: "Vệ sinh" }, value: { en: "Removable pouch", vi: "Túi tháo rời" } },
-      { label: { en: "Inside", vi: "Bên trong" }, value: { en: "BioCrystal blend", vi: "Hỗn hợp BioCrystal" } },
+      { label: { en: "Formula", vi: "Công thức" }, value: { en: "16 BioCrystal types with gold and silver", vi: "16 loại pha lê sinh học phối hợp bạc và vàng" } },
+      { label: { en: "Production note", vi: "Ghi chú sản xuất" }, value: { en: "About 140-160 hours per insert, according to the backup", vi: "Khoảng 140 - 160 tiếng cho mỗi miếng đệm, theo backup" } },
+      { label: { en: "Transaction status", vi: "Trạng thái giao dịch" }, value: { en: "No local retail checkout on sleepm.vn", vi: "Không bán lẻ hoặc checkout nội địa trên sleepm.vn" } },
     ],
   },
   {
     slug: "eye-mask",
-    image: "/images/products/eye-mask.webp",
-    gallery: ["/images/products/eye-mask.webp"],
-    name: { en: "Eye Mask", vi: "Mặt nạ mắt" },
-    eyebrow: { en: "The Eye Mask", vi: "Mặt nạ mắt" },
-    title: { en: "Portable blackout comfort for rest and travel.", vi: "Che sáng gọn nhẹ cho nghỉ ngơi và du lịch." },
+    image: "/images/wp/eye-mask.webp",
+    gallery: ["/images/wp/eye-mask.webp", "/images/wp/eye-mask-benefits.png"],
+    name: { en: "Sleepm Eye Mask", vi: "Sleepm Eye Mask" },
+    eyebrow: { en: "Crystal Eye Mask", vi: "Mặt nạ pha lê sinh học" },
+    title: {
+      en: "A SleepM eye mask page restored from the backup.",
+      vi: "Mặt nạ mắt SleepM theo nội dung và hình ảnh từ backup.",
+    },
     summary: {
-      en: "A soft blackout ritual for travel, naps and rooms that never get quite dark enough.",
-      vi: "Một nghi thức che sáng mềm mại cho những chuyến đi, giấc ngủ ngắn và căn phòng chưa đủ tối.",
+      en: "The restored Eye Mask page mainly contains product imagery and a bilingual benefits chart. sleepm.vn presents it as product information only.",
+      vi: "Trang Eye Mask trong backup chủ yếu gồm hình sản phẩm và bảng công dụng song ngữ. sleepm.vn trình bày nội dung này để tham khảo sản phẩm.",
     },
     collectionLine: {
-      en: "A compact sleep accessory for flights, naps and bright bedrooms.",
-      vi: "Phụ kiện ngủ gọn nhẹ cho chuyến bay, giấc ngủ ngắn và phòng nhiều sáng.",
+      en: "Product imagery and benefits chart from the WordPress backup.",
+      vi: "Hình sản phẩm và bảng công dụng từ WordPress backup.",
     },
     details: {
       en: [
-        "Soft around the eyes, secure around the head, and easy to pack.",
-        "A travel-size Sleepm ritual for hotel rooms, flights and bright mornings.",
+        "The backup labels the product as Crystal Eye Mask and shows an English/Vietnamese benefits list.",
+        "This static page keeps those visuals while avoiding direct medical treatment claims by presenting them as informational product material.",
       ],
       vi: [
-        "Mềm quanh mắt, ôm vừa đầu và dễ mang theo.",
-        "Một nghi thức Sleepm nhỏ gọn cho khách sạn, chuyến bay và buổi sáng nhiều ánh sáng.",
+        "Backup ghi Crystal Eye Mask và hiển thị bảng công dụng tiếng Anh/tiếng Việt.",
+        "Trang static giữ lại hình ảnh đó, đồng thời trình bày dưới dạng thông tin sản phẩm, không phải hướng dẫn điều trị y tế.",
       ],
     },
     features: [
       {
-        title: { en: "Blackout comfort", vi: "Che sáng thoải mái" },
-        text: { en: "Helps make a darker sleep space wherever you land.", vi: "Giúp tạo không gian ngủ tối hơn ở bất cứ đâu." },
+        title: { en: "Backup visual", vi: "Hình ảnh từ backup" },
+        text: { en: "The main product image comes from the Eye Mask page referenced in the backup.", vi: "Ảnh chính lấy từ trang Eye Mask được backup tham chiếu." },
       },
       {
-        title: { en: "Travel-ready", vi: "Sẵn sàng du lịch" },
-        text: { en: "Lightweight, compact and easy to keep in a night bag.", vi: "Nhẹ, gọn và dễ để trong túi đi đêm." },
+        title: { en: "Benefits chart", vi: "Bảng công dụng" },
+        text: { en: "The WordPress backup included a bilingual chart for eye mask benefits.", vi: "Backup WordPress có bảng công dụng song ngữ cho mặt nạ mắt." },
       },
       {
-        title: { en: "Quiet ritual", vi: "Nghi thức yên tĩnh" },
-        text: { en: "A signal to close the day and let the room disappear.", vi: "Một tín hiệu khép lại ngày dài và để căn phòng lùi xa." },
+        title: { en: "Information only", vi: "Chỉ cung cấp thông tin" },
+        text: { en: "No order, cart or checkout is provided on sleepm.vn.", vi: "sleepm.vn không cung cấp đặt hàng, giỏ hàng hoặc thanh toán." },
       },
     ],
     specs: [
-      { label: { en: "Best for", vi: "Phù hợp" }, value: { en: "Travel, naps, bright bedrooms", vi: "Du lịch, ngủ ngắn, phòng nhiều sáng" } },
-      { label: { en: "Feel", vi: "Cảm giác" }, value: { en: "Soft blackout comfort", vi: "Mềm mại và che sáng" } },
-      { label: { en: "Pack", vi: "Mang theo" }, value: { en: "Compact", vi: "Gọn nhẹ" } },
-    ],
-  },
-  {
-    slug: "knee-massager",
-    image: "/images/products/knee-massager.webp",
-    gallery: ["/images/products/knee-massager.webp"],
-    name: { en: "Knee Massager", vi: "Máy massage gối" },
-    eyebrow: { en: "The Knee Massager", vi: "Máy massage đầu gối" },
-    title: { en: "Heat and vibration for targeted joint comfort.", vi: "Nhiệt và rung cho vùng khớp cần thư giãn." },
-    summary: {
-      en: "Wearable warmth and soft vibration for evenings after standing, training or travel.",
-      vi: "Hơi ấm đeo được và rung nhẹ cho buổi tối sau khi đứng lâu, luyện tập hoặc di chuyển.",
-    },
-    collectionLine: {
-      en: "Soothing heat and quiet comfort for hard-working knees.",
-      vi: "Nhiệt êm và sự thoải mái cho đôi gối hoạt động nhiều.",
-    },
-    details: {
-      en: [
-        "Wraps comfortably around the knee and stays useful on the couch, at the desk or after a walk.",
-        "Built for comfort routines, not medical treatment.",
-      ],
-      vi: [
-        "Quấn thoải mái quanh đầu gối và hữu ích khi ngồi sofa, làm việc hoặc sau một buổi đi bộ.",
-        "Được thiết kế cho thói quen chăm sóc cơ thể, không phải điều trị y tế.",
-      ],
-    },
-    features: [
-      {
-        title: { en: "Wearable warmth", vi: "Hơi ấm có thể đeo" },
-        text: { en: "Localized heat without being tied to the bed.", vi: "Làm ấm từng vùng mà không cần nằm trên giường." },
-      },
-      {
-        title: { en: "Soft vibration", vi: "Rung nhẹ" },
-        text: { en: "A quiet comfort setting for tired joints.", vi: "Chế độ dễ chịu cho khớp mỏi." },
-      },
-      {
-        title: { en: "Portable ritual", vi: "Nghi thức linh hoạt" },
-        text: { en: "Use it wherever the evening finds you.", vi: "Dùng ở bất cứ nơi nào buổi tối đưa bạn đến." },
-      },
-    ],
-    specs: [
-      { label: { en: "Mode", vi: "Chế độ" }, value: { en: "Heat and vibration", vi: "Nhiệt và rung" } },
-      { label: { en: "Form", vi: "Kiểu dáng" }, value: { en: "Wearable wrap", vi: "Dạng quấn đeo" } },
-      { label: { en: "Use", vi: "Cách dùng" }, value: { en: "Knees, elbows and targeted comfort", vi: "Đầu gối, khuỷu và vùng cần thư giãn" } },
-    ],
-  },
-  {
-    slug: "light",
-    image: "/images/products/light.jpg",
-    gallery: ["/images/products/light.jpg"],
-    name: { en: "Sleepm Light", vi: "Đèn Sleepm" },
-    eyebrow: { en: "The Sleepm Light", vi: "Đèn Sleepm" },
-    title: { en: "A sunset to sleep by, a sunrise to wake to.", vi: "Hoàng hôn để ngủ, bình minh để thức dậy." },
-    summary: {
-      en: "A bedside light experience shaped around softer evenings and clearer mornings.",
-      vi: "Trải nghiệm ánh sáng đầu giường dành cho buổi tối dịu hơn và buổi sáng rõ ràng hơn.",
-    },
-    collectionLine: {
-      en: "A sunset to sleep by, a sunrise to wake to.",
-      vi: "Hoàng hôn cho giờ ngủ, bình minh cho lúc thức.",
-    },
-    details: {
-      en: [
-        "Warm dimming light helps the room slow down before sleep.",
-        "Gentle morning brightness gives the day a softer start.",
-      ],
-      vi: [
-        "Ánh sáng ấm giảm dần giúp căn phòng chậm lại trước giờ ngủ.",
-        "Độ sáng buổi sáng dịu nhẹ giúp ngày mới bắt đầu êm hơn.",
-      ],
-    },
-    features: [
-      {
-        title: { en: "Evening dim", vi: "Giảm sáng buổi tối" },
-        text: { en: "A quieter way to leave the day.", vi: "Cách nhẹ nhàng hơn để khép lại ngày." },
-      },
-      {
-        title: { en: "Morning glow", vi: "Ánh sáng buổi sáng" },
-        text: { en: "A wake-up cue that feels less abrupt.", vi: "Tín hiệu thức dậy không quá đột ngột." },
-      },
-      {
-        title: { en: "Bedside scale", vi: "Kích thước đầu giường" },
-        text: { en: "Small enough for the nightstand, bright enough for the ritual.", vi: "Đủ nhỏ cho bàn đầu giường, đủ sáng cho nghi thức ngủ." },
-      },
-    ],
-    specs: [
-      { label: { en: "Best for", vi: "Phù hợp" }, value: { en: "Wind-down and wake-up routines", vi: "Thói quen thư giãn và thức dậy" } },
-      { label: { en: "Light feel", vi: "Cảm giác ánh sáng" }, value: { en: "Warm, gradual, soft", vi: "Ấm, chuyển dần, dịu" } },
-      { label: { en: "Place", vi: "Vị trí" }, value: { en: "Nightstand", vi: "Bàn đầu giường" } },
-    ],
-  },
-  {
-    slug: "dot",
-    image: "/images/products/dot.png",
-    gallery: ["/images/products/dot.png"],
-    name: { en: "Sleepm Dot", vi: "Sleepm Dot" },
-    eyebrow: { en: "The Dot", vi: "Dot" },
-    title: { en: "A compact Sleepm companion device.", vi: "Thiết bị đồng hành nhỏ gọn của Sleepm." },
-    summary: {
-      en: "A compact sleep companion designed to keep the Sleepm ritual close.",
-      vi: "Một người bạn ngủ nhỏ gọn giúp giữ nghi thức Sleepm luôn bên cạnh.",
-    },
-    collectionLine: {
-      en: "A small bedside or travel companion for the Sleepm digital experience.",
-      vi: "Thiết bị nhỏ cho đầu giường hoặc du lịch, đồng hành với trải nghiệm số Sleepm.",
-    },
-    details: {
-      en: [
-        "Small footprint, simple presence, designed for the bedside or travel bag.",
-        "Pairs naturally with the app and evening routines.",
-      ],
-      vi: [
-        "Gọn nhẹ, hiện diện đơn giản, phù hợp cho đầu giường hoặc túi du lịch.",
-        "Kết hợp tự nhiên với ứng dụng và thói quen buổi tối.",
-      ],
-    },
-    features: [
-      {
-        title: { en: "Compact", vi: "Gọn nhẹ" },
-        text: { en: "Built for small spaces and easy travel.", vi: "Dành cho không gian nhỏ và dễ mang theo." },
-      },
-      {
-        title: { en: "Companion device", vi: "Thiết bị đồng hành" },
-        text: { en: "A quiet anchor for the nightly routine.", vi: "Một điểm neo yên tĩnh cho thói quen trước ngủ." },
-      },
-      {
-        title: { en: "App-friendly", vi: "Thân thiện với ứng dụng" },
-        text: { en: "Designed to sit beside the Sleepm digital experience.", vi: "Được thiết kế để đồng hành với trải nghiệm số của Sleepm." },
-      },
-    ],
-    specs: [
-      { label: { en: "Form", vi: "Kiểu dáng" }, value: { en: "Compact bedside companion", vi: "Thiết bị đầu giường gọn nhẹ" } },
-      { label: { en: "Pairs with", vi: "Kết hợp với" }, value: { en: "Sleepm App", vi: "Ứng dụng Sleepm" } },
-      { label: { en: "Use", vi: "Cách dùng" }, value: { en: "Night routine and travel", vi: "Thói quen buổi tối và du lịch" } },
-    ],
-  },
-  {
-    slug: "app",
-    image: "/images/app/app-platforms.webp",
-    gallery: ["/images/app/app-platforms.webp", "/images/app/app-phone.png"],
-    name: { en: "The Sleepm App", vi: "Ứng dụng Sleepm" },
-    eyebrow: { en: "The Sleepm App", vi: "Ứng dụng Sleepm" },
-    title: { en: "Product information, app downloads and global resources.", vi: "Thông tin sản phẩm, tải app và tài nguyên toàn cầu." },
-    summary: {
-      en: "Mobile access for product information, support links and official global resources.",
-      vi: "Truy cập di động cho thông tin sản phẩm, liên kết hỗ trợ và tài nguyên chính thức toàn cầu.",
-    },
-    collectionLine: {
-      en: "Mobile access for product learning, support and global resources.",
-      vi: "Truy cập di động để xem sản phẩm, hỗ trợ và tài nguyên toàn cầu.",
-    },
-    details: {
-      en: [
-        "Quick access to product information, app downloads, support and global resources.",
-        "Designed to help you prepare for sleep, then get out of the way.",
-      ],
-      vi: [
-        "Truy cập nhanh thông tin sản phẩm, tải ứng dụng, hỗ trợ và tài nguyên toàn cầu.",
-        "Được thiết kế để giúp bạn chuẩn bị cho giấc ngủ, rồi lùi lại đúng lúc.",
-      ],
-    },
-    features: [
-      {
-        title: { en: "Product library", vi: "Thư viện sản phẩm" },
-        text: { en: "Keep the Sleepm story close when sharing or learning.", vi: "Giữ câu chuyện Sleepm trong tầm tay khi chia sẻ hoặc tìm hiểu." },
-      },
-      {
-        title: { en: "Global resources", vi: "Tài nguyên toàn cầu" },
-        text: { en: "Support links and product information from official SleepM channels.", vi: "Liên kết hỗ trợ và thông tin sản phẩm từ kênh chính thức của SleepM." },
-      },
-      {
-        title: { en: "Mobile-first", vi: "Tối ưu cho điện thoại" },
-        text: { en: "Built for the phone already on the nightstand.", vi: "Dành cho chiếc điện thoại đang nằm cạnh giường." },
-      },
-    ],
-    specs: [
-      { label: { en: "Platforms", vi: "Nền tảng" }, value: { en: "iOS and Android", vi: "iOS và Android" } },
-      { label: { en: "For", vi: "Dành cho" }, value: { en: "Customers and information requests", vi: "Khách hàng và yêu cầu thông tin" } },
-      { label: { en: "Access", vi: "Truy cập" }, value: { en: "QR code and mobile links", vi: "Mã QR và liên kết di động" } },
+      { label: { en: "Backup label", vi: "Tên trong backup" }, value: { en: "Crystal Eye Mask", vi: "Crystal Eye Mask / Mặt nạ pha lê sinh học" } },
+      { label: { en: "Visible materials", vi: "Tài liệu hiển thị" }, value: { en: "Product image and bilingual benefits chart", vi: "Ảnh sản phẩm và bảng công dụng song ngữ" } },
+      { label: { en: "Website role", vi: "Vai trò website" }, value: { en: "Product information only", vi: "Chỉ cung cấp thông tin sản phẩm" } },
     ],
   },
 ];
@@ -541,28 +419,28 @@ export const crystalIntro = {
   eyebrow: { en: "Experience Better Sleep with SleepM BioCrystal", vi: "Trải nghiệm giấc ngủ tốt hơn với SleepM BioCrystal" },
   title: { en: "BioCrystal mixture: sixteen crystals plus gold and silver.", vi: "Hỗn hợp tinh thể sinh học: 16 loại pha lê phối hợp với vàng và bạc." },
   text: {
-    en: "SleepM presents BioCrystal as a wellness heritage blend used inside the mattress, topper, pillows and comfort accessories. This ingredient story is provided for product information and is not a medical claim.",
-    vi: "SleepM giới thiệu BioCrystal như hỗn hợp wellness mang tính di sản, dùng trong nệm, topper, gối và các phụ kiện thư giãn. Nội dung thành phần được trình bày để tham khảo sản phẩm, không phải cam kết y tế.",
+    en: "The restored WordPress page describes BioCrystal as a unique mixture of 16 ancient crystal types amplified by gold and silver. This ingredient story is product information, not medical advice.",
+    vi: "Trang WordPress backup mô tả BioCrystal là hỗn hợp 16 loại pha lê sinh học cổ xưa được khuếch đại qua vàng và bạc. Nội dung thành phần là thông tin sản phẩm, không phải tư vấn y tế.",
   },
 };
 
 export const crystals = [
-  { key: "amethyst", img: "/images/crystals/amethyst.webp", name: { en: "Amethyst", vi: "Thạch anh tím" }, role: { en: "the calmer", vi: "sự bình tĩnh" }, lore: { en: "Violet quiet, long kept beside sleepers for racing minds.", vi: "Sắc tím yên tĩnh, từ lâu được đặt bên người ngủ để làm dịu tâm trí." } },
-  { key: "selenite", img: "/images/crystals/selenite.webp", name: { en: "Selenite", vi: "Selenite" }, role: { en: "the moonstone", vi: "đá mặt trăng" }, lore: { en: "Named for the moon, luminous and famously serene.", vi: "Mang tên mặt trăng, sáng dịu và nổi tiếng với vẻ tĩnh lặng." } },
-  { key: "quartz", img: "/images/crystals/quartz.webp", name: { en: "Clear Quartz", vi: "Thạch anh trắng" }, role: { en: "the clarifier", vi: "sự trong sáng" }, lore: { en: "A clear-eyed anchor for the whole blend.", vi: "Điểm neo trong trẻo cho toàn bộ hỗn hợp." } },
-  { key: "rose-quartz", img: "/images/crystals/rose-quartz.webp", name: { en: "Rose Quartz", vi: "Thạch anh hồng" }, role: { en: "the soft one", vi: "sự dịu dàng" }, lore: { en: "Blush-pink, gentle by reputation, fitting for a bed.", vi: "Hồng phấn, nổi tiếng dịu dàng và hợp với giường ngủ." } },
-  { key: "citrine", img: "/images/crystals/citrine.webp", name: { en: "Citrine", vi: "Citrine" }, role: { en: "bottled sunrise", vi: "bình minh thu nhỏ" }, lore: { en: "Warm as late sun on the floorboards.", vi: "Ấm như nắng chiều còn đọng trên sàn gỗ." } },
-  { key: "sodalite", img: "/images/crystals/sodalite.webp", name: { en: "Sodalite", vi: "Sodalite" }, role: { en: "deep water", vi: "nước sâu" }, lore: { en: "Royal blue, veined in white, tied to clear thoughts.", vi: "Xanh thẳm có vân trắng, gắn với sự sáng rõ trong suy nghĩ." } },
-  { key: "aventurine", img: "/images/crystals/aventurine.webp", name: { en: "Aventurine", vi: "Aventurine" }, role: { en: "the gardener", vi: "người làm vườn" }, lore: { en: "Soothing green, long linked with renewal.", vi: "Sắc xanh dịu, từ lâu gắn với sự tái tạo." } },
-  { key: "fluorspar", img: "/images/crystals/fluorspar.webp", name: { en: "Fluorspar", vi: "Fluorit" }, role: { en: "the focus stone", vi: "viên đá tập trung" }, lore: { en: "Banded violet and sea-green, kept for order in a busy head.", vi: "Vân tím và xanh biển, được gìn giữ cho sự ngăn nắp trong tâm trí bận rộn." } },
-  { key: "orange-calcite", img: "/images/crystals/orange-calcite.webp", name: { en: "Orange Calcite", vi: "Calcite cam" }, role: { en: "the ember", vi: "than hồng" }, lore: { en: "Radiant amber warmth, like coals settling for the night.", vi: "Sắc hổ phách ấm như than hồng lắng xuống trong đêm." } },
-  { key: "serpentine-jade", img: "/images/crystals/serpentine-jade.webp", name: { en: "Serpentine Jade", vi: "Ngọc Serpentine" }, role: { en: "snake jade", vi: "ngọc rắn" }, lore: { en: "Prized across centuries as a token of vitality.", vi: "Được trân quý qua nhiều thế kỷ như biểu tượng của sức sống." } },
-  { key: "red-jasper", img: "/images/crystals/red-jasper.webp", name: { en: "Red Jasper", vi: "Jasper đỏ" }, role: { en: "the anchor", vi: "điểm neo" }, lore: { en: "Earthy, steady and unhurried.", vi: "Mộc mạc, vững vàng và không vội vã." } },
-  { key: "dalmatian-jasper", img: "/images/crystals/dalmatian-jasper.webp", name: { en: "Dalmatian Jasper", vi: "Jasper đốm" }, role: { en: "the playful one", vi: "nét vui tươi" }, lore: { en: "Speckled and light-hearted among the stones.", vi: "Lốm đốm và nhẹ nhàng giữa các tinh thể." } },
-  { key: "leopard-jasper", img: "/images/crystals/leopard-jasper.webp", name: { en: "Leopard Jasper", vi: "Jasper da báo" }, role: { en: "the steady wild", vi: "hoang dã vững vàng" }, lore: { en: "Patterned, earthy and famously grounding.", vi: "Có hoa văn, mộc mạc và nổi tiếng với cảm giác kết nối đất." } },
-  { key: "natural-jasper", img: "/images/crystals/natural-jasper.webp", name: { en: "Natural Jasper", vi: "Jasper tự nhiên" }, role: { en: "the raw one", vi: "vẻ nguyên sơ" }, lore: { en: "Unpolished proof that the blend begins in nature.", vi: "Vẻ chưa mài giũa nhắc rằng hỗn hợp bắt đầu từ tự nhiên." } },
-  { key: "flint", img: "/images/crystals/flint.webp", name: { en: "Flint", vi: "Đá lửa" }, role: { en: "the elder", vi: "bậc trưởng lão" }, lore: { en: "Old as firelight, an ancient grounding stone.", vi: "Xưa như ánh lửa, một viên đá neo giữ cổ xưa." } },
-  { key: "heliotrope", img: "/images/crystals/heliotrope.webp", name: { en: "Heliotrope", vi: "Huyết thạch" }, role: { en: "the traveler", vi: "người lữ hành" }, lore: { en: "Bloodstone of old caravans, kept for long journeys.", vi: "Huyết thạch của những đoàn lữ hành cũ, đồng hành với chuyến đi dài." } },
+  { key: "amethyst", img: "/images/crystals/amethyst.webp", name: { en: "Amethyst", vi: "Đá Thạch Anh tím" }, role: { en: "protection stone", vi: "năng lượng bảo vệ" }, lore: { en: "The backup says Amethyst is associated with protection, hormone production, endocrine activity and a calmer spirit.", vi: "Mang năng lượng bảo vệ mạnh mẽ, hỗ trợ sản xuất hoc môn, kích thích hoạt động nội tiết và sự trao đổi chất. Giúp trí óc và tinh thần hưng phấn, bớt nóng giận, giảm lo sợ, hồi hộp." } },
+  { key: "aventurine", img: "/images/crystals/aventurine.webp", name: { en: "Aventurine", vi: "Đá pha lê xanh" }, role: { en: "green crystal", vi: "tinh thần lạc quan" }, lore: { en: "The backup associates Aventurine with environmental pollutants, electromagnetic smog, inflammation and positive emotions.", vi: "Giúp giảm thiểu sự xâm nhập vào cơ thể từ ô nhiễm môi trường và sóng điện từ, chống viêm sưng khớp, hỗ trợ tim, phổi, tiết niệu, cơ bắp. Giúp tinh thần lạc quan, chống trầm cảm và suy nghĩ tiêu cực." } },
+  { key: "citrine", img: "/images/crystals/citrine.webp", name: { en: "Citrine", vi: "Đá Thạch Anh Xi tren vàng" }, role: { en: "yellow quartz", vi: "cân bằng chuyển hóa" }, lore: { en: "The backup says Citrine is associated with chemical balance, digestion, blood circulation and constipation.", vi: "Đóng vai trò tích cực trong cân bằng chuyển hóa sinh học nội sinh, giúp hệ thần kinh, tiêu hóa tốt, lá lách, tuyến tụy, ổn định đường huyết do bệnh tiểu đường, giúp nhuận trường." } },
+  { key: "fluorspar", img: "/images/crystals/fluorspar.webp", name: { en: "Fluorspar", vi: "Đá Huỳnh Thạch tím" }, role: { en: "fluorite", vi: "bảo vệ từ trường" }, lore: { en: "The backup describes Fluorspar as a protective crystal associated with electromagnetic smog and emotional calm.", vi: "Phát ra năng lượng từ trường bảo vệ sự xâm nhập của sóng điện từ, giúp tinh thần thư giãn, xua tan cảm giác tiêu cực, sợ hãi." } },
+  { key: "heliotrope", img: "/images/crystals/heliotrope.webp", name: { en: "Heliotrope", vi: "Đá Huyết / Heliotrope" }, role: { en: "bloodstone", vi: "điều hòa máu huyết" }, lore: { en: "Also known as Bloodstone, the backup associates this crystal with circulation, purification and revitalization.", vi: "Đá vòi voi trong địa chất còn gọi là đá huyết, rất mạnh mẽ hỗ trợ điều hòa máu huyết, giúp lọc và tạo máu mới." } },
+  { key: "dalmatian-jasper", img: "/images/crystals/dalmatian-jasper.webp", name: { en: "Dalmatian Jasper", vi: "Đá beo đốm" }, role: { en: "spotted jasper", vi: "đào thải độc tố" }, lore: { en: "The backup notes that the black spots are black tourmaline deposits and associates the stone with cleansing and immune support.", vi: "Các đốm đen của đá được gọi là đốm trầm tích đen, giúp cơ thể có khả năng tự đào thải độc tố, hỗ trợ trực tiếp hệ thống miễn dịch." } },
+  { key: "leopard-jasper", img: "/images/crystals/leopard-jasper.webp", name: { en: "Jasper Leopard", vi: "Đá Jasper đốm vàng" }, role: { en: "stability", vi: "ổn định bức xạ" }, lore: { en: "The backup associates its vibrational frequency with stability and openness.", vi: "Tần số rung động của đá pha lê này có khả năng ổn định bức xạ xấu từ môi trường xung quanh. Giúp chúng ta cảm thấy mạnh mẽ, cởi mở và hào phóng hơn." } },
+  { key: "natural-jasper", img: "/images/crystals/natural-jasper.webp", name: { en: "Jasper Natural", vi: "Đá Jasper tự nhiên" }, role: { en: "balance", vi: "giảm căng thẳng" }, lore: { en: "The backup says Natural Jasper is associated with stress balance, tranquility and electromagnetic pollution in the environment.", vi: "Giảm căng thẳng thần kinh, tích cực khi kết hợp với các pha lê tổng hợp khác. Giúp đầu óc nhẹ nhàng, thanh thản là yếu tố quan trọng cho giấc ngủ ngon." } },
+  { key: "orange-calcite", img: "/images/crystals/orange-calcite.webp", name: { en: "Orange Calcite", vi: "Đá can xít cam" }, role: { en: "creative energy", vi: "sáng tạo và trầm tĩnh" }, lore: { en: "The backup describes Orange Calcite as energizing, cleansing and supportive of emotional balance.", vi: "Loại đá này hỗ trợ năng lực kỳ diệu cho trí não có sức sáng tạo phong phú. Đồng thời cũng giúp bài trừ sóng điện từ có hại từ môi trường xung quanh, giúp trầm cảm, giúp tinh thần trầm tĩnh dễ chịu." } },
+  { key: "rose-quartz", img: "/images/crystals/rose-quartz.webp", name: { en: "Rose Quartz", vi: "Đá Thạch Anh Hồng" }, role: { en: "trust and harmony", vi: "chữa lành tinh thần" }, lore: { en: "The backup associates Rose Quartz with trust, harmony, openness and emotional healing.", vi: "Tinh thể của đá này tỏa ra từ trường năng lượng vô hình nhẹ nhàng, giúp chữa lành và hồi phục sự đau đớn về tinh thần, giúp chúng ta có niềm tin vào cuộc sống." } },
+  { key: "selenite", img: "/images/crystals/selenite.webp", name: { en: "Selenite", vi: "Đá xelenit trắng sữa" }, role: { en: "purifying", vi: "thanh lọc" }, lore: { en: "The backup associates Selenite with purifying, clearing and creating a clean environment for sleep.", vi: "Tinh thể của đá này có vai trò thanh lọc và bài trừ điện từ xấu từ môi trường xung quanh để giúp não hoàn thành quá trình đi vào giấc ngủ êm ái, nhẹ nhàng." } },
+  { key: "serpentine-jade", img: "/images/crystals/serpentine-jade.webp", name: { en: "Serpentine Jade", vi: "Ngọc Serpentine" }, role: { en: "snake jade", vi: "trẻ hóa" }, lore: { en: "The backup calls it snake jade and associates it with health, rejuvenation and positive energy.", vi: "Hay còn gọi là ngọc rắn, biểu tượng của sự trẻ hóa, lành mạnh và khỏe mạnh cho tinh thần và thể xác. Luôn tạo ra xung từ trường tích cực giúp tế bào liên tục tạo ra năng lượng mới, chống tiêu cực, buồn phiền, chán nản." } },
+  { key: "sodalite", img: "/images/crystals/sodalite.webp", name: { en: "Sodalite", vi: "Đá xô da lit xanh dương" }, role: { en: "truth and immunity", vi: "trao đổi chất" }, lore: { en: "The backup associates Sodalite with metabolism, immune function and electromagnetic smog.", vi: "Từ trường của tinh thể đá này hỗ trợ sự trao đổi chất và hệ thống miễn dịch hoạt động ổn định. Chống bức xạ và điện từ, chữa lành bệnh mất ngủ kinh niên." } },
+  { key: "quartz", img: "/images/crystals/quartz.webp", name: { en: "Clear Quartz", vi: "Thạch anh trắng" }, role: { en: "listed BioCrystal", vi: "thành phần BioCrystal" }, lore: { en: "Listed as part of the 16-crystal BioCrystal story used across SleepM products.", vi: "Được trình bày như một thành phần trong câu chuyện 16 loại pha lê sinh học dùng trong dòng sản phẩm SleepM." } },
+  { key: "red-jasper", img: "/images/crystals/red-jasper.webp", name: { en: "Red Jasper", vi: "Jasper đỏ" }, role: { en: "listed BioCrystal", vi: "thành phần BioCrystal" }, lore: { en: "Listed as part of the 16-crystal BioCrystal story used across SleepM products.", vi: "Được trình bày như một thành phần trong câu chuyện 16 loại pha lê sinh học dùng trong dòng sản phẩm SleepM." } },
+  { key: "flint", img: "/images/crystals/flint.webp", name: { en: "Flint", vi: "Đá lửa" }, role: { en: "listed BioCrystal", vi: "thành phần BioCrystal" }, lore: { en: "Listed as part of the 16-crystal BioCrystal story used across SleepM products.", vi: "Được trình bày như một thành phần trong câu chuyện 16 loại pha lê sinh học dùng trong dòng sản phẩm SleepM." } },
 ] as const;
 
 export const metals = [
@@ -581,85 +459,100 @@ export const wireItems = [
 
 export const family = {
   hero: {
-    eyebrow: { en: "About SleepM", vi: "Về SleepM" },
-    title: { en: "A BioCrystal sleep brand with global information channels.", vi: "Thương hiệu giấc ngủ BioCrystal với kênh thông tin toàn cầu." },
+    eyebrow: { en: "About SleepM Global Inc.", vi: "About SleepM Global Inc." },
+    title: { en: "Founded in Toronto with a mission around better sleep.", vi: "SleepM Global được thành lập tại Toronto với sứ mệnh về giấc ngủ ngon." },
     text: {
-      en: "SleepM focuses on mattresses, toppers, pillows and wellness accessories that combine modern comfort materials with its BioCrystal insert. sleepm.vn presents that information in Vietnamese.",
-      vi: "SleepM tập trung vào nệm, topper, gối và phụ kiện wellness, kết hợp vật liệu tiện nghi hiện đại với lớp lót BioCrystal. sleepm.vn trình bày các thông tin đó bằng tiếng Việt.",
+      en: "The restored About page describes SleepM Global as a company founded in Toronto, Canada in 2018, focused on sleep wellness products built around BioCrystal technology.",
+      vi: "Trang About trong backup mô tả SleepM Global được thành lập tại Toronto, Canada vào năm 2018, tập trung vào sản phẩm chăm sóc sức khỏe giấc ngủ với công nghệ BioCrystal.",
     },
   },
   chapters: [
     {
-      year: "BioCrystal",
-      title: { en: "Product platform", vi: "Nền tảng sản phẩm" },
-      text: { en: "The brand story centers on 16 natural crystals plus gold and silver used across the Sleepm line.", vi: "Câu chuyện thương hiệu xoay quanh 16 tinh thể tự nhiên cùng vàng và bạc trong dòng sản phẩm Sleepm." },
+      year: "2018",
+      title: { en: "Toronto, Canada", vi: "Toronto, Canada" },
+      text: { en: "The backup states that SleepM Global was founded in the busy community of Toronto, Canada in 2018.", vi: "Backup nêu SleepM Global được thành lập tại thành phố Toronto, Canada vào năm 2018." },
     },
     {
-      year: "USA / Canada",
-      title: { en: "North American manufacturing", vi: "Sản xuất tại Bắc Mỹ" },
-      text: { en: "Core mattress products are presented as made in the United States and Canada with certified material partners.", vi: "Các sản phẩm nệm chủ lực được giới thiệu là sản xuất tại Hoa Kỳ và Canada cùng các đối tác vật liệu có chứng nhận." },
+      year: "BioCrystal",
+      title: { en: "Sleep wellness product platform", vi: "Nền tảng sản phẩm sức khỏe giấc ngủ" },
+      text: { en: "The About content says the founders wanted a product different from conventional bedding and centered on better sleep quality.", vi: "Nội dung About nêu các nhà sáng lập muốn tạo sản phẩm khác với giường nệm thông thường, tập trung vào cải thiện chất lượng giấc ngủ." },
     },
     {
       year: "Global",
-      title: { en: "Information-first approach", vi: "Định hướng thông tin trước" },
-      text: { en: "sleepm.vn links visitors to official global channels and does not conclude local ecommerce transactions.", vi: "sleepm.vn dẫn người đọc đến các kênh toàn cầu chính thức và không giao kết giao dịch thương mại điện tử nội địa." },
+      title: { en: "Vietnamese information website", vi: "Website thông tin tiếng Việt" },
+      text: { en: "sleepm.vn presents this backup content in Vietnamese while avoiding a separate SleepM Vietnam company or local ecommerce claim.", vi: "sleepm.vn trình bày nội dung backup bằng tiếng Việt, đồng thời không tự nhận có Công ty SleepM Việt Nam hoặc mô hình bán hàng TMĐT nội địa." },
     },
   ],
 };
 
 export const people = [
-  { name: "Emma He, PhD", role: { en: "Chief Executive Officer", vi: "Tổng giám đốc" }, img: "/images/people/emma-he.webp", bio: { en: "A management PhD and former professor focused on developing Sleepm as a global wellness brand.", vi: "Tiến sĩ quản trị và cựu giáo sư, tập trung phát triển Sleepm như một thương hiệu wellness toàn cầu." } },
-  { name: "Dr. Nancy Xu, MD, PhD", role: { en: "Chief Health Officer", vi: "Giám đốc sức khỏe" }, img: "/images/people/nancy-xu.webp", bio: { en: "Two decades across clinical research and global biopharma, bringing rigor to the wellness mission.", vi: "Hai thập kỷ trong nghiên cứu lâm sàng và dược sinh học toàn cầu, mang tính nghiêm cẩn vào sứ mệnh chăm sóc sức khỏe." } },
-  { name: "Alex Baron", role: { en: "Chief Operating Officer", vi: "Giám đốc vận hành" }, img: "/images/people/alex-baron.webp", bio: { en: "Finance, product and technology leadership focused on making bold ideas work in real homes.", vi: "Kinh nghiệm tài chính, sản phẩm và công nghệ, tập trung biến ý tưởng lớn thành trải nghiệm thực trong gia đình." } },
+  { name: "Eric Sternberg", role: { en: "Chairman message", vi: "Thông điệp từ Chủ tịch SleepM" }, img: "/images/wp/eric-sternberg.jpg", bio: { en: "The restored About page includes a chairman message welcoming visitors to SleepM Global Inc. and describing the intent to create a meaningful sleep wellness product.", vi: "Trang About backup có thông điệp chào mừng từ Chủ tịch SleepM Global Inc., nói về mong muốn tạo ra một sản phẩm sức khỏe giấc ngủ có giá trị." } },
+  { name: "Emma He, Ph.D", role: { en: "Chief Executive Officer", vi: "Giám đốc điều hành SleepM Global" }, img: "/images/wp/emma-he.jpg", bio: { en: "The backup describes Emma He as a business administration PhD, former university instructor and one of the founders of SleepM Global.", vi: "Backup mô tả Emma He là tiến sĩ điều hành kinh doanh, từng là giảng viên đại học và là một trong những nhà sáng lập SleepM Global." } },
+  { name: "Oliver Tang, Ph.D", role: { en: "Vice President", vi: "Phó Chủ Tịch" }, img: "/images/wp/oliver-tang.jpg", bio: { en: "The restored page describes Oliver Tang as leading international market development for SleepM Global.", vi: "Trang backup mô tả Oliver Tang điều hành phương thức phát triển kinh doanh thị trường quốc tế cho SleepM Global." } },
 ] as const;
 
 export const advisors = [
-  { name: "Dr. Sheila McKenzie, PhD", role: { en: "Sleep Consultant", vi: "Cố vấn giấc ngủ" }, img: "/images/people/sheila-mckenzie.webp", bio: { en: "President of the World Organization of Natural Medicine.", vi: "Chủ tịch World Organization of Natural Medicine." } },
-  { name: "Dr. Jeffry Parker", role: { en: "Wellness Consultant", vi: "Cố vấn wellness" }, img: "/images/people/jeffrey-parker.webp", bio: { en: "A long-practicing wellness professional who treats rest as a foundation.", vi: "Chuyên gia wellness lâu năm, xem nghỉ ngơi là nền tảng." } },
+  { name: "Dr. Sheila McKenzie, Ph.D", role: { en: "Sleep Consultant", vi: "Tư vấn giấc ngủ" }, img: "/images/wp/sheila-mckenzie.jpg", bio: { en: "The backup identifies Dr. Sheila McKenzie as president of the World Organization of Natural Medicine.", vi: "Backup giới thiệu Dr. Sheila McKenzie là chủ tịch của Tổ Chức Y Học Tự Nhiên Thế Giới." } },
+  { name: "Dr. Jeffry Parker", role: { en: "Wellness Consultant", vi: "Tư vấn sức khỏe" }, img: "/images/wp/jeffry-parker.jpg", bio: { en: "The restored content presents Dr. Jeffry Parker as a wellness consultant with a background in physical therapy.", vi: "Nội dung backup giới thiệu Dr. Jeffry Parker là cố vấn sức khỏe, có nền tảng chuyên khoa vật lý trị liệu." } },
+  { name: "Dr. Deborah Drake", role: { en: "Sleep Consultant", vi: "Tư vấn giấc ngủ" }, img: "/images/wp/deborah-drake.jpg", bio: { en: "The backup presents Dr. Deborah Drake as a natural sleep consultant and medical professional in traditional healing approaches.", vi: "Backup giới thiệu Dr. Deborah Drake là cố vấn giấc ngủ tự nhiên và bác sĩ y khoa chuyên môn về phương pháp chữa lành dược liệu đông y." } },
 ] as const;
 
 export const offices = [
   { region: { en: "Canada - Headquarters", vi: "Canada - Trụ sở" }, city: "Toronto", address: ["2600 John St. Unit 205", "Markham, ON L3R 3W3"], phone: "+1 905-604-5558", email: "info@sleepm.com" },
-  { region: { en: "United States - West", vi: "Hoa Kỳ - Miền Tây" }, city: "Los Angeles", address: ["11837 Goldring Rd", "Arcadia, CA 91006"], phone: "+1 (626) 678-5919", email: "support@sleepm.com" },
-  { region: { en: "United States - Store", vi: "Hoa Kỳ - Cửa hàng" }, city: "Las Vegas", address: ["3160 W Sahara Ave, Suite A11", "Las Vegas, NV 89102"], phone: "+1 (702) 797-0441", email: "info@sleepm.com" },
-  { region: { en: "United States - East", vi: "Hoa Kỳ - Miền Đông" }, city: "New York", address: ["499 7th Ave", "Floor 14N", "New York, NY 10018"], phone: "+1 929-966-8689", email: "support@sleepm.com" },
+  { region: { en: "United States - West", vi: "Hoa Kỳ - Miền Tây" }, city: "Baldwin Park", address: ["365 Cloverleaf Drive Suite A", "Baldwin Park, CA 91706"], phone: "+1 626-333-4212", email: "support@sleepm.com" },
+  { region: { en: "United States - East", vi: "Hoa Kỳ - Miền Đông" }, city: "New York", address: ["499 7TH AVE 14N", "New York, NY 10018"], phone: "", email: "" },
 ] as const;
 
 export const vietnamInfoContact = {
   role: {
-    en: "Vietnamese information contact, not a legal representative office of SleepM Global Inc. in Vietnam.",
-    vi: "Đầu mối tiếp nhận thông tin tiếng Việt, không phải văn phòng đại diện pháp lý của SleepM Global Inc. tại Việt Nam.",
+    en: "Vietnamese information contact from the backup/customer requirements, not a legal representative office of SleepM Global Inc. in Vietnam.",
+    vi: "Đầu mối tiếp nhận thông tin tiếng Việt theo backup/yêu cầu khách hàng, không phải văn phòng đại diện pháp lý của SleepM Global Inc. tại Việt Nam.",
   },
+  address: ["Diamond Plaza 34 Le Duan Blvd", "Suite 903, 9th Floor, Ben Nghe Ward, District 1, Ho Chi Minh City, Vietnam"],
   phoneVN: "0933 993 739",
   phoneUS: "+1 714 719 1789",
   emails: ["mececilia1932@gmail.com", "edccentersleepm@gmail.com", "turojo23@gmail.com"],
+  image: "/images/wp/diamond-meeting-room.jpg",
 } as const;
 
 export const genericPages = {
   "sleep-health": {
-    eyebrow: { en: "The Sleepm wellness mission", vi: "Sứ mệnh wellness của Sleepm" },
-    title: { en: "Better sleep supports better days.", vi: "Giấc ngủ tốt hỗ trợ một ngày tốt hơn." },
+    eyebrow: { en: "Sleep Health", vi: "Sleep Health" },
+    title: { en: "Mini BioCrystal pad and user experience notes.", vi: "Đệm mini Pha Lê Sinh Học và ghi nhận trải nghiệm người dùng." },
     text: {
-      en: "Sleep quality affects daily energy, concentration, mood and recovery. Sleepm positions its products as comfort and wellness tools for improving the sleep environment.",
-      vi: "Chất lượng giấc ngủ ảnh hưởng đến năng lượng, sự tập trung, tâm trạng và phục hồi hằng ngày. Sleepm định vị sản phẩm như công cụ tiện nghi và wellness để cải thiện môi trường ngủ.",
+      en: "The restored Sleep Health page describes the mini BioCrystal pad as a personal pad used at home, at work or after long drives as part of a comfort routine.",
+      vi: "Trang Sleep Health trong backup mô tả đệm mini Pha Lê Sinh Học như miếng đệm cá nhân có thể dùng ở nhà, nơi làm việc hoặc sau khi lái xe đường dài trong thói quen nghỉ ngơi.",
     },
     cards: [
-      { metric: "8h", label: { en: "The common target for a full night's rest for many adults.", vi: "Mục tiêu phổ biến cho một đêm nghỉ đầy đủ của nhiều người trưởng thành." } },
-      { metric: "Comfort", label: { en: "Temperature, pressure relief and support all affect perceived sleep quality.", vi: "Nhiệt độ, giảm áp lực và nâng đỡ đều ảnh hưởng đến cảm nhận về giấc ngủ." } },
-      { metric: "Routine", label: { en: "A consistent bedtime routine helps the bedroom feel easier to rest in.", vi: "Thói quen trước ngủ đều đặn giúp phòng ngủ dễ nghỉ ngơi hơn." } },
+      { metric: "Mini Pad", label: { en: "The backup says the personal pad can be used for daily rest routines.", vi: "Backup nêu miếng đệm cá nhân có thể dùng cho các thói quen nghỉ ngơi hằng ngày." } },
+      { metric: "WONM", label: { en: "The page includes practitioner and user experience references from WONM-related material.", vi: "Trang có phần ghi nhận trải nghiệm từ bác sĩ/người dùng trong tài liệu liên quan WONM." } },
+      { metric: "Note", label: { en: "These are user experiences and product information, not medical advice.", vi: "Đây là trải nghiệm người dùng và thông tin sản phẩm, không phải tư vấn y tế." } },
     ],
   },
   testimonials: {
-    eyebrow: { en: "Testimonials", vi: "Cảm nhận" },
-    title: { en: "In their own words.", vi: "Bằng chính lời của họ." },
+    eyebrow: { en: "Testimonials", vi: "Testimonials" },
+    title: { en: "The Sleepm BioCrystal Experience.", vi: "The Sleepm BioCrystal Experience." },
     text: {
-      en: "Customer and ambassador stories are included as personal experiences, not guaranteed outcomes.",
-      vi: "Câu chuyện của khách hàng và đại sứ được trình bày như trải nghiệm cá nhân, không phải kết quả bảo đảm.",
+      en: "The backup presents SleepM as a new standard mattress for sleep health and includes recognition, product quality and mission sections.",
+      vi: "Backup giới thiệu SleepM như một tiêu chuẩn nệm mới cho sức khỏe giấc ngủ, cùng các phần ghi nhận, chất lượng sản phẩm và sứ mệnh.",
     },
     cards: [
-      { metric: "Carlos Newton", label: { en: "Former UFC Champion: better alignment and faster recovery after travel.", vi: "Cựu vô địch UFC: cảm nhận sự thẳng hàng tốt hơn và phục hồi nhanh hơn sau chuyến bay." } },
-      { metric: "Simmi Hundal", label: { en: "Musical artist: rest that helps the morning begin ready.", vi: "Nghệ sĩ âm nhạc: giấc nghỉ giúp buổi sáng bắt đầu sẵn sàng hơn." } },
-      { metric: "Joe Cariati", label: { en: "Taekwondo leader: energy for demanding classes.", vi: "Lãnh đạo Taekwondo: năng lượng cho những lớp học cường độ cao." } },
+      { metric: "New Standard", label: { en: "The backup headline says Biocrystal Orthopedic Mattresses for you and your family.", vi: "Headline backup nói về Biocrystal Orthopedic Mattresses cho bạn và gia đình." } },
+      { metric: "Made to last", label: { en: "The page says SleepM BioCrystal mattresses are made to last up to 10 years.", vi: "Trang backup nêu nệm BioCrystal SleepM được làm để dùng đến 10 năm." } },
+      { metric: "Mission", label: { en: "The mission section says SleepM wants to share sleep wellness through high-quality products.", vi: "Phần sứ mệnh nêu SleepM muốn chia sẻ giá trị sức khỏe giấc ngủ qua sản phẩm chất lượng cao." } },
+    ],
+  },
+  "redefining-the-sleep-standard": {
+    eyebrow: { en: "Redefining the sleep standard", vi: "Redefining the sleep standard" },
+    title: { en: "The Experiences of BioCrystal Users.", vi: "The Experiences of BioCrystal Users." },
+    text: {
+      en: "The restored page includes user and practitioner experiences with SleepM BioCrystal products. These are presented as personal experiences, not guaranteed outcomes.",
+      vi: "Trang backup gồm trải nghiệm của người dùng và chuyên gia với sản phẩm BioCrystal SleepM. Nội dung được trình bày như trải nghiệm cá nhân, không phải kết quả bảo đảm.",
+    },
+    cards: [
+      { metric: "Carlos Newton", label: { en: "Former UFC Champion Carlos Newton says he looks forward to returning to his SleepM BioCrystal mattress and pillow after travel.", vi: "Cựu vô địch UFC Carlos Newton chia sẻ trải nghiệm trở về với nệm và gối BioCrystal SleepM sau các chuyến đi." } },
+      { metric: "Dr. Deborah Drake", label: { en: "The page includes a practitioner experience about chronic neck tension and whiplash recovery.", vi: "Trang backup có trải nghiệm chuyên gia về căng cổ mãn tính và hồi phục sau chấn thương whiplash." } },
+      { metric: "Dr. Sheila McKenzie", label: { en: "The backup records a pillow experience related to stiffness and heaviness relief.", vi: "Backup ghi nhận trải nghiệm dùng gối liên quan cảm giác cứng và nặng vùng cổ/gáy." } },
     ],
   },
   payments: {
@@ -676,16 +569,16 @@ export const genericPages = {
     ],
   },
   warranty: {
-    eyebrow: { en: "Warranty channel", vi: "Kênh bảo hành" },
-    title: { en: "Use official SleepM support for warranty questions.", vi: "Dùng kênh hỗ trợ chính thức của SleepM cho câu hỏi bảo hành." },
+    eyebrow: { en: "Warranty", vi: "Warranty" },
+    title: { en: "Mattress warranty self-assessment.", vi: "Tự đánh giá bảo hành nệm." },
     text: {
-      en: "sleepm.vn provides product information only. Warranty eligibility, returns and complaint handling must be confirmed through official SleepM channels.",
-      vi: "sleepm.vn chỉ cung cấp thông tin sản phẩm. Điều kiện bảo hành, đổi trả và xử lý khiếu nại cần được xác nhận qua kênh chính thức của SleepM.",
+      en: "The backup warranty page explains a simple online warranty pre-assessment requiring photos and measurements before contacting SleepM support.",
+      vi: "Trang Warranty trong backup hướng dẫn tự kiểm tra bảo hành online, chuẩn bị hình ảnh và số đo trước khi liên hệ kênh hỗ trợ SleepM.",
     },
     cards: [
-      { metric: "Photos", label: { en: "Capture the mattress surface and any visible concern.", vi: "Chụp bề mặt nệm và vấn đề có thể thấy." } },
-      { metric: "Measure", label: { en: "Use a straight edge and tape measure.", vi: "Dùng thước thẳng và thước dây." } },
-      { metric: "Support", label: { en: "Call 1-844-8SLEEPM or email support.", vi: "Gọi 1-844-8SLEEPM hoặc email bộ phận hỗ trợ." } },
+      { metric: "Camera", label: { en: "A digital camera is listed as one of the required tools.", vi: "Máy ảnh kỹ thuật số là một trong các dụng cụ cần chuẩn bị." } },
+      { metric: "Ruler", label: { en: "The backup asks for a ruler or measuring tape plus a yardstick, broom or similar straight object.", vi: "Backup yêu cầu thước hoặc thước dây cùng thước dài, cán chổi hoặc vật thẳng tương tự." } },
+      { metric: "Support", label: { en: "After pre-assessment, contact 1-844-8SLEEPM or email support@sleepm.com / info@sleepm.com depending on location.", vi: "Sau khi tự đánh giá, liên hệ 1-844-8SLEEPM hoặc email support@sleepm.com / info@sleepm.com tùy khu vực." } },
     ],
   },
   terms: {

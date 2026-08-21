@@ -44,12 +44,6 @@ const { product } = Astro.props as { product: Product };
       <p class="eyebrow">{lang === "vi" ? "Bên trong" : "What's inside"}</p>
       <h2>{lang === "vi" ? <>Vật liệu và <em>công nghệ</em>.</> : <>Materials and <em>technology</em>.</>}</h2>
       {tx(lang, product.details).map((line) => <p>{line}</p>)}
-      <div class="cert-row" aria-label="Certifications">
-        <img src="/images/certs/greenguard-gold.png" alt="GREENGUARD Gold" loading="lazy" />
-        <img src="/images/certs/certipur.svg" alt="CertiPUR-US" loading="lazy" />
-        <img src="/images/certs/repreve.svg" alt="Repreve" loading="lazy" />
-        <img src="/images/certs/eco-inst.svg" alt="Eco Institut" loading="lazy" />
-      </div>
     </div>
     <div class="product-frame awaken">
       <img src={product.gallery[1] ?? product.image} alt={tx(lang, product.name)} loading="lazy" />
