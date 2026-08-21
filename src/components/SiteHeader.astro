@@ -1,0 +1,69 @@
+---
+import { ExternalLink, Menu, X } from "@lucide/astro";
+
+const navItems = [
+  { label: "Giới thiệu", href: "#gioi-thieu" },
+  { label: "Công nghệ", href: "#cong-nghe" },
+  { label: "Sản phẩm", href: "#san-pham" },
+  { label: "Nghiên cứu", href: "#nghien-cuu" },
+  { label: "FAQ", href: "#faq" },
+  { label: "Liên hệ", href: "#lien-he" },
+];
+---
+
+<a class="skip-link" href="#main-content">Bỏ qua điều hướng</a>
+<header class="site-header" data-site-header>
+  <a class="brand" href="/" aria-label="SleepM trang chủ">
+    <img src="/assets/brand/sleepm-logo.webp" alt="SleepM" width="150" height="66" />
+    <span>Thông tin tiếng Việt</span>
+  </a>
+
+  <nav class="desktop-nav" aria-label="Điều hướng chính">
+    {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+  </nav>
+
+  <div class="header-actions">
+    <a class="global-link" href="https://sleepm.com/" target="_blank" rel="noopener">
+      sleepm.com
+      <ExternalLink size={14} aria-hidden="true" />
+    </a>
+    <button class="menu-button" type="button" aria-label="Mở menu" aria-expanded="false" data-menu-button>
+      <Menu class="icon-open" size={24} aria-hidden="true" />
+      <X class="icon-close" size={24} aria-hidden="true" />
+    </button>
+  </div>
+
+  <div class="mobile-panel" data-mobile-panel>
+    <nav aria-label="Điều hướng mobile">
+      {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+      <a href="https://sleepm.com/" target="_blank" rel="noopener">Website toàn cầu</a>
+    </nav>
+  </div>
+</header>
+
+<script is:inline>
+  (() => {
+    const button = document.querySelector("[data-menu-button]");
+    const panel = document.querySelector("[data-mobile-panel]");
+    if (!button || !panel) return;
+
+    const close = () => {
+      document.documentElement.classList.remove("menu-open");
+      button.setAttribute("aria-expanded", "false");
+    };
+
+    button.addEventListener("click", () => {
+      const next = !document.documentElement.classList.contains("menu-open");
+      document.documentElement.classList.toggle("menu-open", next);
+      button.setAttribute("aria-expanded", String(next));
+    });
+
+    panel.addEventListener("click", (event) => {
+      if (event.target instanceof HTMLAnchorElement) close();
+    });
+
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") close();
+    });
+  })();
+</script>

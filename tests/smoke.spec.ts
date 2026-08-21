@@ -1,38 +1,39 @@
 import { expect, test } from "@playwright/test";
 
-test("English home renders primary clone sections", async ({ page }) => {
-  await page.goto("/en/");
-  await expect(page.getByRole("heading", { name: /Sleep Better, Live Better/i })).toBeVisible();
-  await expect(page.getByRole("link", { name: /BioCrystal Mattress/i })).toBeVisible();
-  await expect(page.getByRole("link", { name: /About/i }).first()).toBeVisible();
-});
-
-test("Root defaults to Vietnamese", async ({ page }) => {
+test("Vietnamese information home renders the primary positioning", async ({ page }) => {
   await page.goto("/");
-  await expect(page).toHaveURL(/\/vi\/$/);
-  await expect(page.getByRole("heading", { name: /Ngủ ngon hơn, sống tốt hơn/i })).toBeVisible();
+  await expect(page.getByRole("heading", { name: /SleepM - Thông tin dành cho khách hàng Việt Nam/i })).toBeVisible();
+  await expect(page.getByText(/không phải cửa hàng trực tuyến/i).first()).toBeVisible();
+  await expect(page.getByRole("link", { name: /Truy cập sleepm.com/i })).toBeVisible();
 });
 
-test("Vietnamese home renders localized navigation and copy", async ({ page }) => {
-  await page.goto("/vi/");
-  await expect(page.getByRole("heading", { name: /Ngủ ngon hơn, sống tốt hơn/i })).toBeVisible();
-  await expect(page.getByRole("link", { name: /Sản phẩm/i }).first()).toBeVisible();
-  await expect(page.getByRole("link", { name: /Nhà phân phối/i }).first()).toBeVisible();
+test("Site does not expose ecommerce actions", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.getByText(/Không giỏ hàng/i)).toBeVisible();
+  await expect(page.getByText(/Không thanh toán/i)).toBeVisible();
+  await expect(page.getByRole("button", { name: /Đặt hàng|Thanh toán|Mua ngay/i })).toHaveCount(0);
+});
+
+test("Product and contact information are visible without checkout", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.getByRole("heading", { name: /Tìm hiểu hệ sản phẩm SleepM/i })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Nệm BioCrystal", exact: true })).toBeVisible();
+  await expect(page.getByRole("heading", { name: /Kênh thông tin minh bạch/i })).toBeVisible();
+  await expect(page.getByRole("link", { name: "info@sleepm.com" }).first()).toBeVisible();
 });
 
 test("Mobile menu covers the viewport width", async ({ page }) => {
   await page.setViewportSize({ width: 546, height: 808 });
-  await page.goto("/vi/products/");
-  await page.getByRole("button", { name: /menu/i }).click();
-  const box = await page.locator("[data-mobile-menu]").boundingBox();
+  await page.goto("/");
+  await page.getByRole("button", { name: /Mở menu/i }).click();
+  const box = await page.locator("[data-mobile-panel]").boundingBox();
   expect(box?.x).toBe(0);
   expect(Math.round(box?.width ?? 0)).toBe(546);
-  await expect(page.getByRole("link", { name: "Trang chủ" })).toBeVisible();
+  await expect(page.getByLabel("Điều hướng mobile").getByRole("link", { name: "Sản phẩm" })).toBeVisible();
 });
 
-test("Product detail keeps static SSG content available", async ({ page }) => {
-  await page.goto("/en/products/mattress/");
-  await expect(page.getByRole("heading", { name: /Improve wellness through better sleep/i })).toBeVisible();
-  await expect(page.getByAltText(/GREENGUARD Gold/i)).toBeVisible();
-  await expect(page.getByRole("link", { name: /Contact Sleepm/i }).first()).toBeVisible();
+test("Old Vietnamese product URL redirects to the product section", async ({ page }) => {
+  await page.goto("/vi/products/");
+  await page.waitForURL(/#san-pham/);
+  await expect(page.getByRole("heading", { name: /Tìm hiểu hệ sản phẩm SleepM/i })).toBeVisible();
 });
